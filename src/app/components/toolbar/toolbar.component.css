@@ -1,0 +1,10 @@
+.text-name {
+    margin: 0;
+    color: var(--color-icons);
+}
+.toolbar-login{
+    background-color: rgba(29, 31, 128, 0.801);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

@@ -1,0 +1,21 @@
+.container-img {
+    width: 100%;
+    height: auto;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.text-construction {
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    /* box-shadow: 5px 5px 5px 5px yellow; */
+    margin-top: 20px;
+    filter: drop-shadow(5px 5px 15px);
+}
+
+.img-temp {
+    width: 1000px;
+}
