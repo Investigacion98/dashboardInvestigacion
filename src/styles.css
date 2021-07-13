@@ -7,6 +7,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-icons: rgb(255, 255, 255);
     --color-background-login: #67aa67b0;
     --color-font-login: rgb(21, 78, 31);
+    --color-background-toolbar: rgba(29, 31, 128, 0.801);
+    --color-background-toolbar-variant: rgba(29, 31, 128, 0.623);
+    --color-button-hover: rgba(240, 240, 240, 0.192);
 }
 
 .button {
@@ -17,7 +20,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .button:hover {
-    background-color: rgba(240, 240, 240, 0.192);
+    background-color: var(--color-button-hover);
 }
 
 .button-primary {

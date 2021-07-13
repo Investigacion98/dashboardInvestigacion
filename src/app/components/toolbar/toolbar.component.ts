@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
+  name:string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+    const nameVar = localStorage.getItem("name");
+    if(nameVar){
+      this.name = "¡Hola "+nameVar+"!";
+    }
   }
 
 }

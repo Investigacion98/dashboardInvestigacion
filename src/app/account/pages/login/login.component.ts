@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../services/login.service';
-
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   // passwordError:string = 'notification';
   typePassword:string = 'password';
   
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
       .subscribe((res:any) => {
         console.log(res);
         
-        // localStorage.setItem('auth',res.auth);
-        // localStorage.setItem('admissibleness',res.admissibleness);
-        // localStorage.setItem('name',res.name);
-
+        localStorage.setItem('auth',res.auth);
+        localStorage.setItem('admissibleness',res.admissibleness);
+        localStorage.setItem('name',res.name);
+        this.router.navigate(['/platform/scales']);
       })
   }
 

@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let tab of generatetabs">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">{{tab.icon}}</mat-icon>
+        <div class="title-toolbar-platform" [routerLink]="['/platform'+tab.link]">{{tab.title}}</div>
+    </li>
+</ul>

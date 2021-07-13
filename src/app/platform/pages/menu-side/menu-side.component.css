@@ -1,0 +1,7 @@
+.container-menu {
+    background-color: var(--color-background-toolbar-variant);
+    /* width: 15%; */
+    /* height: 100vh; */
+    display: flex;
+    height: calc(100vh - 44px);
+}

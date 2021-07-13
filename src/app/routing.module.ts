@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePrincipalComponent } from './components/home-principal/home-principal.component';
 
-const prueba = localStorage.getItem('prueba');
-console.log(prueba);
+const auth = localStorage.getItem('auth');
+// console.log(auth);
 
 
 const routes: Routes = [
@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => prueba===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='/platform')
+    loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='/platform')
   },
   {
     path: 'platform',
-    loadChildren: () => prueba!==null?import('./platform/platform.module').then(m => m.PlatformModule):import('./platform/platform.module').then(m => document.location.href='/account')
+    loadChildren: () => auth!==null?import('./platform/platform.module').then(m => m.PlatformModule):import('./platform/platform.module').then(m => document.location.href='/account')
   },
   {
     path: '**',
