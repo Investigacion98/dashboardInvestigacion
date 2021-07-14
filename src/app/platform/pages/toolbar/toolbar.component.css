@@ -15,6 +15,7 @@ li {
     cursor: pointer;
     /* background-color: red; */
     color: var(--color-icons);
+    user-select: none;
 }
 
 li:hover {

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { InstitutionsComponent } from './pages/institutions/institutions.component';
-import { ScalesComponent } from './pages/scales/scales.component';
+import { ScalesCreateComponent } from './pages/scales-create/scales-create.component';
+import { ScalesEditComponent } from './pages/scales-edit/scales-edit.component';
+import { ScalesResultsComponent } from './pages/scales-results/scales-results.component';
 
 const routes:Routes = [
   {
@@ -10,16 +12,24 @@ const routes:Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'scales',
-        component: ScalesComponent
+        path: 'scales/create',
+        component: ScalesCreateComponent
       },
       {
-        path: 'institutions',
+        path: 'scales/edit',
+        component: ScalesEditComponent
+      },
+      {
+        path: 'scales/results',
+        component: ScalesResultsComponent
+      },
+      {
+        path: 'institutions/add',
         component: InstitutionsComponent
       },
       {
         path: '**',
-        redirectTo: 'scales'
+        redirectTo: 'scales/create'
       }
     ]
   }

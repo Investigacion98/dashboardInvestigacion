@@ -1,9 +1,8 @@
 <div class="container-menu">
-
-    <ul>
-        <li *ngFor="let item of itemsApproved">
+    <ul class="ul-container-menu">
+        <li *ngFor="let item of itemsApproved" class="li-container-menu" [routerLink]="['/platform'+item.link]">
             <mat-icon aria-hidden="false" aria-label="Example home icon">{{item.icon}}</mat-icon>
-            <p>
+            <p class="text-menu-side-item">
                 {{item.title}}
             </p>
         </li>

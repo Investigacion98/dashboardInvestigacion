@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,12 +9,12 @@ export class ToolbarComponent implements OnInit {
 
   tabs = [
     {
-      'link': '/scales',
+      'link': '/scales/create',
       'title': 'Escalas',
       'icon': 'assessment'
     },
     {
-      'link': '/institutions',
+      'link': '/institutions/add',
       'title': 'Instituciones',
       'icon': 'store'
     }
@@ -29,5 +29,4 @@ export class ToolbarComponent implements OnInit {
       this.generatetabs = this.tabs;
     }
   }
-
 }

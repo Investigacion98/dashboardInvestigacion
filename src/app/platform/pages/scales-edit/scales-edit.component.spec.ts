@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScalesComponent } from './scales.component';
+import { ScalesEditComponent } from './scales-edit.component';
 
-describe('ScalesComponent', () => {
-  let component: ScalesComponent;
-  let fixture: ComponentFixture<ScalesComponent>;
+describe('ScalesEditComponent', () => {
+  let component: ScalesEditComponent;
+  let fixture: ComponentFixture<ScalesEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScalesComponent ]
+      declarations: [ ScalesEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScalesComponent);
+    fixture = TestBed.createComponent(ScalesEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  updateText = "Escalas";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  update(e){
+    this.updateText = e; 
+  }
 }
