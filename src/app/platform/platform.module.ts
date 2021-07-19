@@ -9,7 +9,8 @@ import { MenuSideComponent } from './pages/menu-side/menu-side.component';
 import { ScalesCreateComponent } from './pages/scales-create/scales-create.component';
 import { ScalesEditComponent } from './pages/scales-edit/scales-edit.component';
 import { ScalesResultsComponent } from './pages/scales-results/scales-results.component';
-
+import { PreguntaComponent } from './pages/pregunta/pregunta.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ScalesResultsComponent } from './pages/scales-results/scales-results.co
     MenuSideComponent,
     ScalesCreateComponent,
     ScalesEditComponent,
-    ScalesResultsComponent
+    ScalesResultsComponent,
+    PreguntaComponent
   ],
   exports: [
     ToolbarComponent
@@ -28,7 +30,8 @@ import { ScalesResultsComponent } from './pages/scales-results/scales-results.co
   imports: [
     PlatformRoutingModule,
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class PlatformModule { }

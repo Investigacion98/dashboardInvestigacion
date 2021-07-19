@@ -1,3 +1,12 @@
 .container-platform-options {
     display: flex;
 }
+
+.size-menu-side {
+    width: 10%;
+    min-width: 150px;
+}
+
+.size-component-routing {
+    width: 90%;
+}

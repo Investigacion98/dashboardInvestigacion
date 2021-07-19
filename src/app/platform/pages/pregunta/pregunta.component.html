@@ -1,0 +1,15 @@
+<div class="container-question">
+    <div class="response-types">
+        <div class="container-response-type-item">
+            <label>Pregunta {{pruebaIn.index+1}}</label>
+        </div>
+        <div class="container-response-type-item">
+            <label>Tipo de pregunta: </label>
+            <select class="select-question-direct" [(ngModel)]="typeOfQuestion" (change)="send()">
+                <option value="D">Directa</option>
+                <option value="I">Inversa</option>
+            </select>
+        </div>
+    </div>
+    <textarea class="input-question" type="text" [(ngModel)]="textQuestion" (change)="send()"></textarea>
+</div>

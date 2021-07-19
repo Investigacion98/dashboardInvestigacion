@@ -10,6 +10,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-background-toolbar: rgba(29, 31, 128, 0.801);
     --color-background-toolbar-variant: rgba(29, 31, 128, 0.623);
     --color-button-hover: rgba(240, 240, 240, 0.192);
+    --color-background-light-green: rgba(73, 158, 130, 0.719);
+    --color-background-dark-green: rgba(33, 107, 82, 0.719);
+    --color-background-dark-green-1: rgba(2, 133, 89, 0.904);
+    --warn: rgb(173, 15, 15);
+    --font-robot: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .button {
