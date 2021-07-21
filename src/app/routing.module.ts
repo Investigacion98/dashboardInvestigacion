@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='/platform')
+    loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='./platform')
   },
   {
     path: 'platform',
