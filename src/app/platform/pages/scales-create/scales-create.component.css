@@ -81,3 +81,8 @@ h3 {
 .color-green {
     background-color: var(--color-background-dark-green-1);
 }
+
+.color-azul {
+    background-color: rgba(2, 2, 124, 0.884);
+    color: white;
+}

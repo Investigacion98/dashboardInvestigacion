@@ -28,6 +28,14 @@
     
     <div class="container-buttons-scales-create">
         <button class="button-scales color-red" (click)="clearAll()">Limpiar</button>
-        <button class="button-scales color-green" (click)="sendScale()">Crear</button>
+        <button class="button-scales color-green" (click)="sendScale()">{{scale?'Editar':'Crear'}}</button>
+    </div>
+</div>
+
+<div *ngIf="messageActivate" class="floating-messaje">
+    <div>
+        <h2>{{messageTitle}}</h2>
+        <h3>{{messageInfo}}</h3>
+        <button *ngIf="messageButton" class="button-primary color-azul" (click)="closeAlert()">Aceptar</button>
     </div>
 </div>

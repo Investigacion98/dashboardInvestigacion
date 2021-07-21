@@ -1,1 +1,10 @@
-<p>scales-edit works!</p>
+<div class="container-scales-edit" *ngIf="activate">
+    <select class="size-input-scales" [(ngModel)]="scaleSelect">
+        <option >-- Seleccione una escala --</option>
+        <option [value]="scale.code" *ngFor="let scale of listScales">{{scale.name}}</option>
+    </select>
+    <div class="container-button-scales-edit">
+        <button class="button-primary button-secundary color-blue" (click)="edit()">Editar</button>
+    </div>
+</div>
+<app-scales-create *ngIf="!activate" [scale]="scale"></app-scales-create>

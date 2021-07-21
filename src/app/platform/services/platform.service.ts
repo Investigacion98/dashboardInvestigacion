@@ -9,9 +9,21 @@ export class PlatformService {
 
   constructor(private http: HttpClient) { }
 
-  sendScale(scale:any) {
+  sendScale(scale:any,code:string) {
     const auth = localStorage.getItem("auth");
     const headers = new HttpHeaders({"auth":auth});
-    return this.http.post<any>(`${environment.baseURL}/platform/createScale`,scale,{headers});
+    return this.http.post<any>(`${environment.baseURL}/platform/createScale/${code}`,scale,{headers});
+  }
+  
+  getScales() {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/platform/scales`,{headers});
+  }
+
+  getScale(code:string) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/platform/scale/${code}`,{headers});
   }
 }

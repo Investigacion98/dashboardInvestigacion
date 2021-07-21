@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlatformService } from '../../services/platform.service';
 
 @Component({
@@ -8,14 +9,39 @@ import { PlatformService } from '../../services/platform.service';
 })
 export class ScalesCreateComponent implements OnInit {
 
+  code: string = '1';
   title: string = '';
   description: string = '';
   answerForm:string = '';
   questions:any = [];
 
-  constructor(private platformServices:PlatformService) { }
+  messageActivate: boolean = false;
+  messageTitle: string = '';
+  messageInfo: string = '';
+  messageButton: boolean = false;
+
+  @Input() scale:any;
+
+  constructor(private platformServices:PlatformService, private router: Router) { }
 
   ngOnInit(): void {
+    if(this.scale===undefined){
+      const scaleTemp = localStorage.getItem("scaleTemp");
+      if(scaleTemp){
+        const jsonSave = JSON.parse(scaleTemp);
+        this.title = jsonSave.title;
+        this.description = jsonSave.description;
+        this.answerForm = jsonSave.answerForm;
+        this.questions = jsonSave.questions;
+        localStorage.removeItem("scaleTemp");
+      }
+    }else {
+      this.code = this.scale.code;
+      this.title = this.scale.title;
+      this.description = this.scale.description;
+      this.answerForm = this.scale.answerForm;
+      this.questions = this.scale.questions;
+    }
   }
 
   addQuestion() {
@@ -38,31 +64,87 @@ export class ScalesCreateComponent implements OnInit {
   }
 
   sendScale() {
-    const sendJson = {
-      'title': this.title,
-      'description': this.description,
-      'answerForm': this.answerForm,
-      'questions': this.questions
-    }
-    this.platformServices.sendScale(sendJson)
-      .subscribe(res => {
-        if (res.info==='¡¡¡ Creación exitosa !!!') {
-          console.log("se guardo");
-          //condición si se guardo bien
-          // this.clearAll();
-        }
-      },err=>{
-        console.log(err);
-        if (err.status===500) {
-          const errorMessage = err.error.error.message;
-          if(errorMessage==="invalid token"){
-            console.log("Usuario incorrecto");
-            //se debe guardar la escala en localstorage, borrar los datos de sesión y redirigir a login
+    if(this.validate()){
+      const sendJson = {
+        'title': this.title,
+        'description': this.description,
+        'answerForm': this.answerForm,
+        'questions': this.questions
+      }
+      this.messageActivate = true;
+      this.messageTitle = 'Enviando información';
+      this.messageInfo = `Espere un momento ...`;
+      this.platformServices.sendScale(sendJson,this.code)
+        .subscribe(res => {
+          if (res.info==='¡¡¡ Creación exitosa !!!') {
+            this.messageActivate = true;
+            this.messageButton = true;
+            this.messageTitle = '¡¡¡ Creación exitosa !!!';
+            this.messageInfo = ``;
           }
-        }else if(err.status===401){
-          console.log("Usuario sin credenciales");
-          //redirigin a login
-        }
-      })    
+        },err=>{
+          if (err.status===500) {
+            var errorMessage = '';
+            try {
+              errorMessage = err.error.error.message;
+            } catch (error) {
+              errorMessage = '';
+            }
+            
+            if(errorMessage==="invalid token"){
+              localStorage.setItem('scaleTemp',`${JSON.stringify(sendJson)}`);
+              localStorage.removeItem("auth");
+              localStorage.removeItem("admissibleness");
+              localStorage.removeItem("name");
+              this.messageActivate = true;
+              this.messageTitle = 'Usuario incorrecto !!!';
+              this.messageInfo = `Vuelva a iniciar sesión`;
+              setInterval(()=>{
+                this.router.navigate(['./account']);
+              },4000);
+            }else{
+              localStorage.setItem('scaleTemp',`${JSON.stringify(sendJson)}`);
+              this.messageActivate = true;
+              this.messageTitle = 'Error del servidor';
+              this.messageInfo = err.error;
+              setInterval(()=>{
+                this.router.navigate(['/']);
+              },5000);
+            }
+          }else{
+            localStorage.removeItem("auth");
+            localStorage.removeItem("admissibleness");
+            localStorage.removeItem("name");
+            this.messageActivate = true;
+            this.messageTitle = 'Usuario no autorizado !!!';
+            this.messageInfo = `Vuelva a iniciar sesión`;
+            setInterval(()=>{
+              this.router.navigate(['./account']);
+            },4000);
+          }
+        })    
+    }else{
+      this.messageActivate = true;
+      this.messageTitle = 'Espacios sin llenar';
+      this.messageInfo = `Verifique que todos los espacios estén llenos`;
+      setInterval(()=>{
+        this.messageActivate = false;
+        this.messageButton = false;
+      },5000);
+    }
+  }
+
+  validate(){
+    if (this.title !== '' && this.description !== '' && this.answerForm !== '' && this.questions.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  closeAlert() {
+    this.messageActivate = false;
+    this.messageButton = false;
+    this.clearAll();
+    this.router.navigate(['./platform/scales/edit']);
   }
 }

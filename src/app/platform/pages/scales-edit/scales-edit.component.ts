@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatformService } from '../../services/platform.service';
 
 @Component({
   selector: 'app-scales-edit',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScalesEditComponent implements OnInit {
 
-  constructor() { }
+  listScales: string[] = [];
+  scaleSelect: string = '-- Seleccione una escala --';
+  scale: any;
+  activate: boolean = true;
+
+  constructor(private platformServices: PlatformService, private platformService:PlatformService) { }
 
   ngOnInit(): void {
+    this.platformServices.getScales()
+      .subscribe(res=>this.listScales=res.scales);
+  }
+
+  edit() {
+    if(this.scaleSelect!=='-- Seleccione una escala --'){
+      this.platformServices.getScale(this.scaleSelect)
+        .subscribe(res=>{
+          this.scale=res.scale;
+          this.activate = false;
+        })    
+    }
   }
 
 }
