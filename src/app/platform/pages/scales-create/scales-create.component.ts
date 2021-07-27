@@ -13,6 +13,8 @@ export class ScalesCreateComponent implements OnInit {
   title: string = '';
   description: string = '';
   answerForm:string = '';
+  titlePhase:string = '';
+  factors:string[] = [];
   questions:any = [];
 
   messageActivate: boolean = false;
@@ -32,6 +34,7 @@ export class ScalesCreateComponent implements OnInit {
         this.title = jsonSave.title;
         this.description = jsonSave.description;
         this.answerForm = jsonSave.answerForm;
+        this.factors = jsonSave.factors;
         this.questions = jsonSave.questions;
         localStorage.removeItem("scaleTemp");
       }
@@ -40,14 +43,23 @@ export class ScalesCreateComponent implements OnInit {
       this.title = this.scale.title;
       this.description = this.scale.description;
       this.answerForm = this.scale.answerForm;
+      this.factors = this.scale.factors;
       this.questions = this.scale.questions;
+    }
+  }
+
+  addFase() {
+    if(this.titlePhase.trim()!==''){
+      this.factors.push(this.titlePhase);
+      this.titlePhase = '';
     }
   }
 
   addQuestion() {
     this.questions.push({
       'textQuestion': '',
-      'typeOfQuestion': '' 
+      'typeOfQuestion': '',
+      'factor': ''
     })
   }
 
@@ -69,6 +81,7 @@ export class ScalesCreateComponent implements OnInit {
         'title': this.title,
         'description': this.description,
         'answerForm': this.answerForm,
+        'factors': this.factors,
         'questions': this.questions
       }
       this.messageActivate = true;
@@ -76,12 +89,10 @@ export class ScalesCreateComponent implements OnInit {
       this.messageInfo = `Espere un momento ...`;
       this.platformServices.sendScale(sendJson,this.code)
         .subscribe(res => {
-          if (res.info==='¡¡¡ Creación exitosa !!!') {
-            this.messageActivate = true;
-            this.messageButton = true;
-            this.messageTitle = '¡¡¡ Creación exitosa !!!';
-            this.messageInfo = ``;
-          }
+          this.messageActivate = true;
+          this.messageButton = true;
+          this.messageTitle = res.info;
+          this.messageInfo = ``;
         },err=>{
           if (err.status===500) {
             var errorMessage = '';
@@ -145,6 +156,12 @@ export class ScalesCreateComponent implements OnInit {
     this.messageActivate = false;
     this.messageButton = false;
     this.clearAll();
-    this.router.navigate(['./platform/scales/edit']);
+    // this.router.navigate(['./platform/scales']);
+    window.location.reload();
+    
+  }
+
+  removePhase(i) {
+    this.factors.splice(i,1);
   }
 }

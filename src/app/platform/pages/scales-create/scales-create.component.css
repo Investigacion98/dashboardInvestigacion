@@ -86,3 +86,31 @@ h3 {
     background-color: rgba(2, 2, 124, 0.884);
     color: white;
 }
+
+.special-size {
+    display: flex;
+    flex-direction: row;
+}
+
+.special-size>input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.special-size>button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.phase-button {
+    font-size: 1em;
+}
+
+.x {
+    background-color: transparent;
+    border: 1px solid rgba(129, 127, 127, 0.76);
+    border-radius: 20%;
+    color: red;
+    margin-left: 20px;
+    cursor: pointer;
+}
