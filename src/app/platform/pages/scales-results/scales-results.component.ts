@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatformService } from '../../services/platform.service';
 
 @Component({
   selector: 'app-scales-results',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScalesResultsComponent implements OnInit {
 
-  constructor() { }
+  studentResults:any = [];
+
+  constructor(private platformService:PlatformService) { }
 
   ngOnInit(): void {
   }
 
+  buttonSend() {
+    var filterElements = JSON.parse(localStorage.getItem("filterElements"));
+    if (filterElements===null || filterElements===undefined) {
+      filterElements = [];
+    }
+    this.platformService.getResults(filterElements)
+      .subscribe(res=>this.studentResults=res.studentResults)    
+  }
 }

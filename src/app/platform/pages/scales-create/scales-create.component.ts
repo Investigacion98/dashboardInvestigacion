@@ -39,7 +39,7 @@ export class ScalesCreateComponent implements OnInit {
         localStorage.removeItem("scaleTemp");
       }
     }else {
-      this.code = this.scale.code;
+      this.code = this.scale.codeScale;
       this.title = this.scale.title;
       this.description = this.scale.description;
       this.answerForm = this.scale.answerForm;

@@ -17,13 +17,17 @@ export class ScalesEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.platformServices.getScales()
-      .subscribe(res=>this.listScales=res.scales);
+      .subscribe(res=>{
+        this.listScales=res.scales;
+      });
   }
 
   edit() {
     if(this.scaleSelect!=='-- Seleccione una escala --'){
       this.platformServices.getScale(this.scaleSelect)
         .subscribe(res=>{
+          console.log(res.scale);
+          
           this.scale=res.scale;
           this.activate = false;
         })    

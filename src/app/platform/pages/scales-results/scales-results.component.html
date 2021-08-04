@@ -1,1 +1,14 @@
-<p>scales-results works!</p>
+<app-filtro></app-filtro>
+<div class="container-results-students">
+    <h2>Resultados</h2>
+    <div class="container-list-data">
+        <label>Nombre</label>
+        <label>Institución</label>
+        <label>Grado</label>
+        <label>Escalas</label>
+    </div>
+    <app-result-student class="student-result" *ngFor="let studentResult of studentResults" [data]="studentResult"></app-result-student>
+</div>
+<div class="container-button-send">
+    <button class="button-send" (click)="buttonSend()">&#10095;</button>
+</div>

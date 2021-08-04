@@ -1,0 +1,10 @@
+.container-result-individual {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-background-dark-green);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    color: white;
+}

@@ -26,4 +26,10 @@ export class PlatformService {
     const headers = new HttpHeaders({"auth":auth});
     return this.http.get<any>(`${environment.baseURL}/platform/scale/${code}`,{headers});
   }
+
+  getResults(data:any){
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.post<any>(`${environment.baseURL}/results/filter`,data,{headers});
+  }
 }

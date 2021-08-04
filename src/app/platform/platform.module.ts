@@ -11,6 +11,8 @@ import { ScalesEditComponent } from './pages/scales-edit/scales-edit.component';
 import { ScalesResultsComponent } from './pages/scales-results/scales-results.component';
 import { PreguntaComponent } from './pages/pregunta/pregunta.component';
 import { FormsModule } from '@angular/forms';
+import { FiltroComponent } from './pages/filtro/filtro.component';
+import { ResultStudentComponent } from './pages/result-student/result-student.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     ScalesCreateComponent,
     ScalesEditComponent,
     ScalesResultsComponent,
-    PreguntaComponent
+    PreguntaComponent,
+    FiltroComponent,
+    ResultStudentComponent
   ],
   exports: [
     ToolbarComponent
