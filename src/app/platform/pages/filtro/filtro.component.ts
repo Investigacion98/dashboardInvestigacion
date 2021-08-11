@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlatformService } from '../../services/platform.service';
 
 @Component({
   selector: 'app-filtro',
@@ -49,15 +50,68 @@ export class FiltroComponent implements OnInit {
     }
   ];
 
-  constructor() { }
 
+  constructor(private platformService:PlatformService) {  }
+  
   ngOnInit(): void {
-    if(localStorage.getItem('filterElements')!==null){
-      this.buttons = JSON.parse(localStorage.getItem('filterElements'));
-    }
-    for (let i = 0; i < this.buttons.length; i++) {
-      this.buttonsFilter.splice(this.getIndex(this.buttons[i].name),1);
-    }
+    this.platformService.getFilterData()
+    .subscribe(res=>{
+      var institutions = res.institutions;
+      var nameOfInstitutions = [];
+      var courses = [];
+       for (let i = 0; i < institutions.length; i++) {
+         nameOfInstitutions.push(institutions[i].name);
+         for (let j = 0; j < institutions[i].courses.length; j++) {
+           courses.push(parseInt(institutions[i].courses[j].split("-")[0])); 
+         }
+       }
+       const dataArr = new Set(courses);
+       var result = [...dataArr];
+       function comparar(a, b) {
+        return a - b;
+       }
+       courses = result.sort(comparar);
+       var arrayInstitutions = [];
+       for (let i = 0; i < nameOfInstitutions.length; i++) {
+         arrayInstitutions.push({
+           'name': nameOfInstitutions[i],
+           'checked': false
+         });
+       }
+       this.buttonsFilter[0].options = arrayInstitutions;
+       var arrayCourses = [];
+       for (let i = 0; i < courses.length; i++) {
+        arrayCourses.push({
+          'name': courses[i],
+          'checked': false
+        })                  
+       }
+       this.buttonsFilter[1].options = arrayCourses;
+       var arrayAges = [];
+       for (let i = 0; i < res.ages.length; i++) {
+         arrayAges.push({
+           'name': res.ages[i],
+           'checked': false
+         })                  
+        }
+       this.buttonsFilter[2].options = arrayAges;
+
+       var arrayScales = [];
+       for (let i = 0; i < res.scales.length; i++) {
+         arrayScales.push({
+           'name': res.scales[i].title,
+           'checked': false
+         })                  
+        }
+       this.buttonsFilter[6].options = arrayScales;
+
+       if(localStorage.getItem('filterElements')!==null){
+         this.buttons = JSON.parse(localStorage.getItem('filterElements'));
+       }
+       for (let i = 0; i < this.buttons.length; i++) {
+         this.buttonsFilter.splice(this.getIndex(this.buttons[i].name),1);
+       }
+     })
   }
 
   getIndex(name){

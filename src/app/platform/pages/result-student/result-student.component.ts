@@ -8,12 +8,35 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResultStudentComponent implements OnInit {
 
   @Input() data;
+  @Input() scales;
+  @Input() typesOfQUalification;
+
+  visible:boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.data);
+  ngOnInit(): void {  
     
   }
 
+  more() {
+    if (this.visible===true) {
+      this.visible = false;
+    }else{
+      this.visible = true;
+    }
+  }
+
+  getIndex(codeScale){
+    for (let i = 0; i < this.scales.length; i++) {
+      if (this.scales[i].codeScale===codeScale) {
+        return i;
+      }
+      
+    }
+  }
+
+  convertString(chain){
+    return parseInt(chain);
+  }
 }

@@ -1,14 +1,28 @@
 <app-filtro></app-filtro>
 <div class="container-results-students">
     <h2>Resultados</h2>
-    <div class="container-list-data">
-        <label>Nombre</label>
-        <label>Institución</label>
-        <label>Grado</label>
-        <label>Escalas</label>
+    <div *ngIf="!activateGraph" class="container-list-data">
+        <div class="one">
+            <label>Nombre</label>
+        </div>
+        <div  class="two">
+            <label>Institución</label>
+        </div>
+        <div class="three">
+            <label>Grado</label>
+        </div>
+        <div class="four">
+            <label>Escalas</label>
+        </div>
     </div>
-    <app-result-student class="student-result" *ngFor="let studentResult of studentResults" [data]="studentResult"></app-result-student>
+    <app-result-student class="student-result" *ngFor="let studentResult of studentResults" 
+        [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
 </div>
 <div class="container-button-send">
-    <button class="button-send" (click)="buttonSend()">&#10095;</button>
+    <button *ngIf="activateButtons" class="button-send download" (click)="download()"><mat-icon>cloud_download</mat-icon></button>
+    <button *ngIf="activateButtons" class="button-send graph" (click)="graph()"><mat-icon>bar_chart</mat-icon></button>
+    <button class="button-send" (click)="buttonSend()" (contextmenu)="buttonRight($event)">&#10095;</button>
+</div>
+<div *ngIf="activateGraph" class="container-graph">
+    <h3>Gráfica</h3>
 </div>

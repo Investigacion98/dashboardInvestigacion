@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomePrincipalComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'account',

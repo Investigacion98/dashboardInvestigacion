@@ -16,7 +16,7 @@ export class ScalesEditComponent implements OnInit {
   constructor(private platformServices: PlatformService, private platformService:PlatformService) { }
 
   ngOnInit(): void {
-    this.platformServices.getScales()
+    this.platformServices.getScalesEdit()
       .subscribe(res=>{
         this.listScales=res.scales;
       });

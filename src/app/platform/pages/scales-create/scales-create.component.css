@@ -102,6 +102,12 @@ h3 {
     border-bottom-left-radius: 0;
 }
 
+.special-size-baremos {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .phase-button {
     font-size: 1em;
 }

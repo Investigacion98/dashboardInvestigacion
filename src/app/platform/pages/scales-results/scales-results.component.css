@@ -39,3 +39,52 @@
 .button-send:hover {
     filter: saturate(60%);
 }
+
+.graph {
+    bottom: 70px;
+    background-color: var(--color-background-dark-green);
+}
+
+.download {
+    bottom: 120px;
+    background-color: var(--color-background-dark-green);
+}
+
+.container-graph {
+    display: flex;
+    width: 96%;
+    margin: 10px 2%;
+    border-radius: 10px;
+    background-color: var(--color-background-light-green);
+    justify-content: center;
+    align-items: center;
+}
+
+.one {
+    display: flex;
+    min-width: 200px;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.two {
+    display: flex;
+    min-width: 200px;
+    width: 400px;
+    justify-content: center;
+}
+
+.three {
+    display: flex;
+    min-width: 40px;
+    justify-content: center;
+}
+
+.four {
+    display: flex;
+    min-width: 300px;
+    width: 500px;
+    justify-content: center;
+}

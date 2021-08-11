@@ -16,6 +16,8 @@ export class ScalesCreateComponent implements OnInit {
   titlePhase:string = '';
   factors:string[] = [];
   questions:any = [];
+  baremosMnIg25 = 0;
+  baremosMyIg75 = 0;
 
   messageActivate: boolean = false;
   messageTitle: string = '';
@@ -36,6 +38,8 @@ export class ScalesCreateComponent implements OnInit {
         this.answerForm = jsonSave.answerForm;
         this.factors = jsonSave.factors;
         this.questions = jsonSave.questions;
+        this.baremosMnIg25 = jsonSave.baremosMnIg25;
+        this.baremosMyIg75 = jsonSave.baremosMyIg75;
         localStorage.removeItem("scaleTemp");
       }
     }else {
@@ -45,6 +49,8 @@ export class ScalesCreateComponent implements OnInit {
       this.answerForm = this.scale.answerForm;
       this.factors = this.scale.factors;
       this.questions = this.scale.questions;
+      this.baremosMnIg25 = this.scale.baremosMnIg25;
+      this.baremosMyIg75 = this.scale.baremosMyIg75;
     }
   }
 
@@ -72,7 +78,10 @@ export class ScalesCreateComponent implements OnInit {
     this.title = '';
     this.description = '';
     this.answerForm = '';
+    this.factors = [];
     this.questions = [];
+    this.baremosMnIg25 = 0;
+    this.baremosMyIg75 = 0;
   }
 
   sendScale() {
@@ -82,7 +91,9 @@ export class ScalesCreateComponent implements OnInit {
         'description': this.description,
         'answerForm': this.answerForm,
         'factors': this.factors,
-        'questions': this.questions
+        'questions': this.questions,
+        'baremosMnIg25': this.baremosMnIg25,
+        'baremosMyIg75': this.baremosMyIg75
       }
       this.messageActivate = true;
       this.messageTitle = 'Enviando información';

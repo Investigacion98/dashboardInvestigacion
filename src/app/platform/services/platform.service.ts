@@ -15,7 +15,7 @@ export class PlatformService {
     return this.http.post<any>(`${environment.baseURL}/platform/createScale/${code}`,scale,{headers});
   }
   
-  getScales() {
+  getScalesEdit() {
     const auth = localStorage.getItem("auth");
     const headers = new HttpHeaders({"auth":auth});
     return this.http.get<any>(`${environment.baseURL}/platform/scales`,{headers});
@@ -31,5 +31,17 @@ export class PlatformService {
     const auth = localStorage.getItem("auth");
     const headers = new HttpHeaders({"auth":auth});
     return this.http.post<any>(`${environment.baseURL}/results/filter`,data,{headers});
+  }
+
+  getFilterData(){
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/users/filter`,{headers});
+  }
+
+  getScalesResults() {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/results/scales`,{headers});
   }
 }

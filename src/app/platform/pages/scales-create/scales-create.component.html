@@ -37,7 +37,14 @@
         </div>
         <button class="add-question" (click)="addQuestion()">+</button>
     </div>
-    
+    <div class="container-input">
+        <h3>Baremos</h3>
+        <div class="special-size-baremos">
+            <input class="size-input-scales" type="text" placeholder="Nivel bajo: percentiles de 1 A 25 MENOR O IGUAL A ..." [(ngModel)]="baremosMnIg25">
+            <input class="size-input-scales" type="text" placeholder="Nivel alto: percentiles de 75 A 99 MAYOR O IGUAL A ..." [(ngModel)]="baremosMyIg75">
+        </div>
+    </div>
+
     <div class="container-buttons-scales-create">
         <button class="button-scales color-red" (click)="clearAll()">Limpiar</button>
         <button class="button-scales color-green" (click)="sendScale()">{{scale?'Editar':'Crear'}}</button>

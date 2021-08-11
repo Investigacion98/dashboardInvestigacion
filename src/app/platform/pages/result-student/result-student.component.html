@@ -1,5 +1,54 @@
 <div class="container-result-individual">
-    <label>{{data.name}}</label>
-    <label>{{data.institution[0]}}</label>
-    <label>{{data.course}}</label>
+    <div class="container-labels-result-individual">
+        <label class="label-result-individual one">{{data.name}}</label>
+        <label class="label-result-individual two">{{data.institution[0]}}</label>
+        <label class="label-result-individual three">{{data.course}}</label>
+        <div class="label-result-individual four">
+            <label class="label-overall-result" *ngFor="let resultTitle of data.resultsTitleScale;let m=index" 
+            [style]="convertString(data.resultsOverallResult[m])<=convertString(scales[getIndex(data.resultsCodeScale[m])].baremosMnIg25)?
+                'background-color: red;'
+            :
+                convertString(data.resultsOverallResult[m])>=convertString(scales[getIndex(data.resultsCodeScale[m])].baremosMyIg75)?
+                    'background-color: green;'
+                :
+                    'background-color: orange;'"
+            [title]="resultTitle">{{data.resultsOverallResult[m]}}</label>
+        </div>
+    </div>
+    <button class="button-primary button-secundary float" (click)="more()">{{visible===true?'&#708;':'&#709;'}}</button>
+</div>
+<div *ngIf="visible" class="container-more-info">
+    <div class="info-box">
+        <label>Edad: </label><label>{{data.age}}</label>
+    </div>
+    <div class="info-box">
+        <label>Sexo: </label><label>{{data.sex}}</label>
+    </div>
+    <div class="info-box">
+        <label>Sector de residencia: </label><label>{{data.residenceSector}}</label>
+    </div>
+    <div class="info-box">
+        <label>Tipo de institución: </label><label>{{data.type[0]}}</label>
+    </div>
+    <div class="results-table">
+        <ul *ngFor="let scaleStudent of data.resultsCodeScale; let i=index">
+            <label>&#10095; {{data.resultsTitleScale[i]}}</label>
+            <div class="container-questions-result">
+                <li *ngFor="let scaleQuestions of scales[getIndex(scaleStudent)].questions; let j=index" 
+                    [title]="scaleQuestions.textQuestion">
+                    <label>{{j+1}}</label>
+                    <label>{{scales[i].questions[j].typeOfQuestion==="D"?data.resultsScale[i][j].charCodeAt()-97:typesOfQUalification[scales[i].answerForm].value-data.resultsScale[i][j].charCodeAt()+97}}</label>
+                </li>
+                <li>
+                    <label>Total</label>
+                    <label>{{data.resultsOverallResult[i]}}</label>
+                </li>
+            </div>
+            <label>&#10095; Factores</label>
+            <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-factors-results">
+                <label>{{factor}}:</label>
+                <label>{{data.resultsPhases[i][k]}}</label>
+            </div>
+        </ul>
+    </div>
 </div>
