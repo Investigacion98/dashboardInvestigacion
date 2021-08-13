@@ -10,7 +10,9 @@ export class ScalesResultsComponent implements OnInit {
 
   activateButtons:boolean = false;
   activateGraph:boolean = false;
+  activateExcel:boolean = false;
   studentResults:any = [];
+  studentsResultsAux:any = [];
   scales:any = [];
   typesOfQUalification:any = [];
 
@@ -47,6 +49,9 @@ export class ScalesResultsComponent implements OnInit {
   }
 
   download() {
+    this.studentsResultsAux = this.studentResults;
+    this.studentResults = [];
+    this.activateExcel = true;
     this.activateButtons = false;
   }
 

@@ -13,6 +13,7 @@ import { PreguntaComponent } from './pages/pregunta/pregunta.component';
 import { FormsModule } from '@angular/forms';
 import { FiltroComponent } from './pages/filtro/filtro.component';
 import { ResultStudentComponent } from './pages/result-student/result-student.component';
+import { ExcelComponent } from './pages/excel/excel.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ResultStudentComponent } from './pages/result-student/result-student.co
     ScalesResultsComponent,
     PreguntaComponent,
     FiltroComponent,
-    ResultStudentComponent
+    ResultStudentComponent,
+    ExcelComponent
   ],
   exports: [
     ToolbarComponent

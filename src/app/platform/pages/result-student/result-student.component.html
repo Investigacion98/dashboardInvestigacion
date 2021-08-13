@@ -6,12 +6,12 @@
         <div class="label-result-individual four">
             <label class="label-overall-result" *ngFor="let resultTitle of data.resultsTitleScale;let m=index" 
             [style]="convertString(data.resultsOverallResult[m])<=convertString(scales[getIndex(data.resultsCodeScale[m])].baremosMnIg25)?
-                'background-color: red;'
+                'background-color: #bd2c2ce3;'
             :
                 convertString(data.resultsOverallResult[m])>=convertString(scales[getIndex(data.resultsCodeScale[m])].baremosMyIg75)?
-                    'background-color: green;'
+                    'background-color: #217321eb;'
                 :
-                    'background-color: orange;'"
+                    'background-color: #ff8d00bf;'"
             [title]="resultTitle">{{data.resultsOverallResult[m]}}</label>
         </div>
     </div>

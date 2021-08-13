@@ -5,12 +5,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { ExcelComponent } from './platform/excel/excel.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExcelComponent
   ],
   imports: [
     AccountRoutingModule,

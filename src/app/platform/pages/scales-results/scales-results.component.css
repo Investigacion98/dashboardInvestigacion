@@ -42,12 +42,12 @@
 
 .graph {
     bottom: 70px;
-    background-color: var(--color-background-dark-green);
+    background-color: var(--color-background-dark-green-no-transparency);
 }
 
 .download {
     bottom: 120px;
-    background-color: var(--color-background-dark-green);
+    background-color: var(--color-background-dark-green-no-transparency);
 }
 
 .container-graph {
