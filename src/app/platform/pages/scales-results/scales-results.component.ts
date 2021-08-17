@@ -15,14 +15,18 @@ export class ScalesResultsComponent implements OnInit {
   studentsResultsAux:any = [];
   scales:any = [];
   typesOfQUalification:any = [];
+  totalAverage:number[] = [];
 
   constructor(private platformService:PlatformService) { }
 
   ngOnInit(): void {
     this.platformService.getScalesResults()
       .subscribe(res=>{
-        this.scales=res.scaleResults;
+        this.scales=res.scaleResults;        
         this.typesOfQUalification=res.typesOfQualification;
+        for (let i = 0; i < res.scaleResults.length; i++) {
+          this.totalAverage.push(0);
+        }
       })
   }
 
@@ -35,7 +39,22 @@ export class ScalesResultsComponent implements OnInit {
     }
     this.platformService.getResults(filterElements)
     .subscribe(res=>{
-      this.studentResults=res.studentResults
+      this.studentResults=res.studentResults;
+      
+      var acum = 0;
+      for (let i = 0; i < this.scales.length; i++) {
+        acum = 0;
+        for (let j = 0; j < res.studentResults.length; j++) {
+          for (let k = 0; k < res.studentResults[j].resultsCodeScale.length; k++) {
+            if (res.studentResults[j].resultsCodeScale[k]===this.scales[i].codeScale) {
+              acum = acum + parseInt(res.studentResults[j].resultsOverallResult[k]);
+            }
+          }
+        }
+        if (acum!==0) {
+          this.totalAverage[i]=acum/res.studentResults.length;
+        }
+      }
     })    
   }
   
@@ -58,7 +77,6 @@ export class ScalesResultsComponent implements OnInit {
   graph() {
     this.studentResults = [];
     this.activateGraph = true;
-    console.log("asdf");
     this.activateButtons = false;
   }
 }

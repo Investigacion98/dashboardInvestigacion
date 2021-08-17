@@ -2,7 +2,7 @@
     background-color: var(--color-background-toolbar-variant);
     width: 100%;
     display: flex;
-    height: calc(100vh - 44px);
+    /* height: calc(100vh - 44px); */
 }
 
 .ul-container-menu {

@@ -17,6 +17,14 @@
     </div>
     <app-result-student class="student-result" *ngFor="let studentResult of studentResults" 
         [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
+    <div *ngIf="!activateGraph" class="container-list-data latest">
+        <div class="resume">
+            <h3>Resumen</h3>
+            <div *ngFor="let scale of scales;let i=index">
+                Promedio {{scale.title}} {{'---- '+totalAverage[i]}}
+            </div>
+        </div>
+    </div>
 </div>
 <div class="container-button-send">
     <button *ngIf="activateButtons" class="button-send download" (click)="download()"><mat-icon>cloud_download</mat-icon></button>

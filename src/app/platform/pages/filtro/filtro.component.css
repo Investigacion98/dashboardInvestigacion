@@ -1,6 +1,7 @@
 .container-filter {
     /* background-color: red; */
-    background-color: var(--color-background-toolbar);
+    /* background-color: var(--color-background-toolbar); */
+    /* background-color: rgb(90 114 106 / 43%); */
     display: flex;
     max-width: 100%;
     flex-direction: row;
@@ -47,13 +48,14 @@ button {
 
 .blue {
     background-color: var(--color-background-toolbar);
-    margin: 0 10px;
+    margin: 8px 10px;
     flex-wrap: nowrap;
     white-space: nowrap;
 }
 
 .blue:hover {
     box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.692);
+    background-color: rgb(88 89 147 / 80%);
 }
 
 .red {
@@ -61,8 +63,8 @@ button {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 0, 0, 0.329);
-    margin: 0 10px;
+    background-color: rgb(182 54 54 / 84%);
+    margin: 8px 10px;
     white-space: nowrap;
 }
 
