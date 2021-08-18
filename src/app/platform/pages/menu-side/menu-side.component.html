@@ -1,4 +1,7 @@
-<div class="container-menu">
+<div class="menu-icon-responsive" (click)="activateMenuResponsive()">
+    <mat-icon>menu</mat-icon>
+</div>
+<div [class]="activateResponsive===false?'container-menu':'container-menu activate'">
     <ul class="ul-container-menu">
         <li *ngFor="let item of itemsApproved" class="li-container-menu" [routerLink]="['/platform'+item.link]">
             <mat-icon aria-hidden="false" aria-label="Example home icon">{{item.icon}}</mat-icon>

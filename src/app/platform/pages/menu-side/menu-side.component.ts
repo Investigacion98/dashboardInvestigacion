@@ -8,6 +8,8 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class MenuSideComponent implements OnInit {
 
+  activateResponsive:boolean = false;
+
   itemsScales = [
     {
       'link': '/scales/create',
@@ -58,6 +60,7 @@ export class MenuSideComponent implements OnInit {
   
   change(path){
     const admissibleness = localStorage.getItem('admissibleness');
+    this.activateResponsive = false;
     if (admissibleness==="6465asd7#asd-1") {
       
       if (path==='s') {
@@ -70,4 +73,11 @@ export class MenuSideComponent implements OnInit {
     }
   }
   
+  activateMenuResponsive() {
+    if (this.activateResponsive===true) {
+      this.activateResponsive = false;
+    }else{
+      this.activateResponsive = true;
+    }
+  }
 }

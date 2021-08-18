@@ -126,3 +126,22 @@ li>label {
     flex-direction: row;
     margin-left: 15px;
 }
+
+.institutionResponsive {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-labels-result-individual {
+        overflow: hidden;
+    }
+    .two {
+        display: none;
+    }
+    .container-questions-result {
+        overflow: scroll;
+    }
+    .institutionResponsive {
+        display: flex;
+    }
+}

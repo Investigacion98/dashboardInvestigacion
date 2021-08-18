@@ -18,6 +18,9 @@
     <button class="button-primary button-secundary float" (click)="more()">{{visible===true?'&#708;':'&#709;'}}</button>
 </div>
 <div *ngIf="visible" class="container-more-info">
+    <div class="info-box institutionResponsive">
+        <label>Institución: </label><label>{{data.institution}}</label>
+    </div>
     <div class="info-box">
         <label>Edad: </label><label>{{data.age}}</label>
     </div>

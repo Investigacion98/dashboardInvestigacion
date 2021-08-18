@@ -44,10 +44,12 @@ export class FiltroComponent implements OnInit {
       'name': 'Escalas',
       'options': ''
     },
-    {
-      'name': 'Rangos',
-      'options': ''
-    }
+    // {
+    //   'name': 'Rangos',
+    //   'options': [{'name':'Percentiles de 1 a 25','checked':false},
+    //               {'name':'Percentiles de 26 a 74','checked':false},
+    //               {'name':'Percentiles de 75 a 99','checked':false}]
+    // }
   ];
 
 

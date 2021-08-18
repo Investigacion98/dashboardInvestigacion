@@ -13,3 +13,13 @@
 .size-component-routing {
     width: 90%;
 }
+
+@media only screen and (max-width: 600px) {
+    .size-menu-side {
+        display: none;
+    }
+    
+    .size-component-routing {
+        width: 100%;
+    }
+}

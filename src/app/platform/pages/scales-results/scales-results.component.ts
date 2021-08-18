@@ -11,6 +11,8 @@ export class ScalesResultsComponent implements OnInit {
   activateButtons:boolean = false;
   activateGraph:boolean = false;
   activateExcel:boolean = false;
+  activateResume:boolean = true;
+  loading:boolean = false;
   studentResults:any = [];
   studentsResultsAux:any = [];
   scales:any = [];
@@ -33,6 +35,9 @@ export class ScalesResultsComponent implements OnInit {
   buttonSend() {
     this.activateButtons = false;
     this.activateGraph = false;
+    this.activateExcel = false;
+    this.activateResume = true;
+    this.loading = true;
     var filterElements = JSON.parse(localStorage.getItem("filterElements"));
     if (filterElements===null || filterElements===undefined) {
       filterElements = [];
@@ -40,7 +45,7 @@ export class ScalesResultsComponent implements OnInit {
     this.platformService.getResults(filterElements)
     .subscribe(res=>{
       this.studentResults=res.studentResults;
-      
+      this.loading = false;
       var acum = 0;
       for (let i = 0; i < this.scales.length; i++) {
         acum = 0;
@@ -72,11 +77,15 @@ export class ScalesResultsComponent implements OnInit {
     this.studentResults = [];
     this.activateExcel = true;
     this.activateButtons = false;
+    this.activateGraph = false;
+    this.activateResume = false;
   }
-
+  
   graph() {
     this.studentResults = [];
     this.activateGraph = true;
+    this.activateExcel = false;
     this.activateButtons = false;
+    this.activateResume = false;
   }
 }

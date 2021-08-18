@@ -1,7 +1,7 @@
 <app-filtro></app-filtro>
 <div class="container-results-students">
     <h2>Resultados</h2>
-    <div *ngIf="!activateGraph" class="container-list-data">
+    <div *ngIf="!activateGraph && !activateExcel" class="container-list-data">
         <div class="one">
             <label>Nombre</label>
         </div>
@@ -17,7 +17,7 @@
     </div>
     <app-result-student class="student-result" *ngFor="let studentResult of studentResults" 
         [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
-    <div *ngIf="!activateGraph" class="container-list-data latest">
+    <div *ngIf="activateResume" class="latest">
         <div class="resume">
             <h3>Resumen</h3>
             <div *ngFor="let scale of scales;let i=index">
@@ -37,4 +37,8 @@
 </div>
 <div *ngIf="activateGraph" class="container-graph">
     <h3>Gráfica</h3>
+    <div>asdf</div>
+</div>
+<div *ngIf="loading" class="container-graph color-transparent">
+    <mat-spinner></mat-spinner>
 </div>
