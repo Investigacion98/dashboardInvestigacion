@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
-import { InstitutionsComponent } from './pages/institutions/institutions.component';
 import { PlatformRoutingModule } from './platform-routing.module';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { CommonModule } from '@angular/common';
@@ -14,12 +13,13 @@ import { FormsModule } from '@angular/forms';
 import { FiltroComponent } from './pages/filtro/filtro.component';
 import { ResultStudentComponent } from './pages/result-student/result-student.component';
 import { ExcelComponent } from './pages/excel/excel.component';
+import { InstitutionsComponent } from './pages/institutions/institutions/institutions.component';
+import { UpdateInstitutionComponent } from './pages/institutions/update-institution/update-institution.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    InstitutionsComponent,
     ToolbarComponent,
     MenuSideComponent,
     ScalesCreateComponent,
@@ -28,7 +28,9 @@ import { ExcelComponent } from './pages/excel/excel.component';
     PreguntaComponent,
     FiltroComponent,
     ResultStudentComponent,
-    ExcelComponent
+    ExcelComponent,
+    InstitutionsComponent,
+    UpdateInstitutionComponent
   ],
   exports: [
     ToolbarComponent

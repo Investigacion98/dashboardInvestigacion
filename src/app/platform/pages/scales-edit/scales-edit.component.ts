@@ -13,7 +13,7 @@ export class ScalesEditComponent implements OnInit {
   scale: any;
   activate: boolean = true;
 
-  constructor(private platformServices: PlatformService, private platformService:PlatformService) { }
+  constructor(private platformServices: PlatformService) { }
 
   ngOnInit(): void {
     this.platformServices.getScalesEdit()
@@ -25,9 +25,7 @@ export class ScalesEditComponent implements OnInit {
   edit() {
     if(this.scaleSelect!=='-- Seleccione una escala --'){
       this.platformServices.getScale(this.scaleSelect)
-        .subscribe(res=>{
-          console.log(res.scale);
-          
+        .subscribe(res=>{          
           this.scale=res.scale;
           this.activate = false;
         })    

@@ -14,7 +14,7 @@ export class ToolbarComponent implements OnInit {
       'icon': 'assessment'
     },
     {
-      'link': '/institutions/add',
+      'link': '/institutions/create',
       'title': 'Instituciones',
       'icon': 'store'
     }

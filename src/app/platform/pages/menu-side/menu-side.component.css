@@ -38,6 +38,14 @@
     margin-left: 5px;
 }
 
+.icon-close {
+    display: none;
+}
+
+.transparent {
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     .menu-icon-responsive {
         display: flex;
@@ -62,12 +70,21 @@
     }
     
     .li-container-menu {
-        width: 100vw;
+        width: 60%;
         justify-content: center;
         align-items: center;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 20%;
+        margin-right: 20%;
         padding-left: 0;
         padding-right: 0;
+        background-color: var(--color-background-toolbar-variant);
+    }
+
+    .icon-close {
+        display: flex;
+        position: absolute;
+        color: white;
+        top: 10px;
+        right: 10px;
     }
 }

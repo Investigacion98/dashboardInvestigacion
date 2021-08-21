@@ -44,4 +44,22 @@ export class PlatformService {
     const headers = new HttpHeaders({"auth":auth});
     return this.http.get<any>(`${environment.baseURL}/results/scales`,{headers});
   }
+
+  createInstitution(code,data) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.post<any>(`${environment.baseURL}/institutions/add/${code}`,data,{headers});
+  }
+
+  getInstitutionsUpdate() {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/institutions/getAll`,{headers});
+  }
+
+  getInstitution(code:string) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/institutions/unique/${code}`,{headers});
+  }
 }

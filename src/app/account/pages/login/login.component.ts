@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   passwordError:string = 'notification-none';
   // passwordError:string = 'notification';
   typePassword:string = 'password';
+  loading:boolean = false;
+  error:string = '';
   
   constructor(private loginService:LoginService, private router:Router) { }
 
@@ -25,15 +27,19 @@ export class LoginComponent implements OnInit {
   }
 
   sendData() {
+    this.loading = true;
+    this.error = '';
     const newUser = {'email':this.email,'password':this.password};
     this.loginService.postUser(newUser)
       .subscribe((res:any) => {
-        console.log(res);
-        
+        this.loading = false;
         localStorage.setItem('auth',res.auth);
         localStorage.setItem('admissibleness',res.admissibleness);
         localStorage.setItem('name',res.name);
         this.router.navigate(['/platform/scales']);
+      },err=>{
+        this.error = err.error.message;
+        this.loading = false;
       })
   }
 

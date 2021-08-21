@@ -18,9 +18,12 @@
                     <mat-icon class="eye-password" (click)="changeTypePassword()">remove_red_eye</mat-icon>
                 </div>
                 <label [class]="passwordError">Password inválida</label>
+                <label class="notification">{{error}}</label>
                 <a [routerLink]="['/account/recovery']">Olvidé mi contraseña</a>
                 <div class="content-input-logo">
-                    <button class="button-primary" (click)="sendData()">Enviar</button>
+                    <button class="button-primary" (click)="sendData()">
+                        {{!loading?'Enviar':'Cargando ...'}}
+                    </button>
                 </div>
             </form>
             <a class="create-account" [routerLink]="['/account/register']">¿No tiene cuenta? Crear ahora</a>

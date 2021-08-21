@@ -29,19 +29,14 @@ export class MenuSideComponent implements OnInit {
   ];
   itemsInstitutions = [
     {
-      'link': '/scales/create',
+      'link': '/institutions/create',
       'title': 'Añadir',
       'icon': 'add_circle' 
     },
     {
-      'link': '/scales/edit',
-      'title': 'Editar',
-      'icon': 'edit' 
-    },
-    {
-      'link': '/scales/results',
-      'title': 'Resultados',
-      'icon': 'search' 
+      'link': '/institutions/update',
+      'title': 'Actualizar',
+      'icon': 'update' 
     }
   ];
   itemsApproved = [];
@@ -55,14 +50,17 @@ export class MenuSideComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.change("s");
+    if (this.router.url.split('/')[2]==="scales") {
+      this.change("s");
+    }else if(this.router.url.split('/')[2]==="institutions"){
+      this.change("i");
+    }
   }
   
   change(path){
     const admissibleness = localStorage.getItem('admissibleness');
     this.activateResponsive = false;
     if (admissibleness==="6465asd7#asd-1") {
-      
       if (path==='s') {
         this.itemsApproved = this.itemsScales;
         
