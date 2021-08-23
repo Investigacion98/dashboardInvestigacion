@@ -26,12 +26,12 @@
     <div class="container-input">
         <h3>Permisos</h3>
         <div *ngFor="let scale of scales;let i=index">
-            <input type="checkbox" [checked]="scale.checked" (click)="changeChecked(i)">
+            <input class="checkbox-permissions" type="checkbox" [checked]="scale.checked" (click)="changeChecked(i)">
             <label>{{scale.scale.title}}</label>
         </div>
     </div>
     <div class="container-buttons-institutions-create">
-        <button class="button-institutions color-green" (click)="sendInstitution()">{{institution?'Editar':'Crear'}}</button>
+        <button class="button-institutions color-green" (click)="sendInstitution()">{{institution?'Actualizar':'Crear'}}</button>
     </div>
 </div>
 

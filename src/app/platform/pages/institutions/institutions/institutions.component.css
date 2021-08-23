@@ -113,6 +113,12 @@ h3 {
     font-size: 1em;
 }
 
+.checkbox-permissions {
+    margin: 0 20px;
+    width: 15px;
+    height: 15px;
+}
+
 .x {
     background-color: transparent;
     border: 1px solid rgba(129, 127, 127, 0.76);

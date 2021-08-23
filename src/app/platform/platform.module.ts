@@ -13,8 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FiltroComponent } from './pages/filtro/filtro.component';
 import { ResultStudentComponent } from './pages/result-student/result-student.component';
 import { ExcelComponent } from './pages/excel/excel.component';
-import { InstitutionsComponent } from './pages/institutions/institutions/institutions.component';
-import { UpdateInstitutionComponent } from './pages/institutions/update-institution/update-institution.component';
+import { InstitutionsModule } from './pages/institutions/institutions.module';
 
 
 @NgModule({
@@ -29,8 +28,6 @@ import { UpdateInstitutionComponent } from './pages/institutions/update-institut
     FiltroComponent,
     ResultStudentComponent,
     ExcelComponent,
-    InstitutionsComponent,
-    UpdateInstitutionComponent
   ],
   exports: [
     ToolbarComponent
@@ -39,7 +36,8 @@ import { UpdateInstitutionComponent } from './pages/institutions/update-institut
     PlatformRoutingModule,
     CommonModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    InstitutionsModule
   ]
 })
 export class PlatformModule { }

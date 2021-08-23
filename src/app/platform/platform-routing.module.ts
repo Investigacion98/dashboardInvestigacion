@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { InstitutionsComponent } from './pages/institutions/institutions/institutions.component';
-import { UpdateInstitutionComponent } from './pages/institutions/update-institution/update-institution.component';
 import { ScalesCreateComponent } from './pages/scales-create/scales-create.component';
 import { ScalesEditComponent } from './pages/scales-edit/scales-edit.component';
 import { ScalesResultsComponent } from './pages/scales-results/scales-results.component';
@@ -25,12 +23,8 @@ const routes:Routes = [
         component: ScalesResultsComponent
       },
       {
-        path: 'institutions/create',
-        component: InstitutionsComponent
-      },
-      {
-        path: 'institutions/update',
-        component: UpdateInstitutionComponent
+        path: 'institutions',
+        loadChildren: ()=>import('./pages/institutions/institutions.module').then(m=>m.InstitutionsModule)
       },
       {
         path: '**',
