@@ -4,9 +4,6 @@ import { AuthGuard } from './components/auth.guard';
 import { HomePrincipalComponent } from './components/home-principal/home-principal.component';
 
 const auth = localStorage.getItem('auth');
-// console.log(auth);
-
-
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='./platform')
+    loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module').then(m => document.location.href='./platform/results')
   },
   {
     path: 'platform',

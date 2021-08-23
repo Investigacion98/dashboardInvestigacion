@@ -39,6 +39,18 @@ export class MenuSideComponent implements OnInit {
       'icon': 'update' 
     }
   ];
+  itemsUsers = [
+    {
+      'link': '/users/authorization',
+      'title': 'Autorizar',
+      'icon': 'playlist_add_check' 
+    },
+    {
+      'link': '/users/changeRole',
+      'title': 'Cambiar rol',
+      'icon': 'swap_horizontal_circle' 
+    }
+  ];
   itemsApproved = [];
 
   constructor(private router:Router) {
@@ -54,6 +66,8 @@ export class MenuSideComponent implements OnInit {
       this.change("s");
     }else if(this.router.url.split('/')[2]==="institutions"){
       this.change("i");
+    }else if(this.router.url.split('/')[2]==="users"){
+      this.change("u");
     }
   }
   
@@ -63,11 +77,18 @@ export class MenuSideComponent implements OnInit {
     if (admissibleness==="6465asd7#asd-1") {
       if (path==='s') {
         this.itemsApproved = this.itemsScales;
-        
       }else if(path==='i'){
         this.itemsApproved = this.itemsInstitutions;
+      }else if(path==='u'){
+        this.itemsApproved = this.itemsUsers;
       }
-      
+    }else if(admissibleness==="1201fpj4/tmq-1"){
+      if (path==='s') {
+        const array = [this.itemsScales[2]];
+        this.itemsApproved = array;
+      }else if(path==='u'){
+        this.itemsApproved = this.itemsUsers;
+      }
     }
   }
   

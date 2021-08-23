@@ -13,6 +13,8 @@ export class AuthGuard implements CanActivate, CanLoad {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if(!localStorage.getItem("auth")){
+      localStorage.setItem("admissibleness","");
+      localStorage.setItem("name","");
       return false;
     }
     return true;
@@ -21,6 +23,8 @@ export class AuthGuard implements CanActivate, CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     if(!localStorage.getItem("auth")){
+      localStorage.setItem("admissibleness","");
+      localStorage.setItem("name","");
       this.router.navigate(['./account'])
       return false;
     }

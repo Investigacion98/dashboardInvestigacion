@@ -14,7 +14,7 @@ import { FiltroComponent } from './pages/filtro/filtro.component';
 import { ResultStudentComponent } from './pages/result-student/result-student.component';
 import { ExcelComponent } from './pages/excel/excel.component';
 import { InstitutionsModule } from './pages/institutions/institutions.module';
-
+import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { InstitutionsModule } from './pages/institutions/institutions.module';
     CommonModule,
     MaterialModule,
     FormsModule,
-    InstitutionsModule
+    InstitutionsModule,
+    UsersModule
   ]
 })
 export class PlatformModule { }

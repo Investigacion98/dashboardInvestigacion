@@ -12,7 +12,7 @@ export class ToolbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const nameVar = localStorage.getItem("name");
+    const nameVar = localStorage.getItem("name").split(" ")[0];
     if(nameVar){
       this.name = "¡Hola "+nameVar+"!";
     }

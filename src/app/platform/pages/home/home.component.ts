@@ -7,14 +7,8 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  updateText = "Escalas";
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  update(e){
-    this.updateText = e; 
   }
 }
