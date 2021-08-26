@@ -62,4 +62,22 @@ export class PlatformService {
     const headers = new HttpHeaders({"auth":auth});
     return this.http.get<any>(`${environment.baseURL}/institutions/unique/${code}`,{headers});
   }
+
+  getUsersAdmin(id) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/platform/admin/toAuthorize/${id}`,{headers});
+  }
+
+  getUsersAlly(id) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/platform/ally/toAuthorize/${id}`,{headers});
+  }
+
+  sendUpdateUsersRol(users) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.post<any>(`${environment.baseURL}/platform/updateRole`,users,{headers});
+  }
 }

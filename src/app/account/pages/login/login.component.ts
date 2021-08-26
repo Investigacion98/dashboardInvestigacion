@@ -33,10 +33,14 @@ export class LoginComponent implements OnInit {
     this.loginService.postUser(newUser)
       .subscribe((res:any) => {
         this.loading = false;
-        localStorage.setItem('auth',res.auth);
-        localStorage.setItem('admissibleness',res.admissibleness);
-        localStorage.setItem('name',res.name);
-        this.router.navigate(['/platform/scales']);
+        if (res.admissibleness!==undefined) {
+          localStorage.setItem('auth',res.auth);
+          localStorage.setItem('admissibleness',res.admissibleness);
+          localStorage.setItem('name',res.name);
+          this.router.navigate(['/platform/scales']);
+        }else{
+          this.error = `Usuario en espera de autorización`;
+        }
       },err=>{
         this.error = err.error.message;
         this.loading = false;

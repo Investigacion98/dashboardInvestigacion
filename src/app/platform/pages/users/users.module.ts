@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { ChangeRoleComponent } from './change-role/change-role.component';
-
-
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { ChangeRoleComponent } from './change-role/change-role.component';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule,
+    MaterialModule
   ]
 })
 export class UsersModule { }
