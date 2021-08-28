@@ -23,7 +23,7 @@ export class ScalesResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.platformService.getScalesResults()
-      .subscribe(res=>{
+      .subscribe(res=>{        
         this.scales=res.scaleResults;        
         this.typesOfQUalification=res.typesOfQualification;
         for (let i = 0; i < res.scaleResults.length; i++) {

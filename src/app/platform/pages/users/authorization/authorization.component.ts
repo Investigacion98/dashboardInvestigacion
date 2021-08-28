@@ -17,11 +17,13 @@ export class AuthorizationComponent implements OnInit {
   messageActivate: boolean = false;
   messageTitle: string = '';
   messageInfo: string = '';
+  loading:boolean = false;
 
   constructor(private platformService:PlatformService) { }
 
   ngOnInit(): void {
     var idReqSend = "2";
+    this.loading = true;
     if (this.idReq!==undefined) {
       idReqSend = "1";
     }
@@ -29,12 +31,19 @@ export class AuthorizationComponent implements OnInit {
       this.platformService.getUsersAdmin(idReqSend)
         .subscribe(res=>{
           this.users = res.users;
+          this.loading = false;
+        },err=>{
+          this.loading = false;
+          
         })
-      this.style = 'admin';
+        this.style = 'admin';
     }else if(localStorage.getItem("admissibleness")==="1201fpj4/tmq-1"){
       this.platformService.getUsersAlly(idReqSend)
         .subscribe(res=>{
           this.users = res.users;
+          this.loading = false;
+        },err=>{
+          this.loading = false;
         })
       this.style = 'ally';
     }

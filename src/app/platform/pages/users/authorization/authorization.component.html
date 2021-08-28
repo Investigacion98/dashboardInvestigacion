@@ -1,6 +1,7 @@
 <div class="container-users">
     <ul class="list-items">
-        <div *ngIf="users.length===0" class="item" style="justify-content: center;">Vacio</div>
+        <div *ngIf="users.length===0 && !loading" class="item" style="justify-content: center;">Vacio</div>
+        <div class="loading" *ngIf="loading"><mat-spinner></mat-spinner></div>
         <li class="item" *ngFor="let user of users;let i=index">
             <label>
                 {{user.name}}

@@ -15,8 +15,7 @@ export class ResultStudentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {  
-    
+  ngOnInit(): void {
   }
 
   more() {

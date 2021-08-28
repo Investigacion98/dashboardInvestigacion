@@ -56,6 +56,8 @@ export class FiltroComponent implements OnInit {
   constructor(private platformService:PlatformService) {  }
   
   ngOnInit(): void {
+    const admissibleness = localStorage.getItem("admissibleness");
+    
     this.platformService.getFilterData()
     .subscribe(res=>{
       var institutions = res.institutions;
@@ -109,6 +111,10 @@ export class FiltroComponent implements OnInit {
 
        if(localStorage.getItem('filterElements')!==null){
          this.buttons = JSON.parse(localStorage.getItem('filterElements'));
+       }
+       if(admissibleness==="1201fpj4/tmq-1"){
+        this.buttonsFilter.splice(0,1);
+        this.buttonsFilter.splice(3,1);
        }
        for (let i = 0; i < this.buttons.length; i++) {
          this.buttonsFilter.splice(this.getIndex(this.buttons[i].name),1);

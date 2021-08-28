@@ -89,6 +89,11 @@ export class MenuSideComponent implements OnInit {
       }else if(path==='u'){
         this.itemsApproved = this.itemsUsers;
       }
+    }else if(admissibleness==="8435dpe1+nrs-3"){
+      if (path==='s') {
+        const array = [this.itemsScales[2]];
+        this.itemsApproved = array;
+      }
     }
   }
   

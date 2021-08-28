@@ -26,6 +26,8 @@ export class ToolbarComponent implements OnInit {
   ]
   generatetabs = [];
 
+  visibleFloatingMenu:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,6 +37,21 @@ export class ToolbarComponent implements OnInit {
     }else if(admissibleness==="1201fpj4/tmq-1"){
       const array = [this.tabs[0],this.tabs[2]];
       this.generatetabs = array;
+    }else if(admissibleness==="8435dpe1+nrs-3"){
+      const array = [this.tabs[0]];
+      this.generatetabs = array;
     }
+  }
+
+  dropdownMenu() {
+    this.visibleFloatingMenu = !this.visibleFloatingMenu;
+  }
+
+  signOff() {
+    localStorage.removeItem("name");
+    localStorage.removeItem("admissibleness");
+    localStorage.removeItem("auth");
+    localStorage.removeItem("scaleTemp");
+    window.location.reload();
   }
 }
