@@ -11,6 +11,7 @@ export class ExcelComponent implements OnInit {
 
   @Input() data;
   @Input() scales;
+  @Input() typesOfQUalification;
   processedData = [];
   // table = [
   //   {
@@ -31,8 +32,6 @@ export class ExcelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data);
-    console.log(this.scales);
     for (let i = 0; i < this.data.length; i++) {
       var student = {}
       student['nombre']= this.data[i].name;
@@ -42,15 +41,26 @@ export class ExcelComponent implements OnInit {
       student['zonaResidencia']= this.data[i].residenceSector;
       for (let m = 0; m < this.data[i].resultsCodeScale.length; m++) {
         var scaleWithCode = this.getIndexScale(this.data[i].resultsCodeScale[m]);
+        var answerForm = parseInt(this.scales[scaleWithCode].answerForm);
+        var indexCodeType;
+        for (let p = 0; p < this.typesOfQUalification.length; p++) {
+          if (parseInt(this.typesOfQUalification[p].codeType)===answerForm) {
+            indexCodeType = p;
+          }
+        }
         for (let j = 0; j < this.scales[scaleWithCode].questions.length; j++) {
-          student[(j+1)+'.'+this.scales[scaleWithCode].questions[j].textQuestion]=this.data[i].resultsScale[m][j];      
+          var valueQuestionsASCII = parseInt(this.data[i].resultsScale[m][j].charCodeAt(0));
+          if (this.scales[scaleWithCode].questions[j].typeOfQuestion==='D') {
+            student[(j+1)+'.'+this.scales[scaleWithCode].questions[j].textQuestion]=valueQuestionsASCII-97;
+          }else{
+            student[(j+1)+'.'+this.scales[scaleWithCode].questions[j].textQuestion]=parseInt(this.typesOfQUalification[indexCodeType].value)-valueQuestionsASCII+97;
+
+          }
         }
       }
       student['resultadoTotal']= this.data[i].resultsOverallResult[0];
       this.processedData.push(student);
     }
-    console.log(this.processedData);
-    
   }
   
   getIndexScale(codeScale){

@@ -1,0 +1,12 @@
+<div class="container-card-option" *ngIf="activate">
+    <div class="card-option" [routerLink]="['/account/register/student']">
+        <mat-icon class="option-icon-user">account_circle</mat-icon>
+        student
+    </div>
+    <div class="card-option" [routerLink]="['/account/register/administrator']">
+        <mat-icon class="option-icon-user">supervised_user_circle</mat-icon>
+        admin
+    </div>
+</div>
+
+<router-outlet ></router-outlet>

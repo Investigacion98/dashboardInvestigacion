@@ -33,7 +33,7 @@
 </div>
 <div *ngIf="activateExcel" class="container-graph">
     <h3>Generar archivo de excel</h3>
-    <app-excel [data]="studentsResultsAux" [scales]="scales"></app-excel>
+    <app-excel [data]="studentsResultsAux" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-excel>
 </div>
 <div *ngIf="activateGraph" class="container-graph">
     <h3>Gráfica</h3>

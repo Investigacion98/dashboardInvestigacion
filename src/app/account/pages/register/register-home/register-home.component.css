@@ -1,0 +1,44 @@
+.container-card-option {
+    display: flex;
+    /* width: ; */
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-option {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background-login);
+    padding: 20px;
+    margin: 0 10%;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 20px;
+    text-align: center
+}
+
+.option-icon-user {
+    display: flex;
+    justify-content: center;
+    font-size: 15em;
+}
+
+.mat-icon {
+    display: flex;
+    height: auto;
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .container-card-option {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card-option {
+        margin: 20px 2%;
+        user-select: none;
+    }
+}

@@ -23,11 +23,9 @@ export class UpdateInstitutionComponent implements OnInit {
   }
 
   update() {
-    if(this.institutionSelect!=='-- Seleccione una institutición --'){
+    if(this.institutionSelect!=='-- Seleccione una institución --'){      
       this.platformServices.getInstitution(this.institutionSelect)
         .subscribe(res=>{
-          console.log(res.institution[0]);
-          
           this.institution=res.institution[0];
           this.activate = false;
         })    
