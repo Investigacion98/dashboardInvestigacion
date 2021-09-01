@@ -19,9 +19,25 @@
         [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
     <div *ngIf="activateResume" class="latest">
         <div class="resume">
+            <h3>Institución</h3>
+            <div *ngFor="let scale of scales;let i=index">
+                &#10148; Media {{scale.title}} {{'---- '+totalAverageScale[i]}}
+                <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
+                <ul class="list-items-factors">
+                    <li *ngFor="let factor of scale.factors,let j=index">{{factor}}: {{factorsScales[i][j]}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="activateResume" class="latest">
+        <div class="resume">
             <h3>Resumen</h3>
             <div *ngFor="let scale of scales;let i=index">
-                Promedio {{scale.title}} {{'---- '+totalAverage[i]}}
+                &#10148; Media {{scale.title}} {{'---- '+totalAverageScale[i]}}
+                <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
+                <ul class="list-items-factors">
+                    <li *ngFor="let factor of scale.factors,let j=index">{{factor}}: {{factorsScales[i][j]}}</li>
+                </ul>
             </div>
         </div>
     </div>

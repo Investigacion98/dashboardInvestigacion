@@ -13,22 +13,8 @@ export class ExcelComponent implements OnInit {
   @Input() scales;
   @Input() typesOfQUalification;
   processedData = [];
-  // table = [
-  //   {
-  //     First: 'one',
-  //     Second: 'two',
-  //     Third: 'three',
-  //     Forth: 'four',
-  //     Fifth: 'five'
-  //   },
-  //   {
-  //     First: 'un',
-  //     Second: 'deux',
-  //     Third: 'trois',
-  //     Forth: 'quatre',
-  //     Fifth: 'cinq'
-  //   },
-  // ];
+  activate:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -36,6 +22,7 @@ export class ExcelComponent implements OnInit {
       var student = {}
       student['nombre']= this.data[i].name;
       student['edad']= this.data[i].age;
+      student['sexo']= this.data[i].sex;
       student['institución']= this.data[i].institution[0];
       student['tipoInstitucion']= this.data[i].type[0];
       student['zonaResidencia']= this.data[i].residenceSector;
@@ -72,22 +59,27 @@ export class ExcelComponent implements OnInit {
   }
 
   generar() {
-    const ws_name = 'SomeSheet';
-    const wb: WorkBook = { SheetNames: [], Sheets: {} };
-    const ws: any = utils.json_to_sheet(this.processedData);
-    wb.SheetNames.push(ws_name);
-    wb.Sheets[ws_name] = ws;
-    const wbout = write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
-
-    function s2ab(s) {
-      const buf = new ArrayBuffer(s.length);
-      const view = new Uint8Array(buf);
-      for (let i = 0; i !== s.length; ++i) {
-        view[i] = s.charCodeAt(i) & 0xFF;
-      };
-      return buf;
+    this.activate = false;
+    if (this.data.length>0) {
+      const ws_name = 'SomeSheet';
+      const wb: WorkBook = { SheetNames: [], Sheets: {} };
+      const ws: any = utils.json_to_sheet(this.processedData);
+      wb.SheetNames.push(ws_name);
+      wb.Sheets[ws_name] = ws;
+      const wbout = write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+  
+      function s2ab(s) {
+        const buf = new ArrayBuffer(s.length);
+        const view = new Uint8Array(buf);
+        for (let i = 0; i !== s.length; ++i) {
+          view[i] = s.charCodeAt(i) & 0xFF;
+        };
+        return buf;
+      }
+  
+      saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), 'data.xlsx');
+    }else {
+      this.activate = true;
     }
-
-    saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), 'exported.xlsx');
   }
 }

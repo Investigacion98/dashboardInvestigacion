@@ -120,6 +120,15 @@
     background-color: transparent;
 }
 
+.label-info-factor {
+    display: flex;
+    margin: 10px 20px;
+}
+
+.list-items-factors {
+    margin: 0;
+}
+
 @media only screen and (max-width: 600px) {
     .container-list-data {
         display: none;

@@ -17,17 +17,26 @@ export class ScalesResultsComponent implements OnInit {
   studentsResultsAux:any = [];
   scales:any = [];
   typesOfQUalification:any = [];
-  totalAverage:number[] = [];
+  totalAverageScale:number[] = [];
+  factorsScales = [];
 
   constructor(private platformService:PlatformService) { }
 
   ngOnInit(): void {
     this.platformService.getScalesResults()
-      .subscribe(res=>{        
+      .subscribe(res=>{
         this.scales=res.scaleResults;        
         this.typesOfQUalification=res.typesOfQualification;
         for (let i = 0; i < res.scaleResults.length; i++) {
-          this.totalAverage.push(0);
+          this.totalAverageScale.push(0);
+        }
+        var arrayAux = [];
+        for (let i = 0; i < res.scaleResults.length; i++) {
+          arrayAux = [];
+          for (let j = 0; j < this.scales[i].factors.length; j++) {
+            arrayAux.push(0);
+          }
+          this.factorsScales.push(arrayAux);
         }
       })
   }
@@ -46,18 +55,30 @@ export class ScalesResultsComponent implements OnInit {
     .subscribe(res=>{
       this.studentResults=res.studentResults;
       this.loading = false;
-      var acum = 0;
+      var acum1 = 0;
+      var cont = 0;
       for (let i = 0; i < this.scales.length; i++) {
-        acum = 0;
+        acum1 = 0;
         for (let j = 0; j < res.studentResults.length; j++) {
           for (let k = 0; k < res.studentResults[j].resultsCodeScale.length; k++) {
             if (res.studentResults[j].resultsCodeScale[k]===this.scales[i].codeScale) {
-              acum = acum + parseInt(res.studentResults[j].resultsOverallResult[k]);
+              acum1 = acum1 + parseFloat(res.studentResults[j].resultsOverallResult[k]);
+              cont++;
+              for (let m = 0; m < res.studentResults[j].resultsPhases[k].length; m++) {
+                this.factorsScales[i][m] = this.factorsScales[i][m] + parseFloat(res.studentResults[j].resultsPhases[k][m]);
+              }
             }
           }
         }
-        if (acum!==0) {
-          this.totalAverage[i]=acum/res.studentResults.length;
+        if (acum1!==0) {
+          this.totalAverageScale[i]=acum1/parseFloat(res.studentResults.length);
+        }
+        if (cont!==0) {
+          for (let n = 0; n < this.factorsScales.length; n++) {
+            for (let m = 0; m < this.factorsScales[n].length; m++) {
+              this.factorsScales[n][m] = this.factorsScales[n][m]/parseFloat(res.studentResults.length);
+            }
+          }
         }
       }
     })    
