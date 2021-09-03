@@ -41,11 +41,13 @@ export class ExcelComponent implements OnInit {
             student[(j+1)+'.'+this.scales[scaleWithCode].questions[j].textQuestion]=valueQuestionsASCII-97;
           }else{
             student[(j+1)+'.'+this.scales[scaleWithCode].questions[j].textQuestion]=parseInt(this.typesOfQUalification[indexCodeType].value)-valueQuestionsASCII+97;
-
           }
         }
+        for (let l = 0; l < this.scales[scaleWithCode].factors.length; l++) {
+          student[this.scales[scaleWithCode].factors[l]] = this.data[i].resultsPhases[0][l];
+        }
+        student['resultadoTotal']= this.data[i].resultsOverallResult[0];
       }
-      student['resultadoTotal']= this.data[i].resultsOverallResult[0];
       this.processedData.push(student);
     }
   }
