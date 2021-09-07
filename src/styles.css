@@ -17,6 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-notifications-white-transparent: rgba(255, 255, 255, 0.719);
     --warn: rgb(173, 15, 15);
     --font-robot: Roboto, "Helvetica Neue", sans-serif;
+    --color-blue-degraded-1: #D4E6F1;
+    --color-blue-degraded-2: #A9CCE3;
+    --color-blue-degraded-3: #2980B9;
+    --color-blue-degraded-4: #1A5276;
+    --color-blue-degraded-5: #154360;
 }
 
 .button {

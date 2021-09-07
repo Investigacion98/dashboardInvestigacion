@@ -15,6 +15,8 @@ import { ResultStudentComponent } from './pages/result-student/result-student.co
 import { ExcelComponent } from './pages/excel/excel.component';
 import { InstitutionsModule } from './pages/institutions/institutions.module';
 import { UsersModule } from './pages/users/users.module';
+import { GraphComponent } from './pages/graph/graph.component';
+import { IndividualGraphComponent } from './pages/individual-graph/individual-graph.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,14 @@ import { UsersModule } from './pages/users/users.module';
     FiltroComponent,
     ResultStudentComponent,
     ExcelComponent,
+    GraphComponent,
+    IndividualGraphComponent,
   ],
   exports: [
     ToolbarComponent
   ],
   imports: [
+    CommonModule,
     PlatformRoutingModule,
     CommonModule,
     MaterialModule,

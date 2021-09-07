@@ -17,18 +17,56 @@
     </div>
     <app-result-student class="student-result" *ngFor="let studentResult of studentResults" 
         [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
-    <div *ngIf="activateResume" class="latest color-blue">
-        <div class="resume" *ngFor="let nameofInstitution of nameOfInstitutions;let i=index">
-            <h3>Medias: {{nameofInstitution}}</h3>
-            <div *ngFor="let scale of scales;let j=index">
-                &#10148; Media {{scale.title}} {{'---- '+totalAverageScaleInstitution[i][j]}}
-                <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
-                <ul class="list-items-factors">
-                    <li *ngFor="let factor of scale.factors,let k=index">{{factor}}: {{factorsScaleInstitution[i][j][k]}}</li>
-                </ul>
+    <div *ngIf="activateResume && activateAverageScaleInstitutions" class="latest color-blue">
+        <div class="option-to-view-results">
+            <button class="option-results-button" (click)="chageViewResults(1)">Por institución</button>
+            <button class="option-results-button" (click)="chageViewResults(2)">Por escala</button>
+        </div>
+        <div *ngIf="institutionOrScale">
+            <div class="resume" *ngFor="let nameofInstitution of nameOfInstitutions;let i=index">
+                <h3>Medias: {{nameofInstitution}}</h3>
+                <div *ngFor="let scale of scales;let j=index">
+                    &#10148; Media {{scale.title}} {{'---- '+totalAverageScaleInstitution[i][j]}}
+                    <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
+                    <ul class="list-items-factors">
+                        <li *ngFor="let factor of scale.factors,let k=index">{{factor}}: {{factorsScaleInstitution[i][j][k]}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!institutionOrScale">
+            <div class="table-with-title" *ngFor="let scale of scales;let i=index">
+                <div class="results-scales-title-center">
+                    <h2>{{scale.title}}</h2>
+                </div>
+                <div class="table">
+                    <div class="row" *ngIf="scale">
+                        <div class="column">
+                            Factor / Institucion
+                        </div>
+                        <div class="column" *ngFor="let factor of scale.factors" [title]="factor">
+                            {{factor}}
+                        </div>
+                        <div class="column">
+                            Total
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let institution of nameOfInstitutions;let j=index" [title]="institution">
+                        <div class="column">
+                            {{institution}}
+                        </div>
+                        <div class="column" *ngFor="let factor of scale.factors;let k=index" [title]="institution+' - '+factor">
+                            {{factorsScaleInstitution[j][i][k]}}
+                        </div>
+                        <div class="column">
+                            {{totalAverageScaleInstitution[j][i]}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div></div>
     <div *ngIf="activateResume" class="latest">
         <div class="resume">
             <h3>Resumen</h3>
@@ -53,7 +91,14 @@
 </div>
 <div *ngIf="activateGraph" class="container-graph">
     <h3>Gráfica</h3>
-    <div>asdf</div>
+    <app-graph class="app-graph" 
+        [scales]="scales"
+        [totalAverageScale]="totalAverageScale"
+        [factorsScales]="factorsScales"
+        [nameOfInstitutions]="nameOfInstitutions"
+        [totalAverageScaleInstitution]="totalAverageScaleInstitution"
+        [factorsScaleInstitution]="factorsScaleInstitution"
+        [numberOfStudents]="numberOfStudents"></app-graph>
 </div>
 <div *ngIf="loading" class="container-graph color-transparent">
     <mat-spinner></mat-spinner>

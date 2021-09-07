@@ -13,6 +13,8 @@ export class ScalesResultsComponent implements OnInit {
   activateExcel:boolean = false;
   activateResume:boolean = true;
   loading:boolean = false;
+  activateAverageScaleInstitutions:boolean = false;
+  institutionOrScale:boolean = true;
   studentResults:any = [];
   studentsResultsAux:any = [];
   scales:any = [];
@@ -30,8 +32,8 @@ export class ScalesResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.platformService.getScalesResults()
-      .subscribe(res=>{
-        this.scales=res.scaleResults;        
+    .subscribe(res=>{
+      this.scales=res.scaleResults;
         this.typesOfQUalification=res.typesOfQualification;
         for (let i = 0; i < res.scaleResults.length; i++) {
           this.totalAverageScale.push(0);
@@ -59,6 +61,10 @@ export class ScalesResultsComponent implements OnInit {
     this.totalAverageScaleInstitution = [];
     this.numberOfStudents = [];
     this.factorsScaleInstitution = [];
+    const admissibleness =  localStorage.getItem('admissibleness');
+    if(admissibleness==='6465asd7#asd-1' || admissibleness==='8435dpe1+nrs-3'){
+      this.activateAverageScaleInstitutions = true;
+    }
     
     if (filterElements===null || filterElements===undefined) {
       filterElements = [];
@@ -138,6 +144,14 @@ export class ScalesResultsComponent implements OnInit {
         }
       }
     })    
+  }
+
+  chageViewResults(id) {
+    if(id===1 && this.institutionOrScale===false){
+      this.institutionOrScale = !this.institutionOrScale;
+    }else if(id===2 && this.institutionOrScale===true){
+      this.institutionOrScale = !this.institutionOrScale;
+    }
   }
 
   fillInstitutionsAndFactors(institutions){

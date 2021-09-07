@@ -105,6 +105,38 @@
     padding: 25px 0;
 }
 
+.option-to-view-results {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--color-blue-degraded-5); */
+    padding: 5px 0;
+}
+
+.option-results-button {
+    display: flex;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--color-blue-degraded-5);
+    border: 1px solid var(--color-blue-degraded-5);
+    color: white;
+}
+
+.option-results-button:first-child {
+    border-radius: 20px 0 0 20px;
+}
+
+.option-results-button:last-child {
+    border-radius: 0 20px 20px 0;
+}
+
+.option-results-button:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--color-blue-degraded-5);
+}
+
 .resume {
     display: flex;
     flex-direction: column;
@@ -119,8 +151,8 @@
 }
 
 .color-blue {
-    background-color: var(--color-background-toolbar);
-    color: white;
+    background-color: var(--color-blue-degraded-1);
+    color: var(--color-blue-degraded-5);
 }
 
 .color-transparent {
@@ -134,6 +166,68 @@
 
 .list-items-factors {
     margin: 0;
+}
+
+.results-scales-title-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.results-scales-title-center>h2 {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.table {
+    display: flex;
+    /* background-color: tomato; */
+    width: 96%;
+    margin: 10px 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: turquoise; */
+    /* padding: 0 5px; */
+    justify-content: center;
+    align-items: center;
+    max-width: 185px;
+
+}
+
+.column {
+    display: inline-block;
+    /* flex-direction: row; */
+    /* background-color: yellowgreen; */
+    width: calc(100% - 22px);
+    /* margin: 5px 0; */
+    padding: 5px 10px;
+    margin: 0 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 2px solid var(--color-blue-degraded-4);
+
+    /* max-width: 100px; */
+}
+
+.column:nth-child(odd) {
+    background-color: var(--color-blue-degraded-2);
+}
+
+.column:first-child {
+    background-color: var(--color-blue-degraded-5);
+    color: var(--color-blue-degraded-1);
+}
+
+.app-graph {
+    display: flex;
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
