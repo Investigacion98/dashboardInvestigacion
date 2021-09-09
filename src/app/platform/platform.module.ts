@@ -17,6 +17,8 @@ import { InstitutionsModule } from './pages/institutions/institutions.module';
 import { UsersModule } from './pages/users/users.module';
 import { GraphComponent } from './pages/graph/graph.component';
 import { IndividualGraphComponent } from './pages/individual-graph/individual-graph.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { IndividualGraphComponent } from './pages/individual-graph/individual-gr
     MaterialModule,
     FormsModule,
     InstitutionsModule,
-    UsersModule
+    UsersModule,
+    ChartsModule
   ]
 })
 export class PlatformModule { }

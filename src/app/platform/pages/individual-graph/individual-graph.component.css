@@ -1,0 +1,13 @@
+.container-graph {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.size-graph {
+    width: 50%;
+    margin: 20px 25%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+}

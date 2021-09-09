@@ -1,0 +1,7 @@
+.container-graphs {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    height: auto;
+    margin: 20px 2%;
+}
