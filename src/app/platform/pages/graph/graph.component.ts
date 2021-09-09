@@ -16,11 +16,21 @@ export class GraphComponent implements OnInit {
   @Input() factorsScaleInstitution;
   @Input() numberOfStudents;
 
+  scalesNames = [];
+  typeOfPresentation: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.scales);
+    this.scalesNames = this.scales.map(scale=>{return scale.title});
+    console.log(this.factorsScaleInstitution[0][0]);
+    this.factorsScaleInstitution.map(inst=>console.log(inst[0][0]))
     
+  }
+
+  returnNewArray(i) {
+
+    this.factorsScaleInstitution.map(inst=>console.log(inst[0][0]))
   }
 
 }
