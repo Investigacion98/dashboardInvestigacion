@@ -17,16 +17,26 @@ export class GraphComponent implements OnInit {
   @Input() numberOfStudents;
 
   scalesNames = [];
-  typeOfPresentation: boolean = false;
+  typeOfPresentation: boolean = true;
+  admissibleness = '';
 
   constructor() { }
 
   ngOnInit(): void {
+    this.admissibleness = localStorage.getItem('admissibleness');
     this.scalesNames = this.scales.map(scale=>{return scale.title});
   }
 
   returnNewArrayInstitutions(i) {
     return this.factorsScaleInstitution.map(inst=>inst[i])
+  }
+
+  chageViewResults(id) {
+    if(id===1 && this.typeOfPresentation===false){
+      this.typeOfPresentation = !this.typeOfPresentation;
+    }else if(id===2 && this.typeOfPresentation===true){
+      this.typeOfPresentation = !this.typeOfPresentation;
+    }
   }
 
 }

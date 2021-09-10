@@ -44,9 +44,9 @@ export class ExcelComponent implements OnInit {
           }
         }
         for (let l = 0; l < this.scales[scaleWithCode].factors.length; l++) {
-          student[this.scales[scaleWithCode].factors[l]] = this.data[i].resultsPhases[0][l];
+          student[this.scales[scaleWithCode].factors[l]] = this.data[i].resultsPhases[m][l];
         }
-        student['resultadoTotal']= this.data[i].resultsOverallResult[0];
+        student[`resultadoTotal-${m+1}`]= this.data[i].resultsOverallResult[m];        
       }
       this.processedData.push(student);
     }

@@ -1,4 +1,8 @@
 <div class="container-graphs">
+    <div class="option-to-view-results" *ngIf="admissibleness==='6465asd7#asd-1' || admissibleness==='8435dpe1+nrs-3'">
+        <button class="option-results-button" (click)="chageViewResults(1)">Por institución</button>
+        <button class="option-results-button" (click)="chageViewResults(2)">Por escala</button>
+    </div>
     <div *ngIf="typeOfPresentation">
         <div *ngFor="let institution of nameOfInstitutions;let i=index">
             <div >

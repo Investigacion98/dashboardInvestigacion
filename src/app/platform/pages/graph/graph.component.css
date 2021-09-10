@@ -4,7 +4,6 @@
     width: 96%;
     height: auto;
     margin: 20px 2%;
-    
 }
 
 .title-graphs {
@@ -16,6 +15,39 @@
     background-color: var(--color-background-dark-green-no-transparency);
     border-radius: 20px;
 }
+
+.option-to-view-results {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--color-blue-degraded-5); */
+    padding: 5px 0;
+}
+
+.option-results-button {
+    display: flex;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--color-blue-degraded-5);
+    border: 1px solid var(--color-blue-degraded-5);
+    color: white;
+}
+
+.option-results-button:first-child {
+    border-radius: 20px 0 0 20px;
+}
+
+.option-results-button:last-child {
+    border-radius: 0 20px 20px 0;
+}
+
+.option-results-button:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--color-blue-degraded-5);
+}
+
 
 @media only screen and (max-width: 600px) {
     .container-graphs {
