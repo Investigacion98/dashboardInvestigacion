@@ -15,8 +15,8 @@
             <label>Escalas</label>
         </div>
     </div>
-    <app-result-student class="student-result" *ngFor="let studentResult of studentResults" 
-        [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-result-student>
+    <app-result-student class="student-result" *ngFor="let studentResult of studentResults;let i=index" 
+        [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification" [index]="(i+1)"></app-result-student>
     <div *ngIf="activateResume && activateAverageScaleInstitutions" class="latest color-blue">
         <div class="option-to-view-results">
             <button class="option-results-button" (click)="chageViewResults(1)">Por institución</button>

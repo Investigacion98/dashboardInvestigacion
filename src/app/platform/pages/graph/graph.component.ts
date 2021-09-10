@@ -23,14 +23,10 @@ export class GraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.scalesNames = this.scales.map(scale=>{return scale.title});
-    console.log(this.factorsScaleInstitution[0][0]);
-    this.factorsScaleInstitution.map(inst=>console.log(inst[0][0]))
-    
   }
 
-  returnNewArray(i) {
-
-    this.factorsScaleInstitution.map(inst=>console.log(inst[0][0]))
+  returnNewArrayInstitutions(i) {
+    return this.factorsScaleInstitution.map(inst=>inst[i])
   }
 
 }

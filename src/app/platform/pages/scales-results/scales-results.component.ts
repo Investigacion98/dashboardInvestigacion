@@ -101,6 +101,14 @@ export class ScalesResultsComponent implements OnInit {
         }
         this.fillInstitutionsAndFactors(Object.keys(obj));
       }
+      for (let a = 0; a < this.nameOfInstitutions.length; a++) {
+        for (let b = 0; b < res.studentResults.length; b++) {
+          if(res.studentResults[b].institution[0]===this.nameOfInstitutions[a]){
+            this.numberOfStudents[a]++;
+            cont++;
+          }
+        }
+      }
       for (let i = 0; i < this.scales.length; i++) {
         acum1 = 0.0;
         for (let j = 0; j < res.studentResults.length; j++) {
@@ -109,7 +117,7 @@ export class ScalesResultsComponent implements OnInit {
               for (let l = 0; l < this.nameOfInstitutions.length; l++) {
                 if(res.studentResults[j].institution[0]===this.nameOfInstitutions[l]){
                   this.totalAverageScaleInstitution[l][i] = this.totalAverageScaleInstitution[l][i] + parseFloat(res.studentResults[j].resultsOverallResult[k]);
-                  this.numberOfStudents[l]++;
+                  
                   for (let p = 0; p < res.studentResults[j].resultsPhases[k].length; p++) {
                     this.factorsScaleInstitution[l][i][p] = this.factorsScaleInstitution[l][i][p] + parseFloat(res.studentResults[j].resultsPhases[k][p]);
                   }
@@ -117,7 +125,6 @@ export class ScalesResultsComponent implements OnInit {
                 }
               }
               acum1 = acum1 + parseFloat(res.studentResults[j].resultsOverallResult[k]);
-              cont++;
               for (let m = 0; m < res.studentResults[j].resultsPhases[k].length; m++) {
                 this.factorsScales[i][m] = this.factorsScales[i][m] + parseFloat(res.studentResults[j].resultsPhases[k][m]);
               }

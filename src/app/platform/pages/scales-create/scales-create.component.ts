@@ -97,7 +97,7 @@ export class ScalesCreateComponent implements OnInit {
       }
       this.messageActivate = true;
       this.messageTitle = 'Enviando información';
-      this.messageInfo = `Espere un momento ...`;
+      this.messageInfo = `Espere un momento ...`;      
       this.platformServices.sendScale(sendJson,this.code)
         .subscribe(res => {
           this.messageActivate = true;

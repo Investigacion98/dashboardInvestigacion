@@ -10,6 +10,7 @@ export class ResultStudentComponent implements OnInit {
   @Input() data;
   @Input() scales;
   @Input() typesOfQUalification;
+  @Input() index;
 
   visible:boolean = false;
 
