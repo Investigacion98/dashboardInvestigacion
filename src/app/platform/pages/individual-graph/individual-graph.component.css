@@ -2,12 +2,29 @@
     display: flex;
     width: 100%;
     height: auto;
+    
 }
 
 .size-graph {
     width: 50%;
-    margin: 20px 25%;
+    margin: 20px calc(25% - 20px);
     background-color: white;
     padding: 20px;
     border-radius: 30px;
+    overflow: scroll;
+}
+
+.canvas-graph {
+    min-width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+    .size-graph {
+        width: 98%;
+        /* height: 300px; */
+        margin: 20px 0;
+        background-color: white;
+        padding: 10px 1%;
+        border-radius: 30px;
+    }
 }

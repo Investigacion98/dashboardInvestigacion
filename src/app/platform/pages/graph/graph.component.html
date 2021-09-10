@@ -17,6 +17,7 @@
     </div>
     <div *ngIf="!typeOfPresentation">
         <div *ngFor="let scale of scales;let j=index">
+            <h2 class="title-graphs">Media de cada factor por institución - {{scale.title}}</h2>  
             <app-individual-graph [barChartLabels]="scale.factors" 
                                 [data]="returnNewArrayInstitutions(0)"
                                 [series]="nameOfInstitutions"></app-individual-graph>

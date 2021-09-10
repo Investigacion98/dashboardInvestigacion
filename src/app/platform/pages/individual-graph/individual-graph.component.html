@@ -1,11 +1,13 @@
 <div class="container-graph">
-  <div style="display: block" class="size-graph">
-    <canvas baseChart
-      [datasets]="barChartData"
-      [labels]="barChartLabels"
-      [options]="barChartOptions"
-      [legend]="barChartLegend"
-      [chartType]="barChartType">
-    </canvas>
+  <div class="size-graph">
+    <div style="display: block" class="canvas-graph">
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
   </div>
 </div>
