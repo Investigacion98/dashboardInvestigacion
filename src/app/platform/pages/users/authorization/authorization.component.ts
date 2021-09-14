@@ -18,6 +18,7 @@ export class AuthorizationComponent implements OnInit {
   messageTitle: string = '';
   messageInfo: string = '';
   loading:boolean = false;
+  institutions = [];
 
   constructor(private platformService:PlatformService) { }
 
@@ -32,6 +33,10 @@ export class AuthorizationComponent implements OnInit {
         .subscribe(res=>{
           this.users = res.users;
           this.loading = false;
+          this.platformService.getInstitutionsUpdate()
+            .subscribe(inst=>{
+              this.institutions = inst.institutions;
+            })
         },err=>{
           this.loading = false;
           
@@ -58,6 +63,7 @@ export class AuthorizationComponent implements OnInit {
         break;
       }
     }
+    
     if (flag) {
       this.usersSend.push(this.users[index])
     }
@@ -67,13 +73,20 @@ export class AuthorizationComponent implements OnInit {
     if (this.usersSend.length>0) {
       var arrayAux = [];
       for (let i = 0; i < this.usersSend.length; i++) {
+        var inst = "";
+        if(this.getCodeInstitution(this.usersSend[i].institution)===undefined){
+          inst = this.usersSend[i].institution[0];
+        }else{
+          inst = this.usersSend[i].institution;
+        }
         arrayAux.push({
           "id": this.usersSend[i]._id,
+          "institution": this.getCodeInstitution(inst),
           "role": this.usersSend[i].role
         });
       }
       this.messageActivate = true;
-      this.messageTitle = "Enviando información";
+      this.messageTitle = "Enviando información";      
       this.platformService.sendUpdateUsersRol(arrayAux)
         .subscribe(res=>{
           this.messageInfo = res.info;
@@ -89,5 +102,13 @@ export class AuthorizationComponent implements OnInit {
     this.messageActivate = false;
     this.messageInfo = '';
     window.location.reload();
+  }
+
+  getCodeInstitution(nameInstitution) {
+    for (let i = 0; i < this.institutions.length; i++) {
+      if(this.institutions[i].name===nameInstitution){
+        return this.institutions[i].code;
+      }
+    }
   }
 }

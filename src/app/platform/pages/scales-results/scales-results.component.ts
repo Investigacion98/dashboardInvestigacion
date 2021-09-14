@@ -19,6 +19,7 @@ export class ScalesResultsComponent implements OnInit {
   studentsResultsAux:any = [];
   scales:any = [];
   typesOfQUalification:any = [];
+  scalesFilter = [];
 
   totalAverageScale:number[] = [];
   factorsScales = [];
@@ -61,6 +62,7 @@ export class ScalesResultsComponent implements OnInit {
     this.totalAverageScaleInstitution = [];
     this.numberOfStudents = [];
     this.factorsScaleInstitution = [];
+    this.scalesFilter = [];
     const admissibleness =  localStorage.getItem('admissibleness');
     if(admissibleness==='6465asd7#asd-1' || admissibleness==='8435dpe1+nrs-3'){
       this.activateAverageScaleInstitutions = true;
@@ -90,6 +92,31 @@ export class ScalesResultsComponent implements OnInit {
     }
     this.platformService.getResults(filterElements)
     .subscribe(res=>{
+      const arrayFilter = JSON.parse(localStorage.getItem('filterElements'));
+      for (let e = 0; e < arrayFilter.length; e++) {
+        if(arrayFilter[e].name==='Escalas'){
+          const scales = arrayFilter[e];
+          for (let f = 0; f < scales.options.length; f++) { 
+            if(scales.options[f].checked===true){
+              this.scalesFilter.push(scales.options[f].name);
+            }          
+          }
+        }
+      }
+      for (let u = 0; u < res.studentResults.length; u++) {
+        for (let w = 0; w < res.studentResults[u].resultsTitleScale.length; w++) {
+          var nameScale = res.studentResults[u].resultsTitleScale[w];
+          if(this.verifyScaleFilter(nameScale)===false){
+            res.studentResults[u].resultsTitleScale.splice(w,1);
+            res.studentResults[u].resultsOverallResult.splice(w,1);
+            res.studentResults[u].resultsPhases.splice(w,1);
+            res.studentResults[u].resultsScale.splice(w,1);
+            res.studentResults[u].resultsCodeScale.splice(w,1);
+            w = -1;
+          }
+        }
+      }
+      
       this.studentResults=res.studentResults;
       this.loading = false;
       var acum1 = 0.0;
@@ -113,6 +140,7 @@ export class ScalesResultsComponent implements OnInit {
         acum1 = 0.0;
         for (let j = 0; j < res.studentResults.length; j++) {
           for (let k = 0; k < res.studentResults[j].resultsCodeScale.length; k++) {
+
             if (res.studentResults[j].resultsCodeScale[k]===this.scales[i].codeScale) {
               for (let l = 0; l < this.nameOfInstitutions.length; l++) {
                 if(res.studentResults[j].institution[0]===this.nameOfInstitutions[l]){
@@ -151,6 +179,15 @@ export class ScalesResultsComponent implements OnInit {
         }
       }
     })    
+  }
+
+  verifyScaleFilter(nameInstitution){
+    for (let i = 0; i < this.scalesFilter.length; i++) {
+      if(nameInstitution===this.scalesFilter[i]){
+        return true;
+      }
+    }
+    return false;
   }
 
   chageViewResults(id) {

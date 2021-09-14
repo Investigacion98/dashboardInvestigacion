@@ -6,9 +6,12 @@
             <label>
                 {{user.name}}
             </label>
-            <label>
+            <label *ngIf="style==='ally'">
                 {{user.institution}}
             </label>
+            <select class="select-list-item" *ngIf="style==='admin'" [(ngModel)]="user.institution" (change)="changeSelect(i)">
+                <option [value]="inst.name" *ngFor="let inst of institutions">{{inst.name}}</option>
+            </select>
             <select class="select-list-item" *ngIf="style==='admin'" [(ngModel)]="user.role" (change)="changeSelect(i)">
                 <option value="SpAdmin">SuperAdmin</option>
                 <option value="Admin">Administrador</option>
