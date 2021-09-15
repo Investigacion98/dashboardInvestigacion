@@ -18,6 +18,7 @@ import { UsersModule } from './pages/users/users.module';
 import { GraphComponent } from './pages/graph/graph.component';
 import { IndividualGraphComponent } from './pages/individual-graph/individual-graph.component';
 import { ChartsModule } from 'ng2-charts';
+import { IndividualResultsComponent } from './pages/individual-results/individual-results.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ChartsModule } from 'ng2-charts';
     ExcelComponent,
     GraphComponent,
     IndividualGraphComponent,
+    IndividualResultsComponent,
   ],
   exports: [
     ToolbarComponent
@@ -46,7 +48,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     InstitutionsModule,
     UsersModule,
-    ChartsModule
+    ChartsModule,
   ]
 })
 export class PlatformModule { }

@@ -25,6 +25,11 @@ export class MenuSideComponent implements OnInit {
       'link': '/scales/results',
       'title': 'Resultados',
       'icon': 'search' 
+    },
+    {
+      'link': '/scales/resultsIndividual',
+      'title': 'Individual',
+      'icon': 'find_in_page' 
     }
   ];
   itemsInstitutions = [
@@ -91,7 +96,7 @@ export class MenuSideComponent implements OnInit {
       }
     }else if(admissibleness==="8435dpe1+nrs-3"){
       if (path==='s') {
-        const array = [this.itemsScales[2]];
+        const array = [this.itemsScales[2],this.itemsScales[3]];
         this.itemsApproved = array;
       }
     }

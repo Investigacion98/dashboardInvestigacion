@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OnlyAdminGuard } from './guards/only-admin.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { IndividualResultsComponent } from './pages/individual-results/individual-results.component';
 import { ScalesCreateComponent } from './pages/scales-create/scales-create.component';
 import { ScalesEditComponent } from './pages/scales-edit/scales-edit.component';
 import { ScalesResultsComponent } from './pages/scales-results/scales-results.component';
@@ -26,6 +27,10 @@ const routes:Routes = [
       {
         path: 'scales/results',
         component: ScalesResultsComponent
+      },
+      {
+        path: 'scales/resultsIndividual',
+        component: IndividualResultsComponent
       },
       {
         path: 'institutions',

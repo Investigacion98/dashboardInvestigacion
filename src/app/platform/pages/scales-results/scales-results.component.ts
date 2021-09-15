@@ -92,27 +92,31 @@ export class ScalesResultsComponent implements OnInit {
     }
     this.platformService.getResults(filterElements)
     .subscribe(res=>{
+      var flag = false;
       const arrayFilter = JSON.parse(localStorage.getItem('filterElements'));
       for (let e = 0; e < arrayFilter.length; e++) {
         if(arrayFilter[e].name==='Escalas'){
           const scales = arrayFilter[e];
           for (let f = 0; f < scales.options.length; f++) { 
             if(scales.options[f].checked===true){
+              flag=true;
               this.scalesFilter.push(scales.options[f].name);
             }          
           }
         }
       }
-      for (let u = 0; u < res.studentResults.length; u++) {
-        for (let w = 0; w < res.studentResults[u].resultsTitleScale.length; w++) {
-          var nameScale = res.studentResults[u].resultsTitleScale[w];
-          if(this.verifyScaleFilter(nameScale)===false){
-            res.studentResults[u].resultsTitleScale.splice(w,1);
-            res.studentResults[u].resultsOverallResult.splice(w,1);
-            res.studentResults[u].resultsPhases.splice(w,1);
-            res.studentResults[u].resultsScale.splice(w,1);
-            res.studentResults[u].resultsCodeScale.splice(w,1);
-            w = -1;
+      if(flag===true){
+        for (let u = 0; u < res.studentResults.length; u++) {
+          for (let w = 0; w < res.studentResults[u].resultsTitleScale.length; w++) {
+            var nameScale = res.studentResults[u].resultsTitleScale[w];
+            if(this.verifyScaleFilter(nameScale)===false){
+              res.studentResults[u].resultsTitleScale.splice(w,1);
+              res.studentResults[u].resultsOverallResult.splice(w,1);
+              res.studentResults[u].resultsPhases.splice(w,1);
+              res.studentResults[u].resultsScale.splice(w,1);
+              res.studentResults[u].resultsCodeScale.splice(w,1);
+              w--;
+            }
           }
         }
       }
