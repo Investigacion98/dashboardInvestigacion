@@ -1,5 +1,5 @@
 <div class="container-search-user">
-    <h2>Buscar por nombre de estudiante</h2>
+    <h2 class="h2-container-search-user">Búsqueda de estudiante por nombre</h2>
     <div class="search-user-mat">
         <mat-form-field class="search-user-mat-form">
             <input type="text" class="size-input-scales"
@@ -8,6 +8,7 @@
                    [(ngModel)]="termino"
                    [matAutocomplete]="auto"
                    (input)="buscando()">
+            <button class="x-close" (click)="delete()">x</button>
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="search($event)">
                 <mat-option *ngIf="options.length===0 && termino.length>0">
                     No se a encontrado ' {{termino}} '
@@ -17,5 +18,36 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
+    </div>
+    <div class="content-student-results" *ngIf="dataStudentFlag">
+        <div>
+            <label>Nombre: </label>
+            <spam>{{dataStudent.name}}</spam>
+        </div>
+        <div>
+            <label>Edad: </label>
+            <spam>{{dataStudent.age}}</spam>
+        </div>
+        <div>
+            <label>Curso: </label>
+            <spam>{{dataStudent.course}}</spam>
+        </div>
+        <div>
+            <label>Sexo: </label>
+            <spam>{{dataStudent.sex}}</spam>
+        </div>
+        <div>
+            <label>Correo: </label>
+            <spam>{{dataStudent.email}}</spam>
+        </div>
+        <div>
+            <label>Sector de residencia: </label>
+            <spam>{{dataStudent.residenceSector}}</spam>
+        </div>
+        <div>
+            <label>Institución: </label>
+            <spam>{{dataStudent.institution}}</spam>
+        </div>
+        <app-result-student [data]="dataStudent" [scales]="scales" [typesOfQUalification]="0" [index]="1"></app-result-student>
     </div>
 </div>

@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.h2-container-search-user {
+    margin: 30px 0 10px 0;
+}
+
 .search-user-mat {
     display: flex;
     width: 100%;
@@ -16,6 +20,18 @@
 .search-user-mat-form {
     width: 96%;
     margin: 10px 2%;
+    position: relative;
+}
+
+.x-close {
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    color: var(--warn);
+    cursor: pointer;
 }
 
 .size-input-scales {

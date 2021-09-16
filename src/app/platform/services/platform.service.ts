@@ -80,4 +80,16 @@ export class PlatformService {
     const headers = new HttpHeaders({"auth":auth});
     return this.http.post<any>(`${environment.baseURL}/platform/updateRole`,users,{headers});
   }
+
+  getNameStudents() {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.get<any>(`${environment.baseURL}/platform/namesStudents`,{headers});
+  }
+
+  getDataStudent(nameStudent) {
+    const auth = localStorage.getItem("auth");
+    const headers = new HttpHeaders({"auth":auth});
+    return this.http.post<any>(`${environment.baseURL}/platform/dataStudent`,nameStudent,{headers});
+  }
 }
