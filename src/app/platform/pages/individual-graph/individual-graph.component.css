@@ -5,8 +5,8 @@
 }
 
 .size-graph {
-    width: 50%;
-    margin: 20px calc(25% - 20px);
+    /* width: 100%;
+    margin: 20px calc(25% - 20px); */
     background-color: white;
     padding: 20px;
     border-radius: 30px;
@@ -22,7 +22,7 @@
         margin: 20px 0;
         background-color: white;
         padding: 10px 1%;
-        border-radius: 30px;
+        border-radius: 10px;
         overflow: scroll;
     }
 }

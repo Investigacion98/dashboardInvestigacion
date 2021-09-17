@@ -20,34 +20,6 @@
         </mat-form-field>
     </div>
     <div class="content-student-results" *ngIf="dataStudentFlag">
-        <div>
-            <label>Nombre: </label>
-            <spam>{{dataStudent.name}}</spam>
-        </div>
-        <div>
-            <label>Edad: </label>
-            <spam>{{dataStudent.age}}</spam>
-        </div>
-        <div>
-            <label>Curso: </label>
-            <spam>{{dataStudent.course}}</spam>
-        </div>
-        <div>
-            <label>Sexo: </label>
-            <spam>{{dataStudent.sex}}</spam>
-        </div>
-        <div>
-            <label>Correo: </label>
-            <spam>{{dataStudent.email}}</spam>
-        </div>
-        <div>
-            <label>Sector de residencia: </label>
-            <spam>{{dataStudent.residenceSector}}</spam>
-        </div>
-        <div>
-            <label>Institución: </label>
-            <spam>{{dataStudent.institution}}</spam>
-        </div>
-        <app-result-student [data]="dataStudent" [scales]="scales" [typesOfQUalification]="0" [index]="1"></app-result-student>
+        <app-result-student class="app-student-results" [data]="data[0]" [scales]="scales" [typesOfQUalification]="types" [index]="1"></app-result-student>
     </div>
 </div>

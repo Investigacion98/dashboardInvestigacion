@@ -15,8 +15,9 @@ export class IndividualResultsComponent implements OnInit {
   optionsInitial = [];
   heroeSeleccionado!: string | undefined;
   dataStudentFlag:boolean = false;
-  dataStudent = {};
   scales = [];
+  data = [];
+  types = [];
 
   constructor(private platformService:PlatformService) { }
 
@@ -47,20 +48,46 @@ export class IndividualResultsComponent implements OnInit {
   search(event:MatAutocompleteSelectedEvent) {
     const student = event.option.value;
     if(student!==undefined){
+      this.data = [];
+      this.scales = [];
+      this.types = [];
+      this.dataStudentFlag = false;
       this.platformService.getDataStudent({nameStudent:student})
         .subscribe(res=>{
-          this.dataStudent = res;
-          this.dataStudentFlag = true;
-          this.scales.push({
-            answerForm: 0,
-            baremosMnIg25: res.baremosMnIg25,
-            baremosMyIg75: res.baremosMyIg75,
-            codeScale: res.codeScale,
-            title: res.titles,
-            factors: res.factors,
-            questions: res.questions
+          this.data.push({
+            name: res.name,
+            age: res.age,
+            course: res.course,
+            email: res.email,
+            sex: res.sex,
+            institution: res.institution,
+            type: res.type,
+            residenceSector: res.residenceSector,
+            resultsCodeScale: res.resultsCodeScale,
+            resultsOverallResult: res.resultsOverallResult,
+            resultsPhases: res.resultsPhases,
+            resultsScale: res.resultsScale,
+            resultsTitleScale: res.resultsTitleScale,
           })
-          console.log(res);
+          for (let i = 0; i < res.codeScale.length; i++) {
+            this.scales.push({
+              factors: res.factors[i],
+              questions: res.questions[i],
+              answerForm: res.answerForm[i],
+              baremosMnIg25: res.baremosMnIg25[i],
+              baremosMyIg75: res.baremosMyIg75[i],
+              codeScale: res.codeScale[i],
+              title: res.title[i],
+            })
+            
+          }
+          for (let i = 0; i < res.codeType.length; i++) {
+            this.types.push({
+              codeType: res.codeType[i],
+              value: res.value[i]
+            })
+          }
+          this.dataStudentFlag = true;
         })
     }else{
       this.heroeSeleccionado = undefined;

@@ -35,7 +35,7 @@ export class IndividualGraphComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     if(this.horizontal){
       this.barChartType = 'horizontalBar';
     }

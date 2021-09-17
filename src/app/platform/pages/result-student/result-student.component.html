@@ -35,8 +35,8 @@
     </div>
     <div class="results-table">
         <ul *ngFor="let scaleStudent of data.resultsCodeScale; let i=index">
-            <label>&#10095; {{data.resultsTitleScale[i]}}</label>
-            <div class="container-questions-result">
+            <label class="label-title">&#10095; {{data.resultsTitleScale[i]}}</label>
+            <div class="container-questions-result width-special">
                 <li *ngFor="let scaleQuestions of scales[getIndex(scaleStudent)].questions; let j=index" 
                     [title]="scaleQuestions.textQuestion">
                     <label>{{j+1}}</label>
@@ -47,11 +47,28 @@
                     <label>{{data.resultsOverallResult[i]}}</label>
                 </li>
             </div>
-            <label>&#10095; Factores</label>
-            <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-factors-results">
-                <label>{{factor}}:</label>
-                <label>{{data.resultsPhases[i][k]}}</label>
+            <label class="label-title">&#10095; Factores</label>
+            <div class="results-scales-factors">
+                <div class="width-special">
+                    <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-factors-results">
+                        <label>{{factor}}:</label>
+                        <label>{{data.resultsPhases[i][k]}}</label>
+                    </div>
+                </div>
+                <div class="container-factors-results graph">
+                    <app-individual-graph [barChartLabels]="scales[getIndex(scaleStudent)].factors" 
+                                        [data]="[data.resultsPhases[i]]"
+                                        [series]="[data.name+' - '+data.resultsTitleScale[i]]"></app-individual-graph>
+                </div>
             </div>
         </ul>
+        <div class="results-total">
+            <label class="label-title">&#10095; Gráfica totales por escala</label>
+            <div class="container-factors-results graph">
+                <app-individual-graph [barChartLabels]="data.resultsTitleScale" 
+                                        [data]="[data.resultsOverallResult]"
+                                        [series]="[data.name]"></app-individual-graph>
+            </div>
+        </div>
     </div>
 </div>

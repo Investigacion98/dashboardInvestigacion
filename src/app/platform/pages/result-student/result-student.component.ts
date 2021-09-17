@@ -17,8 +17,6 @@ export class ResultStudentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.scales);
-    
   }
 
   more() {

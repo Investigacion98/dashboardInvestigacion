@@ -48,6 +48,13 @@
     color: var(--color-blue-degraded-5);
 }
 
+.graph-center {
+    display: flex;
+    width: 90%;
+    margin: 20px 5%;
+    justify-content: center;
+    align-items: center;
+}
 
 @media only screen and (max-width: 600px) {
     .container-graphs {
