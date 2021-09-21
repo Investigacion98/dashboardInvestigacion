@@ -93,15 +93,17 @@ export class ScalesResultsComponent implements OnInit {
     this.platformService.getResults(filterElements)
     .subscribe(res=>{
       var flag = false;
-      const arrayFilter = JSON.parse(localStorage.getItem('filterElements'));
-      for (let e = 0; e < arrayFilter.length; e++) {
-        if(arrayFilter[e].name==='Escalas'){
-          const scales = arrayFilter[e];
-          for (let f = 0; f < scales.options.length; f++) { 
-            if(scales.options[f].checked===true){
-              flag=true;
-              this.scalesFilter.push(scales.options[f].name);
-            }          
+      const arrayFilter = JSON.parse(localStorage.getItem('filterElements'));      
+      if(arrayFilter!==null){
+        for (let e = 0; e < arrayFilter.length; e++) {
+          if(arrayFilter[e].name==='Escalas'){
+            const scales = arrayFilter[e];
+            for (let f = 0; f < scales.options.length; f++) { 
+              if(scales.options[f].checked===true){
+                flag=true;
+                this.scalesFilter.push(scales.options[f].name);
+              }          
+            }
           }
         }
       }

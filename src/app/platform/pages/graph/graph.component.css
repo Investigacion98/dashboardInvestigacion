@@ -67,4 +67,7 @@
     .title-graphs {
         font-size: 16px;
     }
+    .graph-center {
+        display: block;
+    }
 }
