@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-// import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-// import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-individual-graph',
@@ -25,9 +23,9 @@ export class IndividualGraphComponent implements OnInit {
   @Input() series: string[];
   @Input() data:any[];
 
-  dataSet = [];
+  dataConv = [];
 
-  @Input() barChartData: ChartDataSets[] = this.dataSet;
+  barChartData: ChartDataSets[] = this.dataConv;
   // @Input() barChartData: ChartDataSets[] = [
   //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
   //   { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
@@ -36,14 +34,18 @@ export class IndividualGraphComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    // console.log(this.barChartLabels);
+    
+    // console.log(this.series[0]);
+    
     if(this.horizontal){
       this.barChartType = 'horizontalBar';
     }
-    for (let i = 0; i < this.series.length; i++) {
-      this.dataSet.push({
+    for (let i = 0; i < this.data.length; i++) {
+      this.dataConv.push({
         data: this.data[i],
-        label: this.series[i]
+        label: this.series[i],
       });
-    }
+    }    
   }
 }

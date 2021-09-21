@@ -38,5 +38,13 @@ export class GraphComponent implements OnInit {
       this.typeOfPresentation = !this.typeOfPresentation;
     }
   }
-
+  verify(vec){
+    var acum = 0;
+    for (let i = 0; i < vec.length; i++) {
+      acum+=vec[i];
+    }
+    // console.log(acum);
+    if(acum>0) return true;
+    return false;
+  }
 }

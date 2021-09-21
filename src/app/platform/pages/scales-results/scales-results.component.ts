@@ -33,8 +33,8 @@ export class ScalesResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.platformService.getScalesResults()
-    .subscribe(res=>{
-      this.scales=res.scaleResults;
+      .subscribe(res=>{
+        this.scales=res.scaleResults;
         this.typesOfQUalification=res.typesOfQualification;
         for (let i = 0; i < res.scaleResults.length; i++) {
           this.totalAverageScale.push(0);
@@ -237,6 +237,22 @@ export class ScalesResultsComponent implements OnInit {
       this.activateButtons = false;
     }
     return false;
+  }
+
+  valueMinMaxDes(arrayValue) {
+    console.log(arrayValue);
+    
+    var min = arrayValue[0];
+    if(min!==undefined){
+      for (let i = 1; i < arrayValue.length; i++) {
+        if(min>arrayValue[i]){
+          min = arrayValue[i];
+        }
+      }
+      return min;
+    }else{
+      return 0;
+    }
   }
 
   download() {

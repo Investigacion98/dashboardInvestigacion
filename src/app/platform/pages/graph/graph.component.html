@@ -9,14 +9,12 @@
                 <h2 class="title-graphs">
                     {{institution}}
                 </h2>
-                <div class="graph-center" *ngFor="let scale of scales">
-                    <app-individual-graph [barChartLabels]="scale.factors" 
-                                        [data]="factorsScaleInstitution[i]"
+                <div class="graph-center" *ngFor="let scale of scales;let j=index">
+                    <app-individual-graph *ngIf="verify(factorsScaleInstitution[i][j])" [barChartLabels]="scale.factors" 
+                                        [data]="factorsScaleInstitution[i][j]"
                                         [series]="[scale.title]"></app-individual-graph>
-    
                 </div>
             </div>
-            
         </div>
     </div>
     <div *ngIf="!typeOfPresentation">
@@ -24,7 +22,7 @@
             <h2 class="title-graphs">Media de cada factor por institución - {{scale.title}}</h2>
             <div class="graph-center">
                 <app-individual-graph [barChartLabels]="scale.factors" 
-                                    [data]="returnNewArrayInstitutions(0)"
+                                    [data]="returnNewArrayInstitutions(j)"
                                     [series]="nameOfInstitutions"></app-individual-graph>
             </div>
         </div>
