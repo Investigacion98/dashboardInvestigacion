@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GraphComponent implements OnInit {
 
+  @Input() studentResults;
   @Input() scales;
   @Input() typesOfQUalification;
   @Input() totalAverageScale;
@@ -23,6 +24,7 @@ export class GraphComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.calcMaxMinDes(this.studentResults,this.numberOfStudents,this.totalAverageScaleInstitution);
     this.admissibleness = localStorage.getItem('admissibleness');
     this.scalesNames = this.scales.map(scale=>{return scale.title});
   }
@@ -43,8 +45,54 @@ export class GraphComponent implements OnInit {
     for (let i = 0; i < vec.length; i++) {
       acum+=vec[i];
     }
-    // console.log(acum);
     if(acum>0) return true;
     return false;
+  }
+
+  calcMaxMinDes(resStu,numStu,aveIns) {
+    // console.log(this.scales);
+    // console.log(resStu);
+    // console.log(numStu);
+    console.log(aveIns);  
+    var max = 0;
+    var min = 101;
+    var arrayCalcMaxMinDes = [];
+    var acumAuxDesvStan = 0;
+    var position = 0;
+    
+    for (let k = 0; k < this.scales.length; k++) {
+      for (let i = 0; i < numStu.length; i++) {
+        max = 0;
+        min = 101;
+        acumAuxDesvStan = 0;
+        for (let j = 0; j < numStu[i]; j++) {
+          var resultOverall = this.calcAux(this.scales[k].codeScale,position);
+          if(resultOverall>max) max=resultOverall;
+          if(resultOverall<min) min=resultOverall;
+          acumAuxDesvStan+=Math.pow(resultOverall-aveIns[i][k],2);
+          console.log(resultOverall+" - "+aveIns[j][k]);
+          position++;
+        }        
+        console.log("sumatoria= "+acumAuxDesvStan);
+        
+        arrayCalcMaxMinDes.push({
+          scale: k,
+          max,
+          min,
+          des: Math.sqrt(acumAuxDesvStan/numStu[i])
+        })
+      }
+      position=0;
+    }
+    console.log(arrayCalcMaxMinDes);
+    
+  }
+
+  calcAux(codeScale,position){
+    for (let i = 0; i < this.studentResults[position].resultsCodeScale.length; i++) {
+      if(this.studentResults[position].resultsCodeScale[i]===codeScale){
+        return parseInt(this.studentResults[position].resultsOverallResult[i]);
+      }
+    }
   }
 }

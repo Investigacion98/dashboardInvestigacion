@@ -91,7 +91,8 @@
 </div>
 <div *ngIf="activateGraph" class="container-graph">
     <h3>Gráficas</h3>
-    <app-graph class="app-graph" 
+    <app-graph class="app-graph"
+        [studentResults]="studentsResultsAux"
         [scales]="scales"
         [totalAverageScale]="totalAverageScale"
         [factorsScales]="factorsScales"

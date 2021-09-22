@@ -146,7 +146,6 @@ export class ScalesResultsComponent implements OnInit {
         acum1 = 0.0;
         for (let j = 0; j < res.studentResults.length; j++) {
           for (let k = 0; k < res.studentResults[j].resultsCodeScale.length; k++) {
-
             if (res.studentResults[j].resultsCodeScale[k]===this.scales[i].codeScale) {
               for (let l = 0; l < this.nameOfInstitutions.length; l++) {
                 if(res.studentResults[j].institution[0]===this.nameOfInstitutions[l]){
@@ -267,6 +266,7 @@ export class ScalesResultsComponent implements OnInit {
   }
   
   graph() {
+    this.studentsResultsAux = this.studentResults;
     this.studentResults = [];
     this.activateGraph = true;
     this.activateExcel = false;
