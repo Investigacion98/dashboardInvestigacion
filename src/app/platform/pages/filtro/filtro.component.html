@@ -23,8 +23,10 @@
         <h1>Opciones</h1>
         <p>Escoja una o varias opciones</p>
         <div *ngFor="let option of options">
-            <input type="checkbox" [checked]="option.checked" [(ngModel)]="option.checked">
-            <label>{{option.name}}</label>
+            <label>
+                <input type="checkbox" [checked]="option.checked" [(ngModel)]="option.checked">
+                {{option.name}}
+            </label>
         </div>
         <button (click)="check()" class="button-primary dark-green">Aceptar</button>
         <button class="x" (click)="close()">x</button>

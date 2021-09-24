@@ -14,7 +14,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-background-dark-green: rgba(33, 107, 82, 0.719);
     --color-background-dark-green-no-transparency: rgba(33, 107, 82, 0.979);
     --color-background-dark-green-1: rgba(2, 133, 89, 0.904);
-    --color-notifications-white-transparent: rgba(255, 255, 255, 0.719);
+    --color-notifications-white-transparent: rgba(255, 255, 255, 0.911);
     --warn: rgb(173, 15, 15);
     --font-robot: Roboto, "Helvetica Neue", sans-serif;
     --color-blue-degraded-1: #D4E6F1;

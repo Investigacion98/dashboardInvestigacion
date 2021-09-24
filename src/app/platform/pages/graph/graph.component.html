@@ -10,9 +10,17 @@
                     {{institution}}
                 </h2>
                 <div class="graph-center" *ngFor="let scale of scales;let j=index">
-                    <app-individual-graph *ngIf="verify(factorsScaleInstitution[i][j])" [barChartLabels]="scale.factors" 
-                                        [data]="factorsScaleInstitution[i][j]"
-                                        [series]="[scale.title]"></app-individual-graph>
+                    <div class="row-position" *ngIf="verify(factorsScaleInstitution[i][j])">
+                        <app-individual-graph [barChartLabels]="scale.factors" 
+                                            [data]="factorsScaleInstitution[i][j]"
+                                            [series]="[scale.title]"></app-individual-graph>
+                        <div class="row-data">
+                            <span>Máximo: {{arrayCalcMaxMinDes[j][i].max}}</span>
+                            <span>Mínimo: {{arrayCalcMaxMinDes[j][i].min}}</span>
+                            <span>Media: {{totalAverageScaleInstitution[i][j]}}</span>
+                            <span>Desviación: {{arrayCalcMaxMinDes[j][i].des}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

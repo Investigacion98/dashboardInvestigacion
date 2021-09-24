@@ -20,11 +20,14 @@ export class GraphComponent implements OnInit {
   scalesNames = [];
   typeOfPresentation: boolean = true;
   admissibleness = '';
+  arrayCalcMaxMinDes;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.calcMaxMinDes(this.studentResults,this.numberOfStudents,this.totalAverageScaleInstitution);
+    console.log(this.totalAverageScaleInstitution);
+    
+    this.calcMaxMinDes(this.numberOfStudents,this.totalAverageScaleInstitution);
     this.admissibleness = localStorage.getItem('admissibleness');
     this.scalesNames = this.scales.map(scale=>{return scale.title});
   }
@@ -49,18 +52,16 @@ export class GraphComponent implements OnInit {
     return false;
   }
 
-  calcMaxMinDes(resStu,numStu,aveIns) {
-    // console.log(this.scales);
-    // console.log(resStu);
-    // console.log(numStu);
-    console.log(aveIns);  
+  calcMaxMinDes(numStu,aveIns) {
     var max = 0;
     var min = 101;
+    var arrayAuxForInst = [];
     var arrayCalcMaxMinDes = [];
     var acumAuxDesvStan = 0;
     var position = 0;
     
     for (let k = 0; k < this.scales.length; k++) {
+      arrayAuxForInst = [];
       for (let i = 0; i < numStu.length; i++) {
         max = 0;
         min = 101;
@@ -70,22 +71,21 @@ export class GraphComponent implements OnInit {
           if(resultOverall>max) max=resultOverall;
           if(resultOverall<min) min=resultOverall;
           acumAuxDesvStan+=Math.pow(resultOverall-aveIns[i][k],2);
-          console.log(resultOverall+" - "+aveIns[j][k]);
+          // console.log(resultOverall+" - "+aveIns[i][k]);
           position++;
-        }        
-        console.log("sumatoria= "+acumAuxDesvStan);
-        
-        arrayCalcMaxMinDes.push({
+        }
+        arrayAuxForInst.push({
           scale: k,
           max,
           min,
           des: Math.sqrt(acumAuxDesvStan/numStu[i])
-        })
+        });
       }
+      arrayCalcMaxMinDes.push(arrayAuxForInst);
       position=0;
     }
-    console.log(arrayCalcMaxMinDes);
-    
+    // console.log(arrayCalcMaxMinDes);
+    this.arrayCalcMaxMinDes = arrayCalcMaxMinDes;
   }
 
   calcAux(codeScale,position){

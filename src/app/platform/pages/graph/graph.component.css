@@ -56,6 +56,21 @@
     align-items: center;
 }
 
+.row-position {
+    display: flex;
+    flex-direction: row;
+}
+
+.row-data {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .container-graphs {
         display: flex;
@@ -69,5 +84,11 @@
     }
     .graph-center {
         display: block;
+    }
+    .row-position {
+        flex-direction: column;
+    }
+    .row-data {
+        align-items: center;
     }
 }

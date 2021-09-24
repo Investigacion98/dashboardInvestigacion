@@ -15,6 +15,9 @@
             <label>Escalas</label>
         </div>
     </div>
+    <div *ngIf="loading" class="container-graph color-transparent">
+        <mat-spinner></mat-spinner>
+    </div>
     <app-result-student class="student-result" *ngFor="let studentResult of studentResults;let i=index" 
         [data]="studentResult" [scales]="scales" [typesOfQUalification]="typesOfQUalification" [index]="(i+1)"></app-result-student>
     <div *ngIf="activateResume && activateAverageScaleInstitutions" class="latest color-blue">
@@ -101,6 +104,11 @@
         [factorsScaleInstitution]="factorsScaleInstitution"
         [numberOfStudents]="numberOfStudents"></app-graph>
 </div>
-<div *ngIf="loading" class="container-graph color-transparent">
-    <mat-spinner></mat-spinner>
+
+<div *ngIf="messageActivate" class="floating-messaje">
+    <div>
+        <h2>{{messageTitle}}</h2>
+        <h3>{{messageInfo}}</h3>
+        <button *ngIf="messageButton" class="button-primary color-azul" (click)="closeAlert()">Aceptar</button>
+    </div>
 </div>
