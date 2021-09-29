@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanLoad {
-
+export class StudentGuard implements CanActivate, CanLoad {
   constructor(private router:Router){}
 
   canActivate(
@@ -17,7 +16,11 @@ export class AuthGuard implements CanActivate, CanLoad {
       localStorage.setItem("name","");
       return false;
     }
-    return true;
+    if(localStorage.getItem("admissibleness")==='sl34mdms#fgd-6'){
+      return true;
+    }else{
+      this.router.navigateByUrl('/');
+    }
   }
   canLoad(
     route: Route,

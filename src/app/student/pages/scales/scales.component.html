@@ -1,0 +1,13 @@
+<div class="container-scales-student">
+    <h1>Bienvenid@ {{name}}</h1>
+    <div class="container-scales-allowed">
+        <div *ngIf="loading" class="loading">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="card" *ngFor="let scale of scales">
+            <h2>Escala</h2>
+            {{scale.title}}
+            <button class="button-answer" (click)="answer(scale.codeScale)">Responder ahora</button>
+        </div>
+    </div>
+</div>
