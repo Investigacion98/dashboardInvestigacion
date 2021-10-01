@@ -47,6 +47,7 @@ export class IndividualResultsComponent implements OnInit {
 
   search(event:MatAutocompleteSelectedEvent) {
     const student = event.option.value;
+    
     if(student!==undefined){
       this.data = [];
       this.scales = [];
@@ -54,6 +55,25 @@ export class IndividualResultsComponent implements OnInit {
       this.dataStudentFlag = false;
       this.platformService.getDataStudent({nameStudent:student})
         .subscribe(res=>{
+          var titles = [];
+          for (let i = 0; i < res.resultsCodeScale.length; i++) {
+            for (let j = 0; j < res.codeScale.length; j++) {
+              if(res.codeScale[i]===res.resultsCodeScale[j]){
+                this.scales.push({
+                  factors: res.factors[j],
+                  questions: res.questions[j],
+                  answerForm: res.answerForm[j],
+                  baremosMnIg25: res.baremosMnIg25[j],
+                  baremosMyIg75: res.baremosMyIg75[j],
+                  codeScale: res.codeScale[j],
+                  title: res.title[j],
+                })
+              }
+            }
+          }
+          for (let i = 0; i < this.scales.length; i++) {
+            titles.push(this.scales[i].title)
+          }
           this.data.push({
             name: res.name,
             age: res.age,
@@ -67,20 +87,8 @@ export class IndividualResultsComponent implements OnInit {
             resultsOverallResult: res.resultsOverallResult,
             resultsPhases: res.resultsPhases,
             resultsScale: res.resultsScale,
-            resultsTitleScale: res.resultsTitleScale,
+            resultsTitleScale: titles,
           })
-          for (let i = 0; i < res.codeScale.length; i++) {
-            this.scales.push({
-              factors: res.factors[i],
-              questions: res.questions[i],
-              answerForm: res.answerForm[i],
-              baremosMnIg25: res.baremosMnIg25[i],
-              baremosMyIg75: res.baremosMyIg75[i],
-              codeScale: res.codeScale[i],
-              title: res.title[i],
-            })
-            
-          }
           for (let i = 0; i < res.codeType.length; i++) {
             this.types.push({
               codeType: res.codeType[i],

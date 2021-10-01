@@ -64,16 +64,20 @@ export class ScalesResultsComponent implements OnInit {
     var flagInstitutions = false;
     var filterElements = JSON.parse(localStorage.getItem("filterElements"));
     let contFilt = 0;
-    for (let i = 0; i < filterElements.length; i++) {
-      if (filterElements[i].name==="Escalas" && filterElements[i].options.length>0) {
-        for (let q = 0; q < filterElements[i].options.length; q++) {
-          if(filterElements[i].options[q].checked===true){
-            contFilt++;
-          }          
+    try {
+      for (let i = 0; i < filterElements.length; i++) {
+        if (filterElements[i].name==="Escalas" && filterElements[i].options.length>0) {
+          for (let q = 0; q < filterElements[i].options.length; q++) {
+            if(filterElements[i].options[q].checked===true){
+              contFilt++;
+            }          
+          }
+          break;
         }
-        break;
       }
+    } catch (error) {     
     }
+    
     if(filterElements===null || contFilt===0){
       this.messageActivate = true;
       this.messageTitle = "Advertencia";

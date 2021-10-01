@@ -14,7 +14,7 @@ const routes:Routes = [
           component: ScalesComponent
         },
         {
-          path: 'answer',
+          path: 'answer/:idScale',
           component: AnswerComponent
         },
         {

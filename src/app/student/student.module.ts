@@ -6,7 +6,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { AnswerComponent } from './pages/answer/answer.component';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { MaterialModule } from '../material/material.module';
-
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class StudentModule { }
