@@ -5,6 +5,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -13,7 +16,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    FormsModule
   ]
 })
 export class MaterialModule { }

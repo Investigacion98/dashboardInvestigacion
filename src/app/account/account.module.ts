@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { RegisterModule } from './pages/register/register.module';
+import { RegisterService } from './pages/services/register.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RegisterModule } from './pages/register/register.module';
     MaterialModule,
     FormsModule,
     RegisterModule
-  ]
+  ],
+  providers: [RegisterService]
 })
 export class AccountModule { }

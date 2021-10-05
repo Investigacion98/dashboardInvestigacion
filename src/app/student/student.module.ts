@@ -6,7 +6,8 @@ import { StudentRoutingModule } from './student-routing.module';
 import { AnswerComponent } from './pages/answer/answer.component';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { BeginningComponent } from './pages/beginning/beginning.component'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms'
     HomeComponent,
     ScalesComponent,
     AnswerComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BeginningComponent
   ],
   imports: [
     CommonModule,

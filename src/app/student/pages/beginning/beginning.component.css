@@ -1,0 +1,37 @@
+.container-info-student {
+    display: flex;
+    flex-direction: column;
+}
+
+h1,h2 {
+    text-align: center;
+}
+
+h1 {
+    margin: 40px 0;
+}
+
+.text {
+    text-align: justify;
+}
+
+.img-info {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.img-results {
+    display: flex;
+    height: 70vh;
+    /* margin: 20px 5%; */
+}
+
+.info-results {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+}
+
