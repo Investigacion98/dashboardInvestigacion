@@ -1,3 +1,8 @@
+.container-title-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .title {
     text-align: center;
     padding: 20px 0;
@@ -10,8 +15,7 @@
 
 .container-card-option {
     display: flex;
-    /* width: ; */
-    height: calc(100vh - 40px);
+    margin-top: 30px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -33,12 +37,17 @@
     display: flex;
     justify-content: center;
     font-size: 15em;
+    color: rgb(20, 107, 20);
 }
 
 .mat-icon {
     display: flex;
     height: auto;
     width: auto;
+}
+
+.mat-icon:hover {
+    color: rgb(83, 146, 83);
 }
 
 @media screen and (max-width: 768px) {

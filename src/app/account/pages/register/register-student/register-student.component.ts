@@ -14,6 +14,7 @@ export class RegisterStudentComponent implements OnInit {
   institutions = [];
   courses = [];
   hide = true;
+  fileComplete;
 
   name = new FormControl('', [
     Validators.required,
@@ -99,25 +100,58 @@ export class RegisterStudentComponent implements OnInit {
     }
   }
 
+  handleImage(event) {
+    this.fileComplete = event.target.files[0];
+  }
+
   send(){
     if (this.name.status==='VALID' && this.selectedAge.status==='VALID' && this.selectedSex.status==='VALID'
     && this.selectedCourse.status==='VALID' && this.selectedSector.status==='VALID'
     && this.institution.status==='VALID' && this.emailFormControl.status==='VALID') {
       if (this.file.status==='VALID') {
         if (this.pass1.value===this.pass2.value && this.pass1.value!=='' && this.pass2.value!=='') {
-          const json = {
-            name: this.name.value,
-            age: this.selectedAge.value,
-            sex: this.selectedSex.value,
-            course: this.selectedCourse.value,
-            residenceSector: this.selectedSector.value,
-            institution: this.institution.value,
-            email: this.emailFormControl.value,
-            password: this.pass2.value,
-            file: this.file.value
+          if(this.validatePassword(this.pass2.value)){
+            var formdata = new FormData();
+            formdata.append('file',this.fileComplete);
+            const json = {
+              name: this.name.value,
+              age: this.selectedAge.value,
+              sex: this.selectedSex.value,
+              course: this.selectedCourse.value,
+              residenceSector: this.selectedSector.value,
+              institution: this.institution.value,
+              email: this.emailFormControl.value,
+              password: this.pass2.value,
+              file: this.fileComplete
+            }
+            this.registerService.sendData(formdata)
+              .subscribe(res=>{
+                if (res.info==='Usuario creado') {
+                  Swal.fire({
+                    title: 'Genial !!!',
+                    text: res.info,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                  }).then(() => {
+                    document.location.href = '/account/login';
+                  })
+                }else{
+                  Swal.fire({
+                    title: 'Oops',
+                    text: res.info,
+                    icon: 'info',
+                    confirmButtonText: 'Aceptar'
+                  })
+                }
+              },err=>{
+                Swal.fire({
+                  title: 'Error!',
+                  text: 'Intente más tarde',
+                  icon: 'error',
+                  confirmButtonText: 'Aceptar'
+                })
+              })
           }
-          console.log(json);
-          console.log(this.file.value);
         }else{
           Swal.fire({
             title: 'Error!',
@@ -142,5 +176,40 @@ export class RegisterStudentComponent implements OnInit {
         confirmButtonText: 'Aceptar'
       })
     }
+  }
+
+  validatePassword(pass) {
+    var flag = false;
+    var contMay = 0;
+    var contMin = 0;
+    var contNum = 0;
+    var contSim = 0;
+    for (let i = 0; i < pass.length; i++) {
+      if (pass.charCodeAt(i)>=65 && pass.charCodeAt(i)<=90) {
+        contMay++;
+      }
+      if (pass.charCodeAt(i)>=97 && pass.charCodeAt(i)<=122) {
+        contMin++;
+      }
+      if (pass.charCodeAt(i)>=48 && pass.charCodeAt(i)<=57) {
+        contNum++;
+      }
+      if ((pass.charCodeAt(i)>=33 && pass.charCodeAt(i)<=38) ||
+          pass.charCodeAt(i)===43 || pass.charCodeAt(i)===47 || pass.charCodeAt(i)===64 ||
+          pass.charCodeAt(i)===63) {
+        contSim++;
+      }
+    }
+    if (contMay>0 && contMin>0 && contNum>0 && contSim>0) {
+      flag = true;
+    }else{
+      Swal.fire({
+        title: 'Contraseña incorrecta',
+        text: 'Incluya números, letras mayúsculas, minúsculas y símbolos !,",#,$,%,&,+,/,@,?',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+      })
+    }
+    return flag;
   }
 }

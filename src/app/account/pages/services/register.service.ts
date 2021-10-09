@@ -12,4 +12,12 @@ export class RegisterService {
   getInstitutions(){
     return this.http.get<any>(`${environment.baseURL}/institutions/userRegister`)
   }
+
+  sendData(data){
+    return this.http.post<any>(`${environment.baseURL}/account/register/student`,data);
+  }
+
+  sendDataAdmin(data){
+    return this.http.post<any>(`${environment.baseURL}/account/register/other`,data);
+  }
 }

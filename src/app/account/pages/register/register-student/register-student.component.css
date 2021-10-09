@@ -1,6 +1,7 @@
 .container-all {
   display: flex;
   flex-direction: row;
+  background-color: #63a9bb33;
 }
 
 .container-form {
@@ -14,6 +15,10 @@
 .example-full-width {
     width: 94%;
     margin: 0px 3%;
+}
+
+.title-register {
+  text-align: center;
 }
 
 .title-input {
@@ -84,6 +89,10 @@ input.example-right-align {
   font-size: 14px;
 }
 
+.title-input-file {
+  background-color: #d7e5e8;
+}
+
 @media screen and (max-width: 768px) { 
   .container-all {
     /* height: 100vh; */
@@ -98,5 +107,16 @@ input.example-right-align {
   }
   .title-input {
     flex-direction: column;
+  }
+  .title-input-file {
+    background-color: #bbe0e9;
+  }
+  .container-btn {
+    justify-content: center;
+    width: 100%;
+  }
+  .btn-send {
+    width: 90%;
+    justify-content: center;
   }
 }
