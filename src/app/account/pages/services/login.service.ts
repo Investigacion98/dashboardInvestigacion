@@ -13,4 +13,12 @@ export class LoginService {
     // return this.http.post(`${environment.baseURL}/account`);
     return this.http.post<any>(`${environment.baseURL}/account/login`,body)
   }
+
+  confirmation(body:any) {
+    return this.http.post<any>(`${environment.baseURL}/account/confirmation`,body)
+  }
+
+  resend(email) {
+    return this.http.post<any>(`${environment.baseURL}/account/resend`,email)
+  }
 }

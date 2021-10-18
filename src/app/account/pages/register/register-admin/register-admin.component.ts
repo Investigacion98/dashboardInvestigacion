@@ -72,7 +72,7 @@ export class RegisterAdminComponent implements OnInit {
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                   }).then(() => {
-                    document.location.href = '/account/login';
+                    document.location.href = `/account/confirmation/${json.email}`;
                   })
                 }else{
                   Swal.fire({

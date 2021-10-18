@@ -90,7 +90,20 @@ export class RegisterStudentComponent implements OnInit {
   institutionCourses(){
     this.courses = [];
     var institutionWithCode = this.institutionReq.filter(inst=>inst.code===this.institution.value);
-    institutionWithCode[0].courses = institutionWithCode[0].courses.sort(function(a, b){return parseInt(a.split('-')[0])-parseInt(b.split('-')[0])});
+    // institutionWithCode[0].courses = institutionWithCode[0].courses.sort(function(a, b){return (parseInt(a.split('-')[0])-parseInt(b.split('-')[0]))});
+    institutionWithCode[0].courses = institutionWithCode[0].courses.sort(function(a, b){      
+      return parseInt(a.split('-')[0])-parseInt(b.split('-')[0]);
+    });
+    var aux;
+    for (let j = 0; j < institutionWithCode[0].courses.length-1; j++) {
+      if (institutionWithCode[0].courses[j].split('-')[0] === institutionWithCode[0].courses[j+1].split('-')[0]) {
+        if(institutionWithCode[0].courses[j].split('-')[1]>institutionWithCode[0].courses[j+1].split('-')[1]){
+          aux = institutionWithCode[0].courses[j];
+          institutionWithCode[0].courses[j] = institutionWithCode[0].courses[j+1];
+          institutionWithCode[0].courses[j+1] = aux;
+        }
+      }
+    }
     
     for (let i = 0; i < institutionWithCode[0].courses.length; i++) {
       this.courses.push({
@@ -133,7 +146,7 @@ export class RegisterStudentComponent implements OnInit {
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                   }).then(() => {
-                    document.location.href = '/account/login';
+                    document.location.href = `/account/confirmation/${json.email}`;
                   })
                 }else{
                   Swal.fire({

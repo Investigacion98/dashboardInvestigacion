@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     const newUser = {'email':this.email,'password':this.password};
     this.loginService.postUser(newUser)
       .subscribe((res:any) => {
-        this.loading = false;
+        this.loading = false;        
         if (res.admissibleness!==undefined) {
           localStorage.setItem('auth',res.auth);
           localStorage.setItem('admissibleness',res.admissibleness);
@@ -43,6 +43,10 @@ export class LoginComponent implements OnInit {
         }
       },err=>{
         this.error = err.error.message;
+        if (err.error.message==='Email no verificado') {
+          this.error = err.error.message;
+          this.router.navigateByUrl(`/account/confirmation/${this.email}`);
+        }
         this.loading = false;
       })
   }
@@ -53,7 +57,5 @@ export class LoginComponent implements OnInit {
     }else{
       this.typePassword = 'password';
     }
-    
   }
-
 }

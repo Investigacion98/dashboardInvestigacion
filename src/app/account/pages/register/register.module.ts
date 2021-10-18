@@ -6,8 +6,6 @@ import { RegisterAdminComponent } from './register-admin/register-admin.componen
 import { RegisterRoutingModule } from './register-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 
-
-
 @NgModule({
   declarations: [
     RegisterHomeComponent,
