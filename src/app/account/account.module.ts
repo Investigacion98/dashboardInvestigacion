@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { RegisterModule } from './pages/register/register.module';
 import { RegisterService } from './pages/services/register.service';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     HomeComponent,
     ConfirmationComponent,
+    RecoveryComponent,
   ],
   imports: [
     AccountRoutingModule,

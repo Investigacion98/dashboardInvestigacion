@@ -21,4 +21,12 @@ export class LoginService {
   resend(email) {
     return this.http.post<any>(`${environment.baseURL}/account/resend`,email)
   }
+
+  recoveryOne(email) {
+    return this.http.post<any>(`${environment.baseURL}/account/recovery/send`,email)
+  }
+
+  recoveryTwo(data) {
+    return this.http.post<any>(`${environment.baseURL}/account/recovery`,data)
+  }
 }

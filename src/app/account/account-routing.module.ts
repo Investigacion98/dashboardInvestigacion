@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'confirmation/:email',
         component: ConfirmationComponent
+      },
+      {
+        path: 'recovery',
+        component: RecoveryComponent
       },
       {
         path: '**',
