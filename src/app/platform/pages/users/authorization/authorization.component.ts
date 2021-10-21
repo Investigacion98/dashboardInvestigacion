@@ -19,6 +19,8 @@ export class AuthorizationComponent implements OnInit {
   messageInfo: string = '';
   loading:boolean = false;
   institutions = [];
+  url = '';
+  imageActive = false;
 
   constructor(private platformService:PlatformService) { }
 
@@ -52,6 +54,11 @@ export class AuthorizationComponent implements OnInit {
         })
       this.style = 'ally';
     }
+  }
+
+  showImage(user) {
+    this.imageActive = true;
+    this.url = user.file;
   }
 
   changeSelect(index) {
@@ -110,5 +117,10 @@ export class AuthorizationComponent implements OnInit {
         return this.institutions[i].code;
       }
     }
+  }
+
+  close() {
+    this.url = '';
+    this.imageActive = false;
   }
 }

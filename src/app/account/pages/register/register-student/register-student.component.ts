@@ -15,6 +15,7 @@ export class RegisterStudentComponent implements OnInit {
   courses = [];
   hide = true;
   fileComplete;
+  loading = false;
 
   name = new FormControl('', [
     Validators.required,
@@ -126,44 +127,54 @@ export class RegisterStudentComponent implements OnInit {
           if(this.validatePassword(this.pass2.value)){
             var formdata = new FormData();
             formdata.append('file',this.fileComplete);
-            const json = {
-              name: this.name.value,
-              age: this.selectedAge.value,
-              sex: this.selectedSex.value,
-              course: this.selectedCourse.value,
-              residenceSector: this.selectedSector.value,
-              institution: this.institution.value,
-              email: this.emailFormControl.value,
-              password: this.pass2.value,
-              file: this.fileComplete
-            }
-            this.registerService.sendData(formdata)
-              .subscribe(res=>{
-                if (res.info==='Usuario creado') {
+            this.loading = true;
+            this.registerService.uploadImage(formdata)
+            .subscribe(res=>{
+              var file = res.file;
+              const json = {
+                name: this.name.value,
+                age: this.selectedAge.value,
+                sex: this.selectedSex.value,
+                course: this.selectedCourse.value,
+                residenceSector: this.selectedSector.value,
+                institution: this.institution.value,
+                email: this.emailFormControl.value,
+                password: this.pass2.value,
+                file: file
+              }
+              this.registerService.sendData(json)
+                .subscribe(res=>{
+                  if (res.info==='Usuario creado') {
+                    this.loading = false;
+                    Swal.fire({
+                      title: 'Genial !!!',
+                      text: res.info,
+                      icon: 'success',
+                      confirmButtonText: 'Aceptar'
+                    }).then(() => {
+                      document.location.href = `/account/confirmation/${json.email}`;
+                    })
+                  }else{
+                    this.loading = false;
+                    Swal.fire({
+                      title: 'Oops',
+                      text: res.info,
+                      icon: 'info',
+                      confirmButtonText: 'Aceptar'
+                    })
+                  }
+                },err=>{
+                  this.loading = false;
                   Swal.fire({
-                    title: 'Genial !!!',
-                    text: res.info,
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                  }).then(() => {
-                    document.location.href = `/account/confirmation/${json.email}`;
-                  })
-                }else{
-                  Swal.fire({
-                    title: 'Oops',
-                    text: res.info,
-                    icon: 'info',
+                    title: 'Error!',
+                    text: 'Intente más tarde',
+                    icon: 'error',
                     confirmButtonText: 'Aceptar'
                   })
-                }
-              },err=>{
-                Swal.fire({
-                  title: 'Error!',
-                  text: 'Intente más tarde',
-                  icon: 'error',
-                  confirmButtonText: 'Aceptar'
                 })
-              })
+            },err=>{
+              console.log(err);
+            })
           }
         }else{
           Swal.fire({

@@ -20,4 +20,8 @@ export class RegisterService {
   sendDataAdmin(data){
     return this.http.post<any>(`${environment.baseURL}/account/register/other`,data);
   }
+
+  uploadImage(file: any){
+    return this.http.post<any>(`${environment.baseURL}/account/uploadImage`,file);
+  }
 }
