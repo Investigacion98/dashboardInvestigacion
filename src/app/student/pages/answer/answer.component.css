@@ -33,6 +33,7 @@
     background-color: #5e1f3ad0;
     margin: 0;
     color: white;
+    text-align: center;
 }
 
 .description-scale {
@@ -46,13 +47,13 @@
 .questions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .container-radio-button {
     display: flex;
     width: 100%;
-    margin: 0px 0 0 10px;
+    margin: 0px 0 20px 10px;
 }
 
 .example-radio-group {

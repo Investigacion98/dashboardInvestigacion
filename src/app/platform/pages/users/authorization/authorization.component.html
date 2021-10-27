@@ -18,7 +18,7 @@
                 <option value="Ally">Aliado</option>
                 <option value="None">Ninguno</option>
             </select>
-            <div class="buttons">
+            <div *ngIf="style==='ally'" class="buttons">
                 <mat-icon class="button-img" (click)="showImage(user)">add_photo_alternate</mat-icon>
                 <select class="select-list-item" *ngIf="style==='ally'" [(ngModel)]="user.role" (change)="changeSelect(i)">
                     <option value="student">Estudiante</option>

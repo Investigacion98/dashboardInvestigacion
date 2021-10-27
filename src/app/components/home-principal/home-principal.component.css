@@ -3,19 +3,115 @@
     height: auto;
     /* background-color: red; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    position: relative;
-}
-
-.text-construction {
-    position: absolute;
-    font-size: 3em;
-    color: white;
-    /* box-shadow: 5px 5px 5px 5px yellow; */
-    margin-top: 20px;
-    filter: drop-shadow(5px 5px 15px);
 }
 
 .img-temp {
     width: 1000px;
+}
+
+.menu-inicio {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: rgba(68, 180, 231, 0.712);
+    margin: 0;
+    padding: 10px 0;
+}
+
+.menu-inicio-item {
+    display: flex;
+    padding: 10px 20px;
+    background-color: var(--color-background-toolbar);
+    border-radius: 20px;
+    margin: 0 10px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-inicio-item:hover {
+    background-color: rgba(35, 70, 168, 0.616);
+}
+
+.container-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-items-center {
+    max-width: 1024px;
+}
+
+.title-item {
+    text-align: center;
+    margin: 16px 0;
+}
+
+.horizontal-content {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    background-color: rgba(68, 180, 231, 0.712);
+}
+
+.vertical-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(68, 180, 231, 0.712);
+}
+
+.size-img {
+    width: 40%;
+    margin: 20px 5%;
+    height: auto;
+}
+
+.size-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.size-text-right {
+    padding: 30px 30px 30px 0;
+}
+
+.size-text-left {
+    padding: 30px 0px 30px 30px;
+}
+
+.size-img-center {
+    width: 40%;
+    margin: 20px 30%;
+}
+
+.size-text-center {
+    padding: 0px 40px 40px 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .horizontal-content {
+        flex-direction: column;
+        
+    }
+    .size-img,.size-img-center {
+        width: 90%;
+        margin: 20px 5%;
+    }
+    .size-text-resp {
+        width: 90%;
+        margin: 20px 5%;
+        padding: 0;
+    }
+
+    .change-position {
+        flex-direction: column-reverse;
+    }
 }

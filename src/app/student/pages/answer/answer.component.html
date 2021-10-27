@@ -8,11 +8,11 @@
             <div class="description-scale">{{scale.description}}</div>
         </div>
         <div class="questions-scale">
-            <h3 class="title">Items</h3>
+            <h3 class="title">Preguntas</h3>
             <div class="description-scale">
                 <div class="questions" *ngFor="let question of scale.questions;let j=index">
                     <div>
-                        {{question.textQuestion}}
+                        {{j+1}}. {{question.textQuestion}}
                     </div>
                     <div class="container-radio-button">
                         <mat-radio-group
