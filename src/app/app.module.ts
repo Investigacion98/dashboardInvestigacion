@@ -8,19 +8,23 @@ import { RoutingModule } from './routing.module';
 import { HomePrincipalComponent } from './components/home-principal/home-principal.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    HomePrincipalComponent
+    HomePrincipalComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
     RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from '../components/profile/profile.component';
 import { OnlyAdminGuard } from './guards/only-admin.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { IndividualResultsComponent } from './pages/individual-results/individual-results.component';
@@ -31,6 +32,10 @@ const routes:Routes = [
       {
         path: 'scales/resultsIndividual',
         component: IndividualResultsComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       },
       {
         path: 'institutions',

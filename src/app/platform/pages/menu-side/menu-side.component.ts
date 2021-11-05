@@ -8,104 +8,119 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class MenuSideComponent implements OnInit {
 
-  activateResponsive:boolean = false;
+  activateResponsive: boolean = false;
 
   itemsScales = [
     {
       'link': '/scales/create',
       'title': 'Crear',
-      'icon': 'add_circle' 
+      'icon': 'add_circle'
     },
     {
       'link': '/scales/edit',
       'title': 'Editar',
-      'icon': 'edit' 
+      'icon': 'edit'
     },
     {
       'link': '/scales/results',
       'title': 'Resultados',
-      'icon': 'search' 
+      'icon': 'search'
     },
     {
       'link': '/scales/resultsIndividual',
       'title': 'Individual',
-      'icon': 'find_in_page' 
+      'icon': 'find_in_page'
     }
   ];
   itemsInstitutions = [
     {
       'link': '/institutions/create',
       'title': 'Añadir',
-      'icon': 'add_circle' 
+      'icon': 'add_circle'
     },
     {
       'link': '/institutions/update',
       'title': 'Actualizar',
-      'icon': 'update' 
+      'icon': 'update'
     }
   ];
   itemsUsers = [
     {
       'link': '/users/authorization',
       'title': 'Autorizar',
-      'icon': 'playlist_add_check' 
+      'icon': 'playlist_add_check'
     },
     {
       'link': '/users/changeRole',
       'title': 'Cambiar rol',
-      'icon': 'swap_horizontal_circle' 
+      'icon': 'swap_horizontal_circle'
+    }
+  ];
+  itemsProfile = [
+    {
+      'link': '/profile',
+      'title': 'Perfil',
+      'icon': 'perm_identity'
     }
   ];
   itemsApproved = [];
 
-  constructor(private router:Router) {
-    
-    this.router.events.subscribe((val: NavigationEnd)=>{
-      const asdf = val.url+"";
+  constructor(private router: Router) {
+
+    this.router.events.subscribe((val: NavigationEnd) => {
+      const asdf = val.url + "";
       this.change(asdf[10]);
     })
   }
 
   ngOnInit(): void {
-    if (this.router.url.split('/')[2]==="scales") {
+    if (this.router.url.split('/')[2] === "scales") {
       this.change("s");
-    }else if(this.router.url.split('/')[2]==="institutions"){
+    } else if (this.router.url.split('/')[2] === "institutions") {
       this.change("i");
-    }else if(this.router.url.split('/')[2]==="users"){
+    } else if (this.router.url.split('/')[2] === "users") {
       this.change("u");
+    } else if (this.router.url.split('/')[2] === "profile") {
+      this.change("p");
     }
   }
-  
-  change(path){
+
+  change(path) {
     const admissibleness = localStorage.getItem('admissibleness');
     this.activateResponsive = false;
-    if (admissibleness==="6465asd7#asd-1") {
-      if (path==='s') {
+    if (admissibleness === "6465asd7#asd-1") {
+      if (path === 's') {
         this.itemsApproved = this.itemsScales;
-      }else if(path==='i'){
+      } else if (path === 'i') {
         this.itemsApproved = this.itemsInstitutions;
-      }else if(path==='u'){
+      } else if (path === 'u') {
         this.itemsApproved = this.itemsUsers;
+      } else if (path === 'p') {
+        this.itemsApproved = this.itemsProfile;
       }
-    }else if(admissibleness==="1201fpj4/tmq-1"){
-      if (path==='s') {
+    } else if (admissibleness === "1201fpj4/tmq-1") {
+      if (path === 's') {
         const array = [this.itemsScales[2]];
         this.itemsApproved = array;
-      }else if(path==='u'){
+      } else if (path === 'u') {
         this.itemsApproved = this.itemsUsers;
+      } else if (path === 'p') {
+        this.itemsApproved = this.itemsProfile;
       }
-    }else if(admissibleness==="8435dpe1+nrs-3"){
-      if (path==='s') {
-        const array = [this.itemsScales[2],this.itemsScales[3]];
+    } else if (admissibleness === "8435dpe1+nrs-3") {
+      if (path === 's') {
+        const array = [this.itemsScales[2], this.itemsScales[3]];
         this.itemsApproved = array;
+      } else if (path === 'p') {
+        this.itemsApproved = this.itemsProfile;
       }
     }
   }
-  
+
   activateMenuResponsive() {
-    if (this.activateResponsive===true) {
+    if (this.activateResponsive === true) {
       this.activateResponsive = false;
-    }else{
+    } else {
       this.activateResponsive = true;
     }
   }

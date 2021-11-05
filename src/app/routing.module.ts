@@ -15,11 +15,11 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren: () => auth===null?import('./account/account.module').then(m => m.AccountModule):import('./account/account.module')
-                        .then(m => 
+                        .then(m => {
                           adm==='sl34mdms#fgd-6'?
                           document.location.href='./student':
-                          document.location.href='./platform/results'
-                        )
+                          document.location.href='./platform/results';
+                        })
   },
   {
     path: 'platform',

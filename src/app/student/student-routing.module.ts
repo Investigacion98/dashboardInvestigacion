@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from '../components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { AnswerComponent } from './pages/answer/answer.component';
 import { BeginningComponent } from './pages/beginning/beginning.component';
@@ -21,6 +22,10 @@ const routes:Routes = [
         {
           path: 'answer/:idScale',
           component: AnswerComponent
+        },
+        {
+          path: 'profile',
+          component: ProfileComponent
         },
         {
           path: '**',

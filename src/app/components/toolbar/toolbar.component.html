@@ -1,6 +1,6 @@
 <header class="toolbar-login">
     <h3 class="text-name">Investigación</h3>
-    <div [routerLink]="['/account/login']" style="color:var(--color-icons)" [class]="name!==''?'button icon-toolbar':''">
+    <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button icon-toolbar':''">
         <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button':''">perm_identity</mat-icon>
         <p [class]="name===''?'no-display':'nameUser'">{{name}}</p>
     </div>

@@ -7,7 +7,7 @@
         perm_identity
         <div class="floating-element" *ngIf="visibleFloatingMenu">
             <ul class="list-floating-element">
-                <li class="item-list-floating-element item-toobal">Perfil</li>
+                <li class="item-list-floating-element item-toobal" [routerLink]="['/platform/profile']">Perfil</li>
                 <li class="item-list-floating-element item-toobal" (click)="signOff()">Cerrar sesión</li>
             </ul>
         </div>

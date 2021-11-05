@@ -20,7 +20,6 @@ import { IndividualGraphComponent } from './pages/individual-graph/individual-gr
 import { ChartsModule } from 'ng2-charts';
 import { IndividualResultsComponent } from './pages/individual-results/individual-results.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -35,7 +34,7 @@ import { IndividualResultsComponent } from './pages/individual-results/individua
     ExcelComponent,
     GraphComponent,
     IndividualGraphComponent,
-    IndividualResultsComponent,
+    IndividualResultsComponent
   ],
   exports: [
     ToolbarComponent
