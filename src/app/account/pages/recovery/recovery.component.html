@@ -14,15 +14,15 @@
         <p>A continuación ingresa el código que se envió a tu email y la nueva contraseña</p>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Código de confirmación</mat-label>
-            <input matInput [(ngModel)]="codeConfirmation" required>
+            <input matInput [(ngModel)]="codeConfirmation" required autocomplete="off">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Nueva contraseña</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password1" required>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password1" required autocomplete="off">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Confirmación de contraseña</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password2" required>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password2" required autocomplete="off">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

@@ -94,7 +94,7 @@
         <div class="title-input">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Contraseña</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="pass1" type="password">
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="pass1" type="password" autocomplete="off">
                 <mat-error *ngIf="pass1.hasError('password') && !pass1.hasError('required')">
                     Ingrese una contraseña válida
                 </mat-error>
@@ -104,7 +104,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Repita su contraseña</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="pass2" type="password">
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="pass2" type="password" autocomplete="off">
                 <mat-error *ngIf="pass2.hasError('password') && !pass2.hasError('required')">
                     Ingrese una contraseña válida
                 </mat-error>

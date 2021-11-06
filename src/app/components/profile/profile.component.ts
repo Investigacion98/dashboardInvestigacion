@@ -65,9 +65,9 @@ export class ProfileComponent implements OnInit {
       const value = await Swal.fire({
         title: 'Cambiar contraseña',
         html:
-          '<input id="swal-input1" class="swal2-input" type="password" placeholder="Contraseña actual">' +
-          '<input id="swal-input2" class="swal2-input" type="password" placeholder="Contraseña nueva">' +
-          '<input id="swal-input3" class="swal2-input" type="password" placeholder="Confirmación contraseña">',
+          '<input id="swal-input1" class="swal2-input" type="password" placeholder="Contraseña actual" autocomplete="off">' +
+          '<input id="swal-input2" class="swal2-input" type="password" placeholder="Contraseña nueva" autocomplete="off">' +
+          '<input id="swal-input3" class="swal2-input" type="password" placeholder="Confirmación contraseña" autocomplete="off">',
         focusConfirm: false,
         preConfirm: () => {
           return [

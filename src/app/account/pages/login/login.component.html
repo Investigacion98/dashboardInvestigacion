@@ -14,7 +14,7 @@
                 <label [class]="emailError">Correo incorrecto</label>
                 <div class="content-input-logo input-password">
                     <mat-icon aria-hidden="false" class="logo-input">lock</mat-icon>
-                    <input class="input" [type]="typePassword" placeholder="Contraseña" [(ngModel)]="password" name="password">
+                    <input class="input" [type]="typePassword" placeholder="Contraseña" [(ngModel)]="password" name="password" autocomplete="off">
                     <mat-icon class="eye-password" (click)="changeTypePassword()">remove_red_eye</mat-icon>
                 </div>
                 <label [class]="passwordError">Password inválida</label>

@@ -6,7 +6,9 @@
         </div>
         <div class="card" *ngFor="let scale of scales">
             <h2>Escala</h2>
-            {{scale.title}}
+            <p>
+                {{scale.title}}
+            </p>
             <button class="button-answer" (click)="answer(scale.codeScale)">Responder ahora</button>
         </div>    
         <div *ngIf="getSize()===0 && !loading">
