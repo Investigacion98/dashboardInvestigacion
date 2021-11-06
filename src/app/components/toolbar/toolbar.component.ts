@@ -19,6 +19,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   redirect() {
-    document.location.href = '/account/login';
+    document.location.href = './account/login';
   }
 }
