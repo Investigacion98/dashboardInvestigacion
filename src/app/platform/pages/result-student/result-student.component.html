@@ -40,7 +40,7 @@
                 <li *ngFor="let scaleQuestions of scales[getIndex(scaleStudent)].questions; let j=index" 
                     [title]="scaleQuestions.textQuestion">
                     <label>{{j+1}}</label>
-                    <label>{{scales[getIndex(scaleStudent)].questions[j].typeOfQuestion==="D"?data.resultsScale[i][j].charCodeAt()-97:typesOfQUalification[scales[getIndex(scaleStudent)].answerForm].value-data.resultsScale[i][j].charCodeAt()+97}}</label>
+                    <label>{{scales[getIndex(scaleStudent)].questions[j].typeOfQuestion==="D"?data.resultsScale[i][j].charCodeAt()-97:typesOfQUalificationSearch(scales[getIndex(scaleStudent)].answerForm)-data.resultsScale[i][j].charCodeAt()+97}}</label>
                 </li>
                 <li>
                     <label>Total</label>

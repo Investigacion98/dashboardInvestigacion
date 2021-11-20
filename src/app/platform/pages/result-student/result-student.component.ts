@@ -39,4 +39,8 @@ export class ResultStudentComponent implements OnInit {
   convertString(chain){
     return parseInt(chain);
   }
+
+  typesOfQUalificationSearch(answerForm){
+    return this.typesOfQUalification.find(item=>item.codeType===answerForm).value;
+  }
 }
