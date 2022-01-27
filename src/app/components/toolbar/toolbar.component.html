@@ -1,7 +1,90 @@
 <header class="toolbar-login">
     <h3 class="text-name">Investigación</h3>
+    <ul class="menu-inicio">
+        <a href="#escalas"><li class="menu-inicio-item">Aplicación</li></a>
+        <a href="#aplicacion"><li class="menu-inicio-item">Escalas</li></a>
+        <a href="#investigadores"><li class="menu-inicio-item">Investigadores</li></a>
+        <a href="#historia"><li class="menu-inicio-item">Historia</li></a>
+        <a href="#contactanos"><li class="menu-inicio-item">Contáctanos</li></a>
+    </ul>
     <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button icon-toolbar':''">
         <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button':''">perm_identity</mat-icon>
         <p [class]="name===''?'no-display':'nameUser'">{{name}}</p>
     </div>
 </header>
+
+<div class="container">
+    <div id="escalas" class="container-items-center  background-one">
+        <h2 class="title-item">Información de las escalas</h2>
+        <div class="size-text-right">
+            <img class="size-img" src="assets/images/4320854.jpg" alt="">
+            <p class="size-text size-text-resp">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat reiciendis doloribus facilis vero minus? Eos perspiciatis tenetur voluptates, alias possimus blanditiis a atque magnam exercitationem dicta doloribus, doloremque porro? Minus.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nulla obcaecati possimus tenetur mollitia. Perspiciatis officiis totam ea ipsum veritatis sint consequatur. Odio voluptates assumenda, nostrum provident omnis fuga minus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae necessitatibus impedit in reiciendis harum nobis. Suscipit magni corrupti, vero veniam dolor laboriosam quis! Velit, odit! Quia aut incidunt tenetur voluptatibus?
+            </p>
+        </div>
+    </div>
+
+    <div id="aplicacion" class="container-items-center">
+        <h2 class="title-item">Aplicación de las escalas</h2>
+        <div class="horizontal-content">
+            <p class="size-text size-text-left size-text-resp">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat reiciendis doloribus facilis vero minus? Eos perspiciatis tenetur voluptates, alias possimus blanditiis a atque magnam exercitationem dicta doloribus, doloremque porro? Minus.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nulla obcaecati possimus tenetur mollitia. Perspiciatis officiis totam ea ipsum veritatis sint consequatur. Odio voluptates assumenda, nostrum provident omnis fuga minus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae necessitatibus impedit in reiciendis harum nobis. Suscipit magni corrupti, vero veniam dolor laboriosam quis! Velit, odit! Quia aut incidunt tenetur voluptatibus?
+            </p>
+            <img class="size-img" src="assets/images/5187699.jpg" alt="">
+        </div>
+    </div>
+
+    <div id="investigadores" class="container-items-center background-three">
+        <h2 class="title-item">Investigadores</h2>
+        <div class="horizontal-content">
+            <div *ngFor="let investigador of investigadores" class="card-inv">
+                <img class="investigadores" [style]="investigador.color" [src]="investigador.image" alt="">
+                <p class="name-inv">
+                    {{investigador.name}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="historia" class="container-items-center">
+        <h2 class="title-item">Historia del grupo de investigación</h2>
+        <div class="horizontal-content">
+            <img class="size-img" src="assets/images/3304458.jpg" alt="">
+            <p class="size-text-center size-text-resp">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat reiciendis doloribus facilis vero minus? Eos perspiciatis tenetur voluptates, alias possimus blanditiis a atque magnam exercitationem dicta doloribus, doloremque porro? Minus.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nulla obcaecati possimus tenetur mollitia. Perspiciatis officiis totam ea ipsum veritatis sint consequatur. Odio voluptates assumenda, nostrum provident omnis fuga minus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae necessitatibus impedit in reiciendis harum nobis. Suscipit magni corrupti, vero veniam dolor laboriosam quis! Velit, odit! Quia aut incidunt tenetur voluptatibus?
+            </p>
+        </div>
+    </div>
+
+    <div id="contactanos" class="container-items-center background-five">
+        <h2 class="title-item">Contáctanos</h2>
+        <div class="horizontal-content">
+            <div class="card-contact">
+                <mat-icon class="icon-contact mat-icon-contact" aria-hidden="false" aria-label="Example home icon">phone</mat-icon>
+                <h3>Llámanos</h3>
+                <p class="size-text-center size-text-resp">
+                    7894545
+                </p>
+                <p class="size-text-center size-text-resp">
+                    3234953034
+                </p>
+            </div>
+            <div class="card-contact">
+                <mat-icon class="icon-contact mat-icon-contact" aria-hidden="false" aria-label="Example home icon">email</mat-icon>
+                <h3>Escríbenos</h3>
+                <p class="size-text-center size-text-resp">
+                    sdfsdfasfd@udenar.edu.co
+                </p>
+                <p class="size-text-center size-text-resp">
+                    asdf534d@udenar.edu.co
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

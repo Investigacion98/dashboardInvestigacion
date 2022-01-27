@@ -7,24 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePrincipalComponent implements OnInit {
 
-  active = 'aplicacion';
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  change(opt) {
-    switch(opt){
-      case 'aplicacion':
-        this.active = "aplicacion";
-        break;
-      case 'escalas':
-        this.active = "escalas";
-        break;
-      case 'historia':
-        this.active = "historia";
-        break;
-    }
-  }
-
 }
