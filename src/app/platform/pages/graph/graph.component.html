@@ -15,10 +15,10 @@
                                             [data]="factorsScaleInstitution[i][j]"
                                             [series]="[scale.title]"></app-individual-graph>
                         <div class="row-data">
-                            <span>Máximo: {{arrayCalcMaxMinDes[j][i].max}}</span>
-                            <span>Mínimo: {{arrayCalcMaxMinDes[j][i].min}}</span>
-                            <span>Media: {{totalAverageScaleInstitution[i][j]}}</span>
-                            <span>Desviación: {{arrayCalcMaxMinDes[j][i].des}}</span>
+                            <span>Máximo: {{arrayCalcMaxMinDes[j][i].max|number : '1.2-2'}}</span>
+                            <span>Mínimo: {{arrayCalcMaxMinDes[j][i].min|number : '1.2-2'}}</span>
+                            <span>Media: {{totalAverageScaleInstitution[i][j]|number : '1.2-2'}}</span>
+                            <span>Desviación: {{arrayCalcMaxMinDes[j][i].des|number : '1.2-2'}}</span>
                         </div>
                     </div>
                 </div>

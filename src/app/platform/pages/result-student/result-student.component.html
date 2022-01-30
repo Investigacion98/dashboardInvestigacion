@@ -52,7 +52,7 @@
                 <div class="width-special">
                     <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-factors-results">
                         <label>{{factor}}:</label>
-                        <label>{{data.resultsPhases[i][k]}}</label>
+                        <label>{{data.resultsPhases[i][k]|number : '1.2-2'}}</label>
                     </div>
                 </div>
                 <div class="container-factors-results graph">

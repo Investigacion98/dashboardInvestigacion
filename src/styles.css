@@ -9,7 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-font-login: rgb(21, 78, 31);
     --color-background-toolbar: rgb(35, 32, 32);
     /* --color-background-toolbar: rgba(29, 31, 128, 0.801); */
-    --color-background-toolbar-variant: rgba(29, 31, 128, 0.623);
+    --color-background-toolbar-variant: rgba(16 18 152 / 62%);
     --color-button-hover: rgba(240, 240, 240, 0.192);
     --color-background-light-green: rgba(73, 158, 130, 0.719);
     --color-background-dark-green: rgba(33, 107, 82, 0.719);
