@@ -11,6 +11,9 @@ import Swal from 'sweetalert2';
 export class AnswerComponent implements OnInit {
   loading:boolean = true;
   scale:any;
+  scalesCodes: any[];
+  countScales: number = 0;
+  routeParams;
 
   favoriteSeason: string;
   optionsType: string[] = [];
@@ -21,13 +24,19 @@ export class AnswerComponent implements OnInit {
               private studentService:StudentService) { }
 
   ngOnInit(): void {
-    const routeParams = this.activateRoute.snapshot.paramMap.get('idScale');
-    this.studentService.getScaleStudentAnswer(routeParams)
+    this.routeParams = this.activateRoute.snapshot.paramMap.get('idScale');
+    this.studentService.getScaleStudentAnswer(this.routeParams)
       .subscribe(res=>{
         this.loading = false;
         this.scale = res[0];
         this.answers = res[0].questions.map(question=>"");
         this.optionsType = res[0].optionsType[0];
+      })
+      this.studentService.getScalesStudentAllowed()
+      .subscribe(res=>{
+        this.scalesCodes = res;
+        this.countScales = this.scalesCodes.length;
+        console.log(this.scalesCodes);
       })
   }
 
@@ -46,14 +55,19 @@ export class AnswerComponent implements OnInit {
       }
       this.studentService.sendResults(jsonSend)
         .subscribe(res=>{
-          Swal.fire({
-            title: 'Genial!!!',
-            text: 'Gracias por responder',
-            icon: 'success',
-            confirmButtonText: 'Aceptar',
-          }).then((result) => {
-            document.location.href = '/student/scales';
-          })
+          if (this.countScales-1===0) {
+            Swal.fire({
+              title: 'Genial!!!',
+              text: 'Gracias por responder',
+              icon: 'success',
+              confirmButtonText: 'Aceptar',
+            }).then((result) => {
+              document.location.href = '/student/scales';
+            })
+          }else{
+            const missingScale = this.scalesCodes.filter(item=>item.codeScale!==this.routeParams);
+            document.location.href = `/student/answer/${missingScale[0].codeScale}`;
+          }
         })
     }else{
       Swal.fire({

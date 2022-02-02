@@ -197,10 +197,8 @@ export class ScalesResultsComponent implements OnInit {
             this.totalAverageScale[i]=acum1/cont;
           }
           if (cont!==0) {
-            for (let n = 0; n < this.factorsScales.length; n++) {
-              for (let m = 0; m < this.factorsScales[n].length; m++) {
-                this.factorsScales[n][m] = this.factorsScales[n][m]/cont;
-              }
+            for (let n = 0; n < this.factorsScales[i].length; n++) {
+                this.factorsScales[i][n] = this.factorsScales[i][n]/cont;
             }
           }
         }

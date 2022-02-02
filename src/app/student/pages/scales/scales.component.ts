@@ -22,12 +22,11 @@ export class ScalesComponent implements OnInit {
         this.scales = res;
         this.loading = false;
       })
-      console.log(this.scales);
       
   }
 
-  answer(codeScale) {
-    this.router.navigate([`/student/answer/${codeScale}`]);
+  answer() {
+    this.router.navigate([`/student/answer/${this.scales[0].codeScale}`]);
   }
 
   getSize(){

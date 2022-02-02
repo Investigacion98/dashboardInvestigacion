@@ -29,10 +29,10 @@
             <div class="resume" *ngFor="let nameofInstitution of nameOfInstitutions;let i=index">
                 <h3>Medias: {{nameofInstitution}}</h3>
                 <div *ngFor="let scale of scales;let j=index">
-                    &#10148; Media {{scale.title}} {{'---- '+totalAverageScaleInstitution[i][j]|number : '1.2-2'}}
+                    &#10148; Media {{scale.title}} {{'---- '+totalAverageScaleInstitution[i][j]?(totalAverageScaleInstitution[i][j]|number : '1.2-2'):0}}
                     <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
                     <ul class="list-items-factors">
-                        <li *ngFor="let factor of scale.factors,let k=index">{{factor}}: {{factorsScaleInstitution[i][j][k]|number : '1.2-2'}}</li>
+                        <li *ngFor="let factor of scale.factors,let k=index">{{factor}}: {{factorsScaleInstitution[i][j][k]?(factorsScaleInstitution[i][j][k]|number : '1.2-2'):0}}</li>
                     </ul>
                 </div>
             </div>
@@ -59,10 +59,10 @@
                             {{institution}}
                         </div>
                         <div class="column" *ngFor="let factor of scale.factors;let k=index" [title]="institution+' - '+factor">
-                            {{factorsScaleInstitution[j][i][k]|number : '1.2-2'}}
+                            {{factorsScaleInstitution[j][i][k]?(factorsScaleInstitution[j][i][k]|number : '1.2-2'):0}}
                         </div>
                         <div class="column">
-                            {{totalAverageScaleInstitution[j][i]|number : '1.2-2'}}
+                            {{(totalAverageScaleInstitution[j][i]?(totalAverageScaleInstitution[j][i]|number : '1.2-2'):0)}}
                         </div>
                     </div>
                 </div>
@@ -74,10 +74,10 @@
         <div class="resume">
             <h3 class="title-submodule">Resumen</h3>
             <div *ngFor="let scale of scales;let i=index">
-                &#10148; Media {{scale.title}} {{'---- '+totalAverageScale[i]|number : '1.2-2'}}
+                &#10148; Media {{scale.title}} {{'---- '+totalAverageScale[i]?(totalAverageScale[i]|number : '1.2-2'):0}}
                 <label class="label-info-factor" *ngIf="scale.factors.lenght>0">Media por factor:</label>
                 <ul class="list-items-factors">
-                    <li *ngFor="let factor of scale.factors,let j=index">{{factor}}: {{factorsScales[i][j]|number : '1.2-2'}}</li>
+                    <li *ngFor="let factor of scale.factors,let j=index">{{factor}}: {{factorsScales[i][j]?(factorsScales[i][j]|number : '1.2-2'):0}}</li>
                 </ul>
             </div>
         </div>
