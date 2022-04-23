@@ -2,11 +2,14 @@
     margin: 0;
     color: var(--color-icons);
 }
-.toolbar-login{
+.toolbar-login {
     background-color: var(--color-background-toolbar);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: sticky;
+    top: 0;
+    height: auto;
 }
 .icon-toolbar {
     display: flex;
@@ -15,17 +18,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* background-color: green; */
     user-select: none;
 }
 
 .nameUser {
     display: flex;
-    /* height: 30px; */
     margin: 0;
     margin-left: 5px;
     padding: 0;
-    /* background-color: red; */
 }
 
 .no-display {
@@ -59,12 +59,13 @@
 }
 
 .container-items-center {
-    width: 100%;
+    /* width: 100%; */
+    padding: 0 15%;
 }
 
 .title-item {
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 0 0px 0;
 }
 
 .horizontal-content {
@@ -193,7 +194,12 @@ h3 {
     font-size: 1.8em;
 }
 
-@media only screen and (max-width: 600px) {
+p {
+    font-size: 1.3em;
+    /* background-color: red; */
+}
+
+@media only screen and (max-width: 1000px) {
     .title-item {
         margin: 0;
     }
@@ -218,5 +224,14 @@ h3 {
         padding: 5px 10px;
         gap: 8px;
         border-top: 1px solid #06ddf9;
+    }
+    .container-items-center {
+        padding: 10px 10px;
+    }
+    p {
+        text-align: center;
+    }
+    .reverse {
+        flex-direction: column-reverse;
     }
 }
