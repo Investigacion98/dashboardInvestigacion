@@ -1,7 +1,7 @@
 .container-all {
   display: flex;
   flex-direction: row;
-  background-color: #63a9bb33;
+  background-color: #7cadb913;
 }
 
 .container-form {
@@ -72,7 +72,7 @@ input.example-right-align {
 
 .btn-send {
   display: flex;
-  background-color: #44bbda;
+  background-color: #52b7d1;
   padding: 10px 20px;
   margin: 20px 0;
   border-radius: 5px;

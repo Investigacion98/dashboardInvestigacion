@@ -1,6 +1,14 @@
+.title-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .text-name {
     margin: 0;
     color: var(--color-icons);
+    font-size: 1.5em;
 }
 .toolbar-login {
     background-color: var(--color-background-toolbar);
@@ -63,6 +71,11 @@
     padding: 0 15%;
 }
 
+.border {
+    background-color: rgba(90, 96, 116, 0.089);
+    border-radius: 10px;
+}
+
 .title-item {
     text-align: center;
     padding: 30px 0 0px 0;
@@ -73,8 +86,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 50px;
-    padding-bottom: 30px;
+    padding: 30px 50px;
     gap: 20px;
 }
 
