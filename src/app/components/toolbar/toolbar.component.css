@@ -60,6 +60,7 @@
     padding: 10px 20px;
     background-color: var(--color-background-toolbar);
     border-radius: 20px;
+    border: 1px solid transparent;
     margin: 0 10px;
     color: white;
     cursor: pointer;
@@ -90,10 +91,14 @@
     gap: 20px;
 }
 
+.aling-top {
+    align-items: flex-start;
+}
+
 .card-inv {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap: 20px;
     margin: 0 20px;
@@ -149,6 +154,7 @@
     border: 15px solid rgba(255, 0, 0, 0.459);
     border-radius: 50%;
     width: 250px;
+    height: 250px;
 }
 
 #escalas {

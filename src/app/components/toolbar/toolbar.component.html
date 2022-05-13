@@ -5,11 +5,17 @@
             <h3 class="text-name">Libres Pensadores</h3>
         </div>
         <ul class="menu-inicio">
-            <a href="#escalas" id="esc"><li class="menu-inicio-item">Aplicación</li></a>
+            <div *ngFor="let item of itemsMenu">
+                <button mat-button [matMenuTriggerFor]="belowMenu" class="menu-inicio-item">{{item.title}}</button>
+                <mat-menu #belowMenu="matMenu" yPosition="below">
+                    <button mat-menu-item (click)="navigate()" *ngFor="let submenu of item.subMenu">{{submenu.title}}</button>
+                </mat-menu>
+            </div>
+            <!-- <a href="#escalas" id="esc"><li class="menu-inicio-item">Aplicación</li></a> -->
             <!-- <a href="#aplicacion"><li class="menu-inicio-item">Escalas</li></a> -->
-            <a href="#investigadores"><li class="menu-inicio-item">Investigadores</li></a>
-            <a href="#grupo"><li class="menu-inicio-item">Grupo</li></a>
-            <a href="#contactanos"><li class="menu-inicio-item">Contáctanos</li></a>
+            <!-- <a href="#investigadores"><li class="menu-inicio-item">Investigadores</li></a> -->
+            <!-- <a href="#grupo"><li class="menu-inicio-item">Grupo</li></a> -->
+            <!-- <a href="#contactanos"><li class="menu-inicio-item">Contáctanos</li></a> -->
         </ul>
         <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button icon-toolbar':''">
             <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button':''">perm_identity</mat-icon>
@@ -95,9 +101,9 @@
 
     <div id="investigadores" class="container-items-center background-three">
         <h2 class="title-item">Investigadores</h2>
-        <div class="horizontal-content">
+        <div class="horizontal-content aling-top">
             <div *ngFor="let investigador of investigadores" class="card-inv">
-                <img class="investigadores" [style]="investigador.color" [src]="investigador.image" alt="">
+                <img class="investigadores" [style]="investigador.color" [src]="investigador.image" [alt]="investigador.name">
                 <p class="name-inv">
                     {{investigador.name}}
                 </p>
