@@ -1,5 +1,5 @@
-<div class="container-result-individual">
-    <div class="container-labels-result-individual">
+<div class="container-prop-result-individual">
+    <div class="container-prop-labels-result-individual">
         <label class="label-result-individual one">{{index}}. {{data.name}}</label>
         <label class="label-result-individual two">{{data.institution[0]}}</label>
         <label class="label-result-individual three">{{data.course}}</label>
@@ -17,7 +17,7 @@
     </div>
     <button class="button-primary button-secundary float" (click)="more()">{{visible===true?'&#708;':'&#709;'}}</button>
 </div>
-<div *ngIf="visible" class="container-more-info">
+<div *ngIf="visible" class="container-prop-more-info">
     <div class="info-box institutionResponsive">
         <label>Institución: </label><label>{{data.institution}}</label>
     </div>
@@ -36,7 +36,7 @@
     <div class="results-table">
         <ul *ngFor="let scaleStudent of data.resultsCodeScale; let i=index">
             <label class="label-title">&#10095; {{data.resultsTitleScale[i]}}</label>
-            <div class="container-questions-result width-special">
+            <div class="container-prop-questions-result width-special">
                 <li *ngFor="let scaleQuestions of scales[getIndex(scaleStudent)].questions; let j=index" 
                     [title]="scaleQuestions.textQuestion">
                     <label>{{j+1}}</label>
@@ -50,12 +50,12 @@
             <label class="label-title">&#10095; Factores</label>
             <div class="results-scales-factors">
                 <div class="width-special">
-                    <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-factors-results">
+                    <div *ngFor="let factor of scales[getIndex(scaleStudent)].factors;let k=index" class="container-prop-factors-results">
                         <label>{{factor}}:</label>
                         <label>{{data.resultsPhases[i][k]|number : '1.2-2'}}</label>
                     </div>
                 </div>
-                <div class="container-factors-results graph">
+                <div class="container-prop-factors-results graph">
                     <app-individual-graph [barChartLabels]="scales[getIndex(scaleStudent)].factors" 
                                         [data]="[data.resultsPhases[i]]"
                                         [series]="[data.name+' - '+data.resultsTitleScale[i]]"></app-individual-graph>
@@ -64,7 +64,7 @@
         </ul>
         <div class="results-total">
             <label class="label-title">&#10095; Gráfica totales por escala</label>
-            <div class="container-factors-results graph">
+            <div class="container-prop-factors-results graph">
                 <app-individual-graph [barChartLabels]="data.resultsTitleScale" 
                                         [data]="[data.resultsOverallResult]"
                                         [series]="[data.name]"></app-individual-graph>

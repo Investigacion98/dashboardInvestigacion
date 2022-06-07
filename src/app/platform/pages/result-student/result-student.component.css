@@ -1,4 +1,4 @@
-.container-result-individual {
+.container-prop-result-individual {
     display: flex;
     flex-direction: row;
     background-color: var(--color-background-dark-green);
@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 
-.container-labels-result-individual {
+.container-prop-labels-result-individual {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,7 +58,7 @@
     margin-right: 10px;
 }
 
-.container-more-info {
+.container-prop-more-info {
     display: flex;
     flex-direction: column;
     width: calc(98% - 20px);
@@ -113,7 +113,7 @@ ul>div {
     min-width: 300px;
 }
 
-.container-questions-result {
+.container-prop-questions-result {
     display: flex;
     flex-direction: row;
     padding-left: 15px;
@@ -154,7 +154,7 @@ li>label {
     min-width: 300px;
 }
 
-.container-factors-results {
+.container-prop-factors-results {
     display: flex;
     flex-direction: row;
     margin-left: 15px;
@@ -169,13 +169,13 @@ li>label {
 }
 
 @media only screen and (max-width: 600px) {
-    .container-labels-result-individual {
+    .container-prop-labels-result-individual {
         overflow: hidden;
     }
     .two {
         display: none;
     }
-    .container-questions-result {
+    .container-prop-questions-result {
         overflow: scroll;
     }
     .institutionResponsive {
@@ -192,7 +192,7 @@ li>label {
     ul>div {
         margin: 0;
     }
-    .container-factors-results {
+    .container-prop-factors-results {
         display: block;
     }
     .graph {

@@ -1,4 +1,4 @@
-.container-institution-edit {
+.container-prop-institution-edit {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,7 @@
     border-color: var(--warn);
 }
 
-.container-button-institution-edit {
+.container-prop-button-institution-edit {
     /* background-color: red; */
     display: flex;
     width: 96%;

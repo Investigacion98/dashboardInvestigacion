@@ -1,7 +1,7 @@
 <app-filtro></app-filtro>
-<div class="container-results-students">
+<div class="container-prop-results-students">
     <h2 *ngIf="!activateGraph && !activateExcel">Resultados</h2>
-    <div *ngIf="!activateGraph && !activateExcel" class="container-list-data">
+    <div *ngIf="!activateGraph && !activateExcel" class="container-prop-list-data">
         <div class="one">
             <label>Nombre</label>
         </div>
@@ -15,7 +15,7 @@
             <label>Escalas</label>
         </div>
     </div>
-    <div *ngIf="loading" class="container-graph color-transparent">
+    <div *ngIf="loading" class="container-prop-graph color-transparent">
         <mat-spinner></mat-spinner>
     </div>
     <app-result-student class="student-result" *ngFor="let studentResult of studentResults;let i=index" 
@@ -83,16 +83,16 @@
         </div>
     </div>
 </div>
-<div class="container-button-send">
+<div class="container-prop-button-send">
     <button *ngIf="activateButtons" class="button-send download" (click)="download()"><mat-icon>cloud_download</mat-icon></button>
     <button *ngIf="activateButtons" class="button-send graph" (click)="graph()"><mat-icon>bar_chart</mat-icon></button>
     <button class="button-send" (click)="buttonSend()" (contextmenu)="buttonRight($event)">&#10095;</button>
 </div>
-<div *ngIf="activateExcel" class="container-graph">
+<div *ngIf="activateExcel" class="container-prop-graph">
     <h3>Generar archivo de excel</h3>
     <app-excel [data]="studentsResultsAux" [scales]="scales" [typesOfQUalification]="typesOfQUalification"></app-excel>
 </div>
-<div *ngIf="activateGraph" class="container-graph">
+<div *ngIf="activateGraph" class="container-prop-graph">
     <h3>Gráficas</h3>
     <app-graph class="app-graph"
         [studentResults]="studentsResultsAux"

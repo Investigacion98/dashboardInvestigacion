@@ -1,9 +1,9 @@
-<div class="container-institution-edit" *ngIf="activate">
+<div class="container-prop-institution-edit" *ngIf="activate">
     <select class="size-input-institution" [(ngModel)]="institutionSelect">
         <option >-- Seleccione una institución --</option>
         <option [value]="institution.code" *ngFor="let institution of listInstitutions">{{institution.name}}</option>
     </select>
-    <div class="container-button-institution-edit">
+    <div class="container-prop-button-institution-edit">
         <button class="button-primary button-secundary color-blue" (click)="update()">Editar</button>
     </div>
 </div>

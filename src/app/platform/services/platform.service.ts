@@ -92,4 +92,8 @@ export class PlatformService {
     const headers = new HttpHeaders({"auth":auth});
     return this.http.post<any>(`${environment.baseURL}/platform/dataStudent`,nameStudent,{headers});
   }
+
+  sendMessage(infoMessage) {
+    return this.http.post<any>(`${environment.baseURL}/platform/internalMessage`,infoMessage);
+  }
 }

@@ -1,4 +1,4 @@
-.container-title-card {
+.container-prop-title-card {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
     margin: 0;
 }
 
-.container-card-option {
+.container-prop-card-option {
     display: flex;
     margin-top: 30px;
     flex-direction: row;
@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .container-card-option {
+    .container-prop-card-option {
         flex-direction: column;
         height: auto;
     }

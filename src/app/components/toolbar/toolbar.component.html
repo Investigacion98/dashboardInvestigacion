@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-prop">
     <header class="toolbar-login">
         <div class="title-icon">
             <img class="text-name" src="assets/images/librespensadorescirculo.png" width="50px" alt="libres pensadores">
@@ -11,95 +11,60 @@
                     <button mat-menu-item (click)="navigate()" *ngFor="let submenu of item.subMenu">{{submenu.title}}</button>
                 </mat-menu>
             </div>
-            <!-- <a href="#escalas" id="esc"><li class="menu-inicio-item">Aplicación</li></a> -->
-            <!-- <a href="#aplicacion"><li class="menu-inicio-item">Escalas</li></a> -->
-            <!-- <a href="#investigadores"><li class="menu-inicio-item">Investigadores</li></a> -->
-            <!-- <a href="#grupo"><li class="menu-inicio-item">Grupo</li></a> -->
-            <!-- <a href="#contactanos"><li class="menu-inicio-item">Contáctanos</li></a> -->
         </ul>
-        <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button icon-toolbar':''">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button':''">perm_identity</mat-icon>
+        <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button-prop icon-toolbar':''">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button-prop':''">perm_identity</mat-icon>
             <p [class]="name===''?'no-display':'nameUser'">{{name}}</p>
         </div>
     </header>
-    <div id="escalas" class="container-items-center  background-one">
-        <h2 class="title-item">Información de las escalas</h2>
-        <div class="size-text-right">
-            <img class="size-img" src="assets/images/4320854.jpg" alt="">
-            <p class="size-text size-text-resp">
-                Las escalas utilizadas son técnicas de valoración empleadas en estudios 
-                relacionados con la medición 
-                o cuantificación de ciertas capacidades psicológicas de un individuo. 
-                Las escalas psicológicas suelen ser de dos tipos: de sujetos y de objetos. 
-                En las escalas psicológicas de sujetos, el individuo lleva a cabo una 
-                valoración de distintos aspectos acerca de sí mismo como, por ejemplo, 
-                su carácter, comportamiento, destrezas, etc. En las escalas psicológicas 
-                de objetos la valoración se realiza con respecto a elementos u objetos 
-                pertenecientes a la realidad que rodea al individuo. (Dicenlen)
-            </p>
+    <div class="carusel">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let itemCarusel of carrusel">
+                <img class="img-carusel" [src]="itemCarusel.image">
+                <div class="carousel-caption">
+                  <h3>{{itemCarusel.title}}</h3>
+                  <p>{{itemCarusel.content}}</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+    <div class="container-prop-items-center">
+        <div class="horizontal-type">
+            <div class="vertical-content border">
+                <h2 class="title-item">¿Quiénes somos?</h2>
+                <img class="size-img" src="assets/images/612f44c.webp" alt="">
+                <p class="size-text-center size-text-resp">
+                    Somos un equipo de investigadores y gestores psicosociales preocupados 
+                    por el acontecer social y comunitario de niños, niñas, adolescentes y 
+                    adultos inmersos en escenarios de pobreza material, violencia y segregación 
+                    espacial, quienes mediante escenarios de investigación-intervención promueven 
+                    la apropiación social y democratización del conocimiento en aras de facilitar 
+                    el cambio social y la  transformación educativa desde un enfoque humano multidimensional.
+                </p>
+            </div>
+            <div class="vertical-content reverse border">
+                <h2 class="title-item">¿Qué buscamos?</h2>
+                <p class="size-text size-text-left size-text-resp">
+                    La apropiación social y democratización del conocimiento como escenario de 
+                    transformación socioestructural de ambientes permeados por factores de 
+                    desventaja social y exclusión sociopolítica.
+                </p>
+                <img class="size-img" src="assets/images/5187699.jpg" alt="">
+            </div>
+            <div class="vertical-content border">
+                <h2 class="title-item">¿A qué contribuimos?</h2>
+                <img class="size-img" src="assets/images/3304458.jpg" alt="">
+                <p class="size-text-center size-text-resp">
+                    En procesos de medición y evaluación psicológica.
+                    En el desarrollo de intervenciones psicoeducativas.
+                    En la ejecución y asesoramiento de proyectos de investigación  socioeducativa.
+                </p>
+            </div>
         </div>
     </div>
 
-    <!-- <div id="aplicacion" class="container-items-center">
-        <h2 class="title-item">Aplicación de las escalas</h2>
-        <div class="horizontal-content">
-            <p class="size-text size-text-left size-text-resp">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat reiciendis doloribus facilis vero minus? Eos perspiciatis tenetur voluptates, alias possimus blanditiis a atque magnam exercitationem dicta doloribus, doloremque porro? Minus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nulla obcaecati possimus tenetur mollitia. Perspiciatis officiis totam ea ipsum veritatis sint consequatur. Odio voluptates assumenda, nostrum provident omnis fuga minus.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae necessitatibus impedit in reiciendis harum nobis. Suscipit magni corrupti, vero veniam dolor laboriosam quis! Velit, odit! Quia aut incidunt tenetur voluptatibus?
-            </p>
-            <img class="size-img" src="assets/images/5187699.jpg" alt="">
-        </div>
-    </div> -->
-
-    <div id="grupo" class="container-items-center" style="padding-bottom: 30px;">
-        <h3 class="title-item">Sobre el grupo de investigación - Libres Pensadores</h3>
-        <h2 class="title-item">Misión</h2>
-        <div class="horizontal-content border">
-            <img class="size-img" src="assets/images/612f44c.webp" alt="">
-            <p class="size-text-center size-text-resp">
-                El Grupo de Investigación Libres Pensadores, asumiendo propios los 
-                postulados de la investigación crítica, las metodologías emergentes 
-                y el paradigma Universidad - Región, promueve la producción de conocimiento 
-                comprometido con las realidades humano ambientales desde marcos de integración 
-                metodológica, dialogo interdisciplinar y reflexividad ética que permitan la 
-                gestión de diversas problemáticas derivadas del malestar cultural y las 
-                realidades contemporáneas. 
-            </p>
-        </div>
-        <h2 class="title-item">Visión</h2>
-        <div class="horizontal-content reverse border">
-            <p class="size-text size-text-left size-text-resp">
-                El Grupo de Investigación Libres Pensadores, desde el paradigma 
-                Universidad y región, contribuye al campo del conocimiento y la cultura; 
-                mediante la crítica, el análisis y la reflexión constante y profunda del 
-                mundo actual, a 2022 será distinguido por el carácter comprometido en los 
-                procesos de investigación reflexiva, interdisciplinaria e integradora; 
-                siendo relevantes sus aportes en la solución de problemas contextuales, 
-                tanto en el orden regional, como nacional.
-            </p>
-            <img class="size-img" src="assets/images/5187699.jpg" alt="">
-        </div>
-        <h2 class="title-item">Objetivo</h2>
-        <div class="horizontal-content border">
-            <img class="size-img" src="assets/images/3304458.jpg" alt="">
-            <p class="size-text-center size-text-resp">
-                Se propone reivindicar el compromiso social y político de la Investigación 
-                en Psicología con el interés académico de  generar, recrear  y poner el 
-                conocimiento teórico y práctico al servicio de organizaciones, colectivos 
-                o comunidades que desde el reconocimiento de los efectos multidimensionales 
-                del conflicto promueven la construcción de paz y el acompañamiento 
-                psicosocial a los sobrevivientes. En efecto, se busca analizar las 
-                realidades sociopolíticas causales de los conflictos sociales en la 
-                generación de políticas públicas, programas o estrategias que permitan 
-                el fortalecimiento de las capacidades locales y el afrontamiento 
-                efectivo de problemáticas psicosociales asociadas a las violencias en 
-                perspectiva de una cultura de paz con enfoque territorial y narrativo.
-            </p>
-        </div>
-    </div>
-
-    <div id="investigadores" class="container-items-center background-three">
+    <div id="investigadores" class="container-prop-items-center background-three">
         <h2 class="title-item">Investigadores</h2>
         <div class="horizontal-content aling-top">
             <div *ngFor="let investigador of investigadores" class="card-inv">
@@ -114,17 +79,17 @@
         </div>
     </div>
 
-    <div id="contactanos" class="container-items-center background-five">
+    <div id="contactanos" class="container-prop-items-center background-five">
         <h2 class="title-item">Contáctanos</h2>
         <div class="horizontal-content">
             <div class="card-contact">
                 <mat-icon class="icon-contact mat-icon-contact" aria-hidden="false" aria-label="Example home icon">phone</mat-icon>
                 <h3>Llámanos</h3>
                 <p class="size-text-center size-text-resp">
-                    <a class="linkContact" href="tel:6027894545">6027894545</a>
+                    <a class="linkContact" href="tel:3217671889">321 767 1889</a>
                 </p>
                 <p class="size-text-center size-text-resp">
-                    <a class="linkContact" href="tel:3234953034">3234953034</a>
+                    <a class="linkContact" href="tel:3165737000">316 573 7000</a>
                 </p>
             </div>
             <div class="card-contact">
@@ -136,6 +101,38 @@
                 <p class="size-text-center size-text-resp">
                     <a class="linkContact" href="mailto:investigador2@udenar.edu.co">investigador2@udenar.edu.co</a>
                 </p>
+            </div>
+        </div>
+        <div class="horizontal-content">
+            <div class="card-contact-message">
+                <h3 style="text-align: center;">Mensaje directo</h3>
+                <mat-form-field class="message" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Por favor ingrese un email válido
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      El email es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="message" appearance="fill">
+                    <mat-label>Asunto</mat-label>
+                    <input type="text" matInput [formControl]="affairFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Asunto">
+                    <mat-error *ngIf="affairFormControl.hasError('required')">
+                      El asunto es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="message" appearance="fill">
+                    <mat-label>Asunto</mat-label>
+                    <textarea matInput placeholder="Mensaje" [formControl]="messageFormControl" [errorStateMatcher]="matcher"></textarea>
+                    <mat-error *ngIf="messageFormControl.hasError('required')">
+                      El mensaje es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <input class="button-send-message" type="button" value="Enviar" (click)="sendMessage()">
             </div>
         </div>
     </div>

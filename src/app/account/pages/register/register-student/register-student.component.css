@@ -1,10 +1,10 @@
-.container-all {
+.container-prop-all {
   display: flex;
   flex-direction: row;
   background-color: #7cadb913;
 }
 
-.container-form {
+.container-prop-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@
   border-bottom: 1px solid black;
 }
 
-.container-img {
+.container-prop-img {
     display: flex;
     width: 50%;
     height: 100vh;
@@ -50,7 +50,7 @@
     border-radius: 50% 0 0 50%;
 }
 
-.container-img>img {
+.container-prop-img>img {
   display: flex;
   height: 60vh;
 }
@@ -64,7 +64,7 @@ input.example-right-align {
   -moz-appearance: textfield;
 }
 
-.container-btn {
+.container-prop-btn {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -94,15 +94,15 @@ input.example-right-align {
 }
 
 @media screen and (max-width: 768px) { 
-  .container-all {
+  .container-prop-all {
     /* height: 100vh; */
     background-color: #44bcda52;
   }
-  .container-form {
+  .container-prop-form {
     width: 94%;
     margin: 0 3%;
   }
-  .container-img {
+  .container-prop-img {
     display: none;
   }
   .title-input {
@@ -111,7 +111,7 @@ input.example-right-align {
   .title-input-file {
     background-color: #bbe0e9;
   }
-  .container-btn {
+  .container-prop-btn {
     justify-content: center;
     width: 100%;
   }

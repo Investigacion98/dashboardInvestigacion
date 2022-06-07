@@ -1,4 +1,4 @@
-.container-scales-edit {
+.container-prop-scales-edit {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,7 @@
     border-color: var(--warn);
 }
 
-.container-button-scales-edit {
+.container-prop-button-scales-edit {
     /* background-color: red; */
     display: flex;
     width: 96%;

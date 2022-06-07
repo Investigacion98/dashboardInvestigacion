@@ -1,8 +1,8 @@
-<div class="container-scale-student">
+<div class="container-prop-scale-student">
     <div *ngIf="loading" class="loading">
         <mat-spinner></mat-spinner>
     </div>
-    <div *ngIf="!loading" class="container-scale-data">
+    <div *ngIf="!loading" class="container-prop-scale-data">
         <div class="information-scale">
             <h2 class="title">{{scale.title}}</h2>
             <div class="description-scale">{{scale.description}}</div>
@@ -14,7 +14,7 @@
                     <div>
                         {{j+1}}. {{question.textQuestion}}
                     </div>
-                    <div class="container-radio-button">
+                    <div class="container-prop-radio-button">
                         <mat-radio-group
                             aria-labelledby="example-radio-group-label"
                             class="example-radio-group"
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-button-send">
+        <div class="container-prop-button-send">
             <button class="send" (click)="sendResults()">{{countScales===1?'Terminar':'Siguiente'}}</button>
         </div>
     </div>

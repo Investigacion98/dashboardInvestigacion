@@ -1,4 +1,4 @@
-.container-scales-student {
+.container-prop-scales-student {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,7 @@ h1 {
     margin-top: 40px;
 }
 
-.container-scales-allowed {
+.container-prop-scales-allowed {
     display: flex;
     flex-direction: row;
     width: 100%;

@@ -1,4 +1,4 @@
-<div class="container-filter">
+<div class="container-prop-filter">
     <button class="button-primary button-secundary blue" (click)="actionSelect()">Filtro +</button>
     <div class="button-primary button-secundary red"  *ngFor="let button of buttons; let i=index">
         <button (click)="clickButtons(i)">{{button.name}}</button>
@@ -7,7 +7,7 @@
 </div>
 
 <div class="floating-messaje" *ngIf="activate">
-    <div class="container-elements-floating">
+    <div class="container-prop-elements-floating">
         <h1>Filtros</h1>
         <p>Escoja los filtros necesarios para mostrar la información</p>
         <select [(ngModel)]="optionSelected" class="button-primary">
@@ -19,7 +19,7 @@
 </div>
 
 <div class="floating-messaje" *ngIf="activateSpecific">
-    <div class="container-elements-floating">
+    <div class="container-prop-elements-floating">
         <h1>Opciones</h1>
         <p>Escoja una o varias opciones</p>
         <div *ngFor="let option of options">

@@ -1,4 +1,4 @@
-.container-results-students {
+.container-prop-results-students {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
     margin: 10px 2%;
 }
 
-.container-list-data {
+.container-prop-list-data {
     display: flex;
     width: 100%;
     background-color: var(--color-background-light-green);
@@ -51,7 +51,7 @@
     background-color: var(--color-background-dark-green-no-transparency);
 }
 
-.container-graph {
+.container-prop-graph {
     display: flex;
     width: 96%;
     margin: 10px 2%;
@@ -63,7 +63,7 @@
     flex-direction: column;
 }
 
-.container-graph>h3 {
+.container-prop-graph>h3 {
     font-size: 1.3em;
 }
 
@@ -232,7 +232,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-    .container-list-data {
+    .container-prop-list-data {
         display: none;
     }
     .resume {

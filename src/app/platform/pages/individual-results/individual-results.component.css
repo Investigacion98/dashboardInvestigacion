@@ -1,4 +1,4 @@
-.container-search-user {
+.container-prop-search-user {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.h2-container-search-user {
+.h2-container-prop-search-user {
     margin: 30px 0 10px 0;
 }
 

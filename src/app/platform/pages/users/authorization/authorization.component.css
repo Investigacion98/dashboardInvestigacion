@@ -1,4 +1,4 @@
-.container-users {
+.container-prop-users {
     /* background-color: red; */
     width: 100%;
 }
@@ -35,7 +35,7 @@
     outline: none;
 }
 
-.container-buttons-scales-create {
+.container-prop-buttons-scales-create {
     display: flex;
     justify-content: flex-end;
     align-items: center;

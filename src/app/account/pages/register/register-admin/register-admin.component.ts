@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RegisterService } from '../../services/register.service';
 
@@ -24,21 +25,20 @@ export class RegisterAdminComponent implements OnInit {
     Validators.required
   ]);
   pass1 = new FormControl('', [
-    Validators.required,
-    Validators.minLength(8),
-    Validators.maxLength(15)
+    Validators.required
   ]);
   pass2 = new FormControl('', [
-    Validators.required,
-    Validators.minLength(8),
-    Validators.maxLength(15)
+    Validators.required
   ]);
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email
   ]);
 
-  constructor(private registerService:RegisterService) { }
+  constructor(
+    private registerService:RegisterService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.registerService.getInstitutions()
@@ -72,7 +72,8 @@ export class RegisterAdminComponent implements OnInit {
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
                   }).then(() => {
-                    document.location.href = `/account/confirmation/${json.email}`;
+                    this.router.navigate([`../../account/confirmation/${json.email}`]);
+                    // document.location.href = `./account/confirmation/${json.email}`;
                   })
                 }else{
                   Swal.fire({
@@ -111,32 +112,32 @@ export class RegisterAdminComponent implements OnInit {
 
   validatePassword(pass) {
     var flag = false;
-    var contMay = 0;
-    var contMin = 0;
-    var contNum = 0;
-    var contSim = 0;
-    for (let i = 0; i < pass.length; i++) {
-      if (pass.charCodeAt(i)>=65 && pass.charCodeAt(i)<=90) {
-        contMay++;
-      }
-      if (pass.charCodeAt(i)>=97 && pass.charCodeAt(i)<=122) {
-        contMin++;
-      }
-      if (pass.charCodeAt(i)>=48 && pass.charCodeAt(i)<=57) {
-        contNum++;
-      }
-      if ((pass.charCodeAt(i)>=33 && pass.charCodeAt(i)<=38) ||
-          pass.charCodeAt(i)===43 || pass.charCodeAt(i)===47 || pass.charCodeAt(i)===64 ||
-          pass.charCodeAt(i)===63) {
-        contSim++;
-      }
-    }
-    if (contMay>0 && contMin>0 && contNum>0 && contSim>0) {
+    // var contMay = 0;
+    // var contMin = 0;
+    // var contNum = 0;
+    // var contSim = 0;
+    // for (let i = 0; i < pass.length; i++) {
+    //   if (pass.charCodeAt(i)>=65 && pass.charCodeAt(i)<=90) {
+    //     contMay++;
+    //   }
+    //   if (pass.charCodeAt(i)>=97 && pass.charCodeAt(i)<=122) {
+    //     contMin++;
+    //   }
+    //   if (pass.charCodeAt(i)>=48 && pass.charCodeAt(i)<=57) {
+    //     contNum++;
+    //   }
+    //   if ((pass.charCodeAt(i)>=33 && pass.charCodeAt(i)<=38) ||
+    //       pass.charCodeAt(i)===43 || pass.charCodeAt(i)===47 || pass.charCodeAt(i)===64 ||
+    //       pass.charCodeAt(i)===63) {
+    //     contSim++;
+    //   }
+    // }
+    if (pass.length>2) {
       flag = true;
     }else{
       Swal.fire({
         title: 'Contraseña incorrecta',
-        text: 'Incluya números, letras mayúsculas, minúsculas y símbolos !,",#,$,%,&,+,/,@,?',
+        text: 'El campo de contraseña está vacío',
         icon: 'warning',
         confirmButtonText: 'Aceptar'
       })

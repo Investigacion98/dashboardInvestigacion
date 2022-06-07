@@ -1,4 +1,4 @@
-.container-question {
+.container-prop-question {
     display: flex;
     flex-direction: column;
     background-color: var(--color-background-light-green);
@@ -46,7 +46,7 @@
     border-color: var(--warn);
 }
 
-.container-response-type-item {
+.container-prop-response-type-item {
     display: flex;
     justify-content: center;
     align-items: center;

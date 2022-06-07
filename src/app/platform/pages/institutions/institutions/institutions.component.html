@@ -1,9 +1,9 @@
-<div class="container-institutions-create">
-    <div class="container-input">
+<div class="container-prop-institutions-create">
+    <div class="container-prop-input">
         <h3>Nombre de la institución</h3>
         <input type="text" class="size-input-institutions" [(ngModel)]="name">
     </div>
-    <div class="container-input">
+    <div class="container-prop-input">
         <h3>Cursos aprobados</h3>
         <div class="special-size">
             <input class="size-input-institutions" type="text" placeholder="Ej: 7-1" [(ngModel)]="newCourse"> 
@@ -15,7 +15,7 @@
             </li>
         </ul>
     </div>
-    <div class="container-input">
+    <div class="container-prop-input">
         <h3>Tipo de institución</h3>
         <select class="size-input-institutions" style="width: 100%;" [(ngModel)]="typeOfInstitution">
             <option></option>
@@ -23,14 +23,14 @@
             <option value="Privada">Privada</option>
         </select>
     </div>
-    <div class="container-input">
+    <div class="container-prop-input">
         <h3>Permisos</h3>
         <div *ngFor="let scale of scales;let i=index">
             <input class="checkbox-permissions" type="checkbox" [checked]="scale.checked" (click)="changeChecked(i)">
             <label>{{scale.scale.title}}</label>
         </div>
     </div>
-    <div class="container-buttons-institutions-create">
+    <div class="container-prop-buttons-institutions-create">
         <button class="button-institutions color-green" (click)="sendInstitution()">{{institution?'Actualizar':'Crear'}}</button>
     </div>
 </div>

@@ -25,7 +25,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --color-blue-degraded-5: #154360;
 }
 
-.button {
+.button-prop {
     cursor: pointer;
     padding: 5px;
     margin: 5px 0;

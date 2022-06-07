@@ -1,4 +1,4 @@
-.container {
+.container-prop {
     display: flex;
     width: 100vw;
     min-height: 100vh;
@@ -34,7 +34,7 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
-    .container {
+    .container-prop {
         align-items: flex-start;
     }
     .card {

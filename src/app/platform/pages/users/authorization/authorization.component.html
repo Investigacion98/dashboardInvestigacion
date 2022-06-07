@@ -1,4 +1,4 @@
-<div class="container-users">
+<div class="container-prop-users">
     <ul class="list-items">
         <div *ngIf="users.length===0 && !loading" class="item" style="justify-content: center;">Vacio</div>
         <div class="loading" *ngIf="loading"><mat-spinner></mat-spinner></div>
@@ -27,7 +27,7 @@
             </div>
         </li>
     </ul>
-    <div class="container-buttons-scales-create">
+    <div class="container-prop-buttons-scales-create">
         <button class="button-scales color-green" (click)="sendData()">Guardar</button>
     </div>
 </div>

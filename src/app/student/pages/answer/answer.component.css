@@ -1,4 +1,4 @@
-.container-scale-student {
+.container-prop-scale-student {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +7,7 @@
     margin: 10px 10%;
 }
 
-.container-scale-data {
+.container-prop-scale-data {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -50,7 +50,7 @@
     /* gap: 10px; */
 }
 
-.container-radio-button {
+.container-prop-radio-button {
     display: flex;
     width: 100%;
     margin: 0px 0 20px 10px;
@@ -70,7 +70,7 @@
     margin: 5px;
 }
 
-.container-button-send {
+.container-prop-button-send {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
