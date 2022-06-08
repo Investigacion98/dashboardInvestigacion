@@ -8,7 +8,7 @@
             <div *ngFor="let item of itemsMenu">
                 <button mat-button [matMenuTriggerFor]="belowMenu" class="menu-inicio-item">{{item.title}}</button>
                 <mat-menu #belowMenu="matMenu" yPosition="below">
-                    <button mat-menu-item (click)="navigate()" *ngFor="let submenu of item.subMenu">{{submenu.title}}</button>
+                    <button mat-menu-item (click)="openDialog(submenu.title)" *ngFor="let submenu of item.subMenu">{{submenu.title}}</button>
                 </mat-menu>
             </div>
         </ul>
