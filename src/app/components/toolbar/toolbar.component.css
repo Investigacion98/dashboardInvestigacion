@@ -35,6 +35,7 @@
     margin: 0;
     margin-left: 5px;
     padding: 0;
+    font-size: 1em;
 }
 
 .no-display {
@@ -66,6 +67,7 @@
     color: white;
     cursor: pointer;
     user-select: none;
+    font-size: 1.2em;
 }
 
 .container-prop-items-center {
@@ -222,6 +224,18 @@ h3 {
     font-size: 1.8em;
 }
 
+.title-carrusel {
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    filter: drop-shadow(3px 3px 2px black);
+}
+
+.text-carrusel {
+    margin-bottom: 100px;
+    /* box-shadow: 5px 5px 5px 5px rgba(169, 165, 165, 0.516); */
+    filter: drop-shadow(3px 3px 2px black);
+}
+
 p {
     font-size: 1.3em;
     /* background-color: red; */
@@ -291,6 +305,11 @@ p {
     margin: 0 10%;
 }
 
+.name-inv {
+    font-size: 1em;
+    text-align: center;
+}
+
 @media only screen and (max-width: 1000px) {
     .title-item {
         margin: 0;
@@ -341,5 +360,12 @@ p {
         padding: 10px;
         margin: 0 1%;
         user-select: none;
+    }
+    .title-carrusel {
+        font-size: 1.1em;
+    }
+    .text-carrusel {
+        font-size: .9em;
+        margin-bottom: 0;
     }
 }

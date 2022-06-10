@@ -1,12 +1,12 @@
 <div class="container-prop">
     <header class="toolbar-login">
         <div class="title-icon">
-            <img class="text-name" src="assets/images/librespensadorescirculo.png" width="50px" alt="libres pensadores">
-            <h3 class="text-name">Libres Pensadores</h3>
+            <!-- <img class="text-name" src="assets/images/librespensadorescirculo.png" width="50px" alt="libres pensadores"> -->
+            <h3 class="text-name">CEYFOCE</h3>
         </div>
         <ul class="menu-inicio">
             <div *ngFor="let item of itemsMenu">
-                <button mat-button [matMenuTriggerFor]="belowMenu" class="menu-inicio-item">{{item.title}}</button>
+                <button mat-button [matMenuTriggerFor]="belowMenu" [routerLink]="[item.link]" class="menu-inicio-item">{{item.title}}</button>
                 <mat-menu #belowMenu="matMenu" yPosition="below">
                     <button mat-menu-item (click)="openDialog(submenu.title)" *ngFor="let submenu of item.subMenu">{{submenu.title}}</button>
                 </mat-menu>
@@ -14,7 +14,7 @@
         </ul>
         <div (click)="redirect()" style="color:var(--color-icons)" [class]="name!==''?'button-prop icon-toolbar':''">
             <mat-icon aria-hidden="false" aria-label="Example home icon" [class]="name===''?'button-prop':''">perm_identity</mat-icon>
-            <p [class]="name===''?'no-display':'nameUser'">{{name}}</p>
+            <p class="nameUser">{{name}}</p>
         </div>
     </header>
     <div class="carusel">
@@ -22,8 +22,8 @@
             <ng-template ngbSlide *ngFor="let itemCarusel of carrusel">
                 <img class="img-carusel" [src]="itemCarusel.image">
                 <div class="carousel-caption">
-                  <h3>{{itemCarusel.title}}</h3>
-                  <p>{{itemCarusel.content}}</p>
+                  <h3 class="title-carrusel">{{itemCarusel.title}}</h3>
+                  <p class="text-carrusel">{{itemCarusel.content}}</p>
                 </div>
             </ng-template>
         </ngb-carousel>
@@ -72,7 +72,7 @@
                 <p class="name-inv">
                     {{investigador.name}}
                 </p>
-                <p class="profile-inv">
+                <p class="profile-inv" *ngIf="investigador.profile">
                     {{investigador.title}} {{investigador.moreInfo?investigador.profile:''}} <mat-icon class="more" (click)="investigador.moreInfo=!investigador.moreInfo">{{investigador.moreInfo?'expand_less':'expand_more'}}</mat-icon>
                 </p>
             </div>
@@ -136,4 +136,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="loading" class="floating-messaje">
+    <mat-spinner></mat-spinner>
 </div>

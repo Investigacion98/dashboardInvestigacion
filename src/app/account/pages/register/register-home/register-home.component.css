@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .card-option {
@@ -26,7 +27,7 @@
     flex-direction: column;
     background-color: var(--color-background-login);
     padding: 20px;
-    margin: 0 10%;
+    /* margin: 0 10%; */
     cursor: pointer;
     user-select: none;
     border-radius: 20px;
@@ -57,7 +58,8 @@
     }
 
     .card-option {
-        margin: 20px 2%;
+        width: 60%;
+        margin: 0 20%;
         user-select: none;
     }
 }
