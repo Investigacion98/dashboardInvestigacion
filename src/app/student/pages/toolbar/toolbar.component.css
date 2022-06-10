@@ -11,9 +11,17 @@
     flex-direction: row;
     list-style: none;
     padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.item {
+.items-menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-d {
     display: flex;
     padding: 5px 20px;
     border-radius: 20px;
@@ -40,6 +48,7 @@
     /* color: var(--color-icons); */
     /* border: 1px solid var(--color-background-dark-green-no-transparency); */
     user-select: none;
+    box-sizing: content-box;
 }
 
 .mat-icon-toolbar {
