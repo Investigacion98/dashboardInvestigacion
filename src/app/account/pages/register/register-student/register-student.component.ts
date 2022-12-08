@@ -125,8 +125,8 @@ export class RegisterStudentComponent implements OnInit {
     && this.selectedCourse.status==='VALID' && this.selectedSector.status==='VALID'
     && this.institution.status==='VALID' && this.emailFormControl.status==='VALID') {
       if (this.file.status==='VALID') {
-        if (this.pass1.value===this.pass2.value && this.pass1.value!=='' && this.pass2.value!=='') {
-          if(this.validatePassword(this.pass2.value)){
+        // if (this.pass1.value===this.pass2.value && this.pass1.value!=='' && this.pass2.value!=='') {
+        //   if(this.validatePassword(this.pass2.value)){
             var formdata = new FormData();
             formdata.append('file',this.fileComplete);
             this.loading = true;
@@ -146,17 +146,25 @@ export class RegisterStudentComponent implements OnInit {
               }
               this.registerService.sendData(json)
                 .subscribe(res=>{
-                  if (res.info==='Usuario creado') {
+                  if (res.admissibleness) {
                     this.loading = false;
-                    Swal.fire({
-                      title: 'Genial !!!',
-                      text: res.info,
-                      icon: 'success',
-                      confirmButtonText: 'Aceptar'
-                    }).then(() => {
-                      this.router.navigate([`../../account/confirmation/${json.email}`]);
-                      // document.location.href = `./account/confirmation/${json.email}`;
-                    })
+                    if (res.admissibleness!==undefined) {
+                      localStorage.setItem('auth',res.auth);
+                      localStorage.setItem('admissibleness',res.admissibleness);
+                      localStorage.setItem('name',res.name);
+                      // this.router.navigate(['../student/scales']);
+                      window.location.href = 'https://ceyfoce.tk/student/scales';
+                    }
+                    // Swal.fire({
+                    //   title: 'Genial !!!',
+                    //   text: res.info,
+                    //   icon: 'success',
+                    //   confirmButtonText: 'Aceptar'
+                    // }).then(() => {
+                    //   this.router.navigate([`../../student/scales`]);
+                    //   // this.router.navigate([`../../account/confirmation/${json.email}`]);
+                    //   // document.location.href = `./account/confirmation/${json.email}`;
+                    // })
                   }else{
                     this.loading = false;
                     Swal.fire({
@@ -178,15 +186,15 @@ export class RegisterStudentComponent implements OnInit {
             },err=>{
               console.log(err);
             })
-          }
-        }else{
-          Swal.fire({
-            title: 'Error!',
-            text: 'Las contrañas no coinciden',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-          })
-        }
+        //   }
+        // }else{
+        //   Swal.fire({
+        //     title: 'Error!',
+        //     text: 'Las contrañas no coinciden',
+        //     icon: 'error',
+        //     confirmButtonText: 'Aceptar'
+        //   })
+        // }
       }else{
         Swal.fire({
           title: 'Error!',
